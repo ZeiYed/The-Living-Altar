@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Living Altar — A 5-day immersive sound, ritual and journey retreat at Casa Prema, Portugal. 13–17 August 2026.">
+    <title>Living Altar — Sound · Ritual · Journey · Portugal Retreat August 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand: #D1B89A; --clay: #B36D32; --olive: #5F6138;
+            --stone: #B4A28F; --earth: #4A2B08; --ocean: #5C7680;
+            --linen: #F3EDE4; --linen-dark: #E7DDD0;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --max: 1200px; --pad: clamp(24px, 5vw, 80px);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--linen); color: var(--earth); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        img { display: block; max-width: 100%; }
+        .ph img, .about-visual img,
+        .s-card-img img, .fac-img img, .accom-img img { width: 100%; height: 100%; object-fit: cover; }
+        a { color: inherit; text-decoration: none; }
+        h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+        .label { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--stone); }
+        section { padding: clamp(80px,10vw,140px) var(--pad); }
+        .wrap { max-width: var(--max); margin: 0 auto; }
+        .divider { width: 36px; height: 1px; background: var(--clay); margin: 20px 0 32px; }
+
+        /* placeholders */
+        .ph { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .ph::after { content: attr(data-slot); font-family: var(--sans); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; padding: 8px; pointer-events: none; }
+        .ph.lt::after { color: rgba(0,0,0,0.15); }
+
+        /* buttons */
+        .btn { position: relative; display: inline-block; padding: 28px 96px; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; cursor: pointer; border: none; transition: filter .3s; background-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-34 0 268 56'%3E%3Cpath d='M -31,28 C -18,26 -6,26 4,28' fill='none' stroke='%234A4C2C' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%238E9858' stroke='%234A4C2C' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%234A4C2C' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-size: 100% 100%; background-repeat: no-repeat; color: var(--linen); }
+        .btn-sm { padding: 20px 56px; font-size: 10px; }
+        .btn-lg { padding: 36px 120px; font-size: 11px; background-size: 75% 65%; background-position: center; }
+        .btn:hover { filter: brightness(0.85); }
+        .btn-clay { background-color: transparent !important; color: var(--linen) !important; }
+        .btn-clay:hover { background-color: transparent !important; filter: brightness(0.85); }
+        .btn-earth { background-color: transparent !important; color: var(--linen) !important; }
+        .btn-earth:hover { background-color: transparent !important; filter: brightness(0.85); }
+
+        /* fixed reserve */
+        #reserve-fixed { position: fixed; top: 18px; right: var(--pad); z-index: 300; padding: 20px 56px; background-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%234A4C2C' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%238E9858' stroke='%234A4C2C' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%234A4C2C' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-size: 100% 100%; background-repeat: no-repeat; color: var(--linen); font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; transition: filter .3s; white-space: nowrap; }
+        #reserve-fixed:hover { filter: brightness(0.85); }
+
+        /* nav */
+        #nav { position: fixed; inset: 0 0 auto 0; z-index: 200; padding: 28px var(--pad); display: flex; align-items: center; justify-content: center; background: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 100%); transition: transform .4s ease, opacity .4s ease; }
+        #nav.nav-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+        .nav-links { display: flex; align-items: center; gap: clamp(20px,3vw,48px); }
+        .nav-link { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--linen); opacity: .92; transition: opacity .25s; white-space: nowrap; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+        .nav-link:hover { opacity: 1; }
+
+        /* hero */
+        #hero { padding: 0; height: 120vh; min-height: 680px; position: relative; overflow: hidden; display: flex; align-items: stretch; justify-content: center; text-align: center; }
+        #hero-bg { position: absolute; inset: 0; background: url('images/Hero.jpg') center bottom/cover no-repeat; will-change: transform; z-index: 0; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,15,5,.08) 0%, rgba(20,15,5,.12) 50%, rgba(20,15,5,.45) 100%); z-index: 1; }
+        .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; padding: clamp(60px,10vh,110px) 24px 0; }
+        .hero-text-block { margin-top: 120px; }
+        .hero-logo { width: clamp(200px, 28vw, 320px); }
+        .hero-logo img { width: 100%; height: auto; }
+        .hero-text-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+        .hero-h1 { font-family: var(--serif); font-size: clamp(36px,5.8vw,78px); font-weight: 300; font-style: normal; line-height: 1.1; color: var(--linen); opacity: .95; }
+        .hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--linen); opacity: .8; }
+
+        /* about */
+        #about { background: #251D10; padding: 0; }
+        .about-content { padding: clamp(64px,8vw,110px) var(--pad); display: grid; grid-template-columns: fit-content(62%) 1fr; gap: clamp(40px,5vw,64px); align-items: stretch; }
+        .about-text h2 { font-size: clamp(34px,4vw,52px); color: var(--linen); }
+        .about-text p { font-size: 14px; line-height: 1.85; color: var(--stone); margin-bottom: 14px; max-width: 100%; }
+        .about-text .label { color: rgba(244,239,230,.38); }
+        .about-text .divider { background: var(--clay); }
+        .about-sub { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin: 28px 0 8px; }
+        .about-learn { margin-top: 36px; }
+        .about-images-stack { position: relative; width: 100%; height: 100%; min-height: 420px; }
+        .about-stack-img { position: absolute; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+        .about-stack-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .about-stack-img:first-child { top: 0; right: 0; width: 82%; height: 62%; z-index: 1; }
+        .about-stack-img:last-child  { bottom: 0; left: 0; width: 62%; height: 42%; z-index: 2; }
+        .about-video-ph { width: 100%; background: #1A1208; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+        .about-video-ph svg { opacity: .35; }
+        .about-video-ph p { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(244,239,230,.28); }
+
+        /* pillars */
+        #pillars { background: var(--ocean); }
+        .pillars-top { margin-bottom: 72px; }
+        .pillars-top h2 { font-size: clamp(34px,4vw,52px); margin-top: 12px; color: var(--linen); }
+        .pillars-top .label { color: rgba(244,239,230,.45); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 48px; }
+        .pillar { text-align: center; }
+        .pillar-icon { width: 44px; height: 44px; margin: 0 auto 20px; }
+        .pillar-icon svg { width: 100%; height: 100%; }
+        .pillar-icon svg line, .pillar-icon svg path, .pillar-icon svg circle[r="2"] { stroke: rgba(244,239,230,0.75) !important; }
+        .pillar-icon svg circle[r="1.5"] { fill: rgba(244,239,230,0.75) !important; stroke: none !important; }
+        .pillar-name { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--linen); margin-bottom: 14px; }
+        .pillar p { font-size: 14px; line-height: 1.75; color: rgba(244,239,230,.68); }
+
+        /* img break */
+        .img-break { width: 100%; height: 90vh; overflow: hidden; position: relative; }
+        .img-break-bg { position: absolute; inset: -15% 0; background: url('images/7.jpg') center 50%/cover no-repeat; will-change: transform; }
+
+        /* journey */
+        #journey { background: #62643C; color: var(--linen); }
+        .journey-wrap .label { color: rgba(244,239,230,.38); }
+        .journey-wrap h2 { font-size: clamp(34px,4vw,52px); color: var(--linen); margin: 12px 0 64px; }
+        .journey-layout { display: grid; grid-template-columns: 1fr 260px; gap: 72px; align-items: start; }
+        .acc-item { border-top: 1px solid rgba(244,239,230,.13); }
+        .acc-item:last-child { border-bottom: 1px solid rgba(244,239,230,.13); }
+        .acc-btn { width: 100%; background: none; border: none; padding: 26px 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--linen); text-align: left; gap: 16px; }
+        .acc-btn-left { display: flex; align-items: baseline; gap: 20px; }
+        .acc-day { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.38); min-width: 36px; flex-shrink: 0; }
+        .acc-title { font-family: var(--serif); font-size: 24px; font-weight: 400; }
+        .acc-plus { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
+        .acc-plus::before, .acc-plus::after { content: ''; position: absolute; background: rgba(244,239,230,.45); transition: transform .3s, opacity .3s; }
+        .acc-plus::before { width: 1px; height: 14px; top: 2px; left: 8.5px; }
+        .acc-plus::after { width: 14px; height: 1px; top: 8.5px; left: 2px; }
+        .acc-item.open .acc-plus::before { transform: rotate(90deg); opacity: 0; }
+        .acc-body { max-height: 0; overflow: hidden; transition: max-height .42s ease; }
+        .acc-item.open .acc-body { max-height: 260px; }
+        .acc-body-in { padding: 0 0 32px 56px; }
+        .acc-subtitle { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); margin-bottom: 10px; }
+        .acc-body-in p { font-size: 14px; line-height: 1.82; color: rgba(244,239,230,.65); }
+        .rhythm-box { background: rgba(0,0,0,.18); padding: 32px 28px; }
+        .rhythm-box h4 { font-family: var(--sans); font-size: 9px; letter-spacing: .26em; text-transform: uppercase; color: rgba(244,239,230,.4); margin-bottom: 22px; font-weight: 400; }
+        .rhythm-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(244,239,230,.07); font-size: 13px; color: rgba(244,239,230,.65); }
+        .rhythm-row:last-of-type { border: none; }
+        .rhythm-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
+        .rhythm-note { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(244,239,230,.3); margin-top: 18px; }
+
+        /* sanctuary — scroll-pinned horizontal gallery */
+        #sanctuary-scroll { position: relative; }
+        #sanctuary-sticky {
+            position: sticky; top: 0; height: 100vh;
+            overflow: hidden; background: var(--linen);
+        }
+        .sanctuary-hdr {
+            position: absolute; top: clamp(40px,6vh,72px);
+            left: max(var(--pad), calc((100% - var(--max)) / 2));
+            z-index: 10; pointer-events: none;
+        }
+        .sanctuary-hdr .label { color: var(--clay); }
+        .sanctuary-hdr h2 { font-size: clamp(34px,4vw,52px); color: var(--earth); margin-top: 10px; line-height: 1.1; }
+        #sanctuary-track {
+            position: absolute; top: 0; left: 0;
+            display: flex; align-items: flex-start;
+            gap: 48px;
+            padding: clamp(140px,22vh,200px) 12vw 0 48vw;
+            height: 100%;
+            will-change: transform;
+        }
+        .san-card { flex-shrink: 0; width: 260px; }
+        .san-img { width: 260px; height: 360px; overflow: hidden; }
+        .san-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .san-name { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--earth); margin: 16px 0 8px; }
+        .san-text { font-size: 13px; line-height: 1.75; color: rgba(74,43,8,.6); }
+
+        /* facilitators */
+        #facilitators { background: var(--sand); }
+        .fac-wrap h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 64px; color: var(--earth); }
+        .fac-wrap .label { color: rgba(74,43,8,.45); }
+        .fac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 36px; }
+        .fac-img { height: 320px; margin-top: 60px; margin-bottom: 80px; overflow: hidden; }
+        .fac-role { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(74,43,8,.5); margin-bottom: 6px; }
+        .fac-name { font-family: var(--serif); font-size: 28px; margin-bottom: 14px; color: var(--earth); }
+        .fac-card p { font-size: 13px; line-height: 1.82; color: rgba(74,43,8,.7); }
+
+        /* testimonials */
+        #testimonials { background: var(--sand); color: var(--earth); }
+        .testi-wrap .label { color: rgba(74,43,8,.4); }
+        .testi-wrap h2 { font-size: clamp(34px,4vw,52px); color: var(--earth); margin: 12px 0 64px; }
+        .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; }
+        .testi { padding-top: 32px; border-top: 1px solid rgba(74,43,8,.15); }
+        .testi-quote { font-family: var(--serif); font-size: 20px; font-style: italic; line-height: 1.6; color: rgba(74,43,8,.8); margin-bottom: 24px; }
+        .testi-author { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(74,43,8,.45); }
+
+        /* accommodation */
+        #accommodation { background: #251D10; padding-bottom: 0; }
+        .accom-top { padding-bottom: 0; }
+        .accom-wrap h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 16px; color: var(--linen); }
+        .accom-wrap .label { color: var(--stone); }
+        .accom-sub { font-size: 15px; color: var(--stone); margin-bottom: 0; max-width: 520px; }
+        .accom-belt { overflow: hidden; padding: clamp(80px,10vw,120px) 0 clamp(40px,5vw,64px); width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+        .accom-belt-track { display: flex; gap: 0; animation: belt-scroll 28s linear infinite; width: max-content; }
+        @keyframes belt-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .accom-belt-item { flex-shrink: 0; width: 50vw; height: clamp(340px, 42vw, 620px); overflow: hidden; }
+        .accom-belt-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .accom-bottom { padding: clamp(60px,7vw,96px) var(--pad) clamp(80px,10vw,140px); }
+        .accom-bottom .accom-acc { max-width: var(--max); margin: 0 auto; }
+        .accom-acc .acc-item { border-top-color: rgba(244,239,230,.1); }
+        .accom-acc .acc-item:last-child { border-bottom-color: rgba(244,239,230,.1); }
+        .accom-acc .acc-btn { color: var(--linen); }
+        .accom-acc .acc-title { color: var(--linen); }
+        .accom-acc .acc-plus::before, .accom-acc .acc-plus::after { background: var(--stone); }
+        .accom-acc .acc-item.open .acc-body { max-height: 320px; }
+        .accom-row { padding: 0 0 36px; display: grid; grid-template-columns: 200px 1fr auto; gap: 40px; align-items: start; }
+        .accom-img { height: 150px; }
+        .accom-desc { font-size: 14px; line-height: 1.8; color: var(--stone); }
+        .accom-price-box { text-align: right; flex-shrink: 0; }
+        .accom-price-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--stone); margin-bottom: 6px; }
+        .accom-price { display: block; font-family: var(--serif); font-size: 32px; color: var(--clay); line-height: 1; }
+        .accom-early { font-size: 12px; color: var(--stone); margin-top: 6px; }
+        .accom-btn { margin-top: 18px; }
+
+        /* practical */
+        #practical { background: var(--linen-dark); }
+        .practical-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,96px); align-items: start; }
+        .practical-left h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 28px; color: var(--earth); }
+        .practical-left .label { color: var(--clay); }
+        .practical-left p { font-size: 15px; line-height: 1.8; color: rgba(74,43,8,.58); }
+        .practical-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        .p-item { padding: 22px 0; border-bottom: 1px solid rgba(74,43,8,.1); }
+        .p-item:nth-child(odd) { padding-right: 20px; border-right: 1px solid rgba(74,43,8,.1); }
+        .p-item:nth-child(even) { padding-left: 20px; }
+        .p-label { font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin-bottom: 5px; }
+        .p-value { font-family: var(--serif); font-size: 20px; line-height: 1.25; color: var(--earth); }
+        .p-sub { font-size: 12px; color: rgba(74,43,8,.5); margin-top: 4px; }
+
+        /* cta */
+        #cta { padding: clamp(100px,12vw,160px) var(--pad); position: relative; text-align: center; color: var(--linen); overflow: hidden; }
+        #cta .cta-bg { position: absolute; inset: -15% 0; z-index: 0; will-change: transform; }
+        #cta .cta-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+        #cta .cta-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(6,5,2,.4) 0%, rgba(6,5,2,.7) 100%); }
+        #cta .cta-inner { position: relative; z-index: 2; }
+        .cta-h2 { font-size: clamp(44px,7vw,84px); font-weight: 300; line-height: 1.12; margin: 0 auto 52px; max-width: 680px; }
+        .cta-limit { font-size: 9px; letter-spacing: .26em; text-transform: uppercase; color: rgba(244,239,230,.35); margin-top: 16px; }
+
+        /* footer */
+        footer { background: #251D10; color: var(--linen); padding: 28px var(--pad); }
+        .footer-in { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+        .footer-logo-wrap { flex-shrink: 0; }
+        .footer-logo-wrap img { display: block; }
+        .footer-contacts-row { display: flex; align-items: center; justify-content: center; gap: 48px; }
+        .footer-contact-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+        .footer-contact-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.3); }
+        .footer-contact-link { font-size: 12px; color: rgba(244,239,230,.6); border-bottom: 1px solid rgba(244,239,230,.2); padding-bottom: 1px; transition: color .25s, border-color .25s; }
+        .footer-contact-link:hover { color: var(--linen); border-color: rgba(244,239,230,.5); }
+        .footer-copy { font-size: 12px; font-weight: 300; color: rgba(244,239,230,.6); letter-spacing: 0; text-align: right; }
+
+        /* responsive */
+        @media (max-width: 960px) {
+            .about-content { grid-template-columns: 1fr; }
+            .about-images-stack { width: 100%; height: 360px; }
+            .practical-layout { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: repeat(2,1fr); }
+            .fac-grid { grid-template-columns: repeat(2,1fr); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .journey-layout { grid-template-columns: 1fr; }
+            .rhythm-box { display: none; }
+            .accom-row { grid-template-columns: 1fr; }
+            .accom-price-box { text-align: left; }
+            .footer-in { grid-template-columns: 1fr; justify-items: center; gap: 16px; }
+            .footer-contacts-row { flex-direction: column; align-items: center; gap: 16px; }
+            .footer-copy { text-align: center; }
+        }
+        @media (max-width: 600px) {
+            .pillars-grid { gap: 28px; }
+            .sanctuary-grid, .fac-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+            .nav-link { font-size: 9px; }
+            #reserve-fixed { font-size: 9px; padding: 11px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- FIXED RESERVE BUTTON -->
+<a href="#booking" id="reserve-fixed">Reserve Your Spot</a>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-links">
+        <a href="#about"         class="nav-link">Retreat</a>
+        <a href="#pillars"       class="nav-link">Vision</a>
+        <a href="#journey"       class="nav-link">Program</a>
+        <a href="#sanctuary"     class="nav-link">Experience</a>
+        <a href="#facilitators"  class="nav-link">Facilitators</a>
+        <a href="#accommodation" class="nav-link">Accommodation</a>
+        <a href="#practical"     class="nav-link">Info</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+        <div class="hero-logo">
+            <img src="images/logo.png" alt="Living Altar">
+        </div>
+        <div class="hero-text-block">
+            <h1 class="hero-h1">A Return To What<br>Truly Matters.</h1>
+            <p class="hero-eyebrow">Portugal &nbsp;·&nbsp; August 2026</p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-content wrap">
+        <div class="about-text">
+            <span class="label">The Retreat</span>
+            <div class="divider"></div>
+            <h2>An Immersive Journey Through<br>Sound, Ceremony &amp; Nature</h2>
+            <div class="divider"></div>
+            <p>Living Altar is a five-day immersion that weaves together ancient practices, music, movement, and ceremony to create the conditions for meaningful transformation. Designed to help you slow down, listen deeply, and reconnect with the wisdom of your own heart.</p>
+            <p>At the heart of the retreat is a dedicated evening of deep inner exploration, gathered around a ceremonial altar — a space for prayer, music, contemplation, and remembrance — followed by a full day of integration, rest, and embodied reflection.</p>
+
+            <h4 class="about-sub">Who is this for?</h4>
+            <p>For those who feel the need to step away from the noise, slow down, and reconnect with themselves. Whether you're feeling overwhelmed, disconnected, at a crossroads, or simply longing for something more meaningful, this space was created for you.</p>
+
+            <h4 class="about-sub">Why we created this</h4>
+            <p>Because some of life's most important conversations cannot happen in the rush of everyday life. Living Altar was created as a space to pause, gather, remember what matters, and return home with greater clarity and presence.</p>
+
+            <div class="about-learn">
+                <a href="the_living_altar.pdf" download class="btn btn-clay btn-sm">Learn More</a>
+            </div>
+        </div>
+        <div class="about-images-stack">
+            <div class="about-stack-img"><img src="images/9.jpg" alt="The gardens"></div>
+            <div class="about-stack-img"><img src="images/8.jpg" alt="Casa Prema"></div>
+        </div>
+    </div>
+    <div class="about-video-ph">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="26" stroke="rgba(244,239,230,0.7)" stroke-width="1"/>
+            <path d="M23 20 L38 28 L23 36 Z" fill="rgba(244,239,230,0.7)"/>
+        </svg>
+        <p>Video coming soon</p>
+    </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+    <div class="wrap">
+        <div class="pillars-top">
+            <span class="label">The Vision</span>
+            <h2>Four Pillars<br>One Journey</h2>
+        </div>
+        <div class="pillars-grid">
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 18 Q7 5 12 18 Q17 31 22 18 Q27 5 32 18 Q37 31 42 18" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
+                        <path d="M2 27 Q7 14 12 27 Q17 40 22 27 Q27 14 32 27 Q37 40 42 27" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="pillar-name">Sound</p>
+                <p>Healing through vibration, voice and resonance to clear, open and realign.</p>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 38 C15 38 10 32 10 25 C10 18 15 14 18 10 C18 14 20 16 22 14 C22 14 24 10 26 6 C30 12 34 18 34 25 C34 32 29 38 22 38Z" stroke="#4D4E35" stroke-width="1" stroke-linejoin="round"/>
+                        <path d="M22 34 C19 34 17 31 17 28 C17 25 19 23 21 21 C21 23 22 24 23 23 C25 26 27 28 22 34Z" stroke="#4D4E35" stroke-width="0.7"/>
+                    </svg>
+                </div>
+                <p class="pillar-name">Ritual</p>
+                <p>Sacred practices to honour transition and awaken presence and devotion.</p>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 7 C31 7 37 14 37 22 C37 30 30 37 22 37 C14 37 7 30 7 22 C7 13 14 11 22 11 C30 11 33 16 33 22 C33 28 29 33 22 33 C15 33 11 28 12 22 C13 16 16 14 22 14 C28 14 30 18 30 22 C30 26 27 29 22 29" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="pillar-name">Journey</p>
+                <p>Guided inner journeys to explore, heal and remember who you are.</p>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="22" y1="40" x2="22" y2="16" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
+                        <path d="M22 40 C22 40 16 38 12 40" stroke="#4D4E35" stroke-width="0.8" stroke-linecap="round"/>
+                        <path d="M22 40 C22 40 28 38 32 40" stroke="#4D4E35" stroke-width="0.8" stroke-linecap="round"/>
+                        <path d="M22 28 C22 28 12 24 12 16 C12 10 18 8 22 14" stroke="#4D4E35" stroke-width="1" stroke-linejoin="round"/>
+                        <path d="M22 20 C22 20 32 16 32 8 C32 4 26 4 22 10" stroke="#4D4E35" stroke-width="1" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pillar-name">Integration</p>
+                <p>Tools and space to embody insights and live from alignment.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- IMAGE BREAK -->
+<div class="img-break">
+    <div class="img-break-bg" id="img-break-bg"></div>
+</div>
+
+<!-- JOURNEY -->
+<section id="journey">
+    <div class="journey-wrap wrap">
+        <span class="label">The Program</span>
+        <h2>Five Days<br>One Unfolding</h2>
+        <div class="journey-layout">
+            <div id="journey-acc">
+
+                <div class="acc-item">
+                    <button class="acc-btn">
+                        <div class="acc-btn-left"><span class="acc-day">Day 1</span><span class="acc-title">Arrival &amp; Opening</span></div>
+                        <span class="acc-plus"></span>
+                    </button>
+                    <div class="acc-body"><div class="acc-body-in">
+                        <p class="acc-subtitle">Landing · Opening Circle · Settling</p>
+                        <p>Arrive, settle in, open the circle and connect. A gentle arrival — space to land, breathe, and begin releasing the world you came from.</p>
+                    </div></div>
+                </div>
+
+                <div class="acc-item">
+                    <button class="acc-btn">
+                        <div class="acc-btn-left"><span class="acc-day">Day 2</span><span class="acc-title">Voice, Movement &amp; the Body</span></div>
+                        <span class="acc-plus"></span>
+                    </button>
+                    <div class="acc-body"><div class="acc-body-in">
+                        <p class="acc-subtitle">Cacao · Movement · Sound</p>
+                        <p>Open the body and voice. Through cacao, movement and sound we unlock what the body holds — releasing tension, finding flow, awakening presence.</p>
+                    </div></div>
+                </div>
+
+                <div class="acc-item">
+                    <button class="acc-btn">
+                        <div class="acc-btn-left"><span class="acc-day">Day 3</span><span class="acc-title">Ceremony &amp; Medicine Journey</span></div>
+                        <span class="acc-plus"></span>
+                    </button>
+                    <div class="acc-body"><div class="acc-body-in">
+                        <p class="acc-subtitle">Preparation · Ceremony · Deep Work</p>
+                        <p>The heart of the retreat. Prepare, go deep and receive — held in ceremony with care and intention. The threshold moment of the journey.</p>
+                    </div></div>
+                </div>
+
+                <div class="acc-item">
+                    <button class="acc-btn">
+                        <div class="acc-btn-left"><span class="acc-day">Day 4</span><span class="acc-title">Integration &amp; Nature</span></div>
+                        <span class="acc-plus"></span>
+                    </button>
+                    <div class="acc-body"><div class="acc-body-in">
+                        <p class="acc-subtitle">Nature Time · Reflection · Returning to the Body</p>
+                        <p>Integrate what arose. Spend time in the land, in silence, in gentle movement. Return to balance at your own pace.</p>
+                    </div></div>
+                </div>
+
+                <div class="acc-item">
+                    <button class="acc-btn">
+                        <div class="acc-btn-left"><span class="acc-day">Day 5</span><span class="acc-title">Closing &amp; Return</span></div>
+                        <span class="acc-plus"></span>
+                    </button>
+                    <div class="acc-body"><div class="acc-body-in">
+                        <p class="acc-subtitle">Gratitude · Closing Circle · Departure</p>
+                        <p>Reflect, celebrate and carry it all home. A closing circle to honour what was — and who you are becoming.</p>
+                    </div></div>
+                </div>
+
+            </div>
+
+            <div class="rhythm-box">
+                <h4>Daily Rhythm</h4>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Morning Practice</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Brunch</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Land Time</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Tea &amp; Rest</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Main Session</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Journey</div>
+                <p class="rhythm-note">Held with flow and intention.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SANCTUARY — horizontal scroll gallery -->
+<div id="sanctuary-scroll">
+    <div id="sanctuary-sticky">
+        <div class="sanctuary-hdr">
+            <span class="label">The Experience</span>
+            <h2>Ancient Practices<br>for Modern Lives</h2>
+        </div>
+        <div id="sanctuary-track">
+
+            <div class="san-card" style="margin-top:14vh;transform:rotate(-1.8deg)">
+                <div class="san-img"><img src="images/9.jpg" alt="The Sanctuary"></div>
+                <p class="san-name">The Sanctuary</p>
+                <p class="san-text">Casa Prema is a serene sanctuary in the heart of Portugal, surrounded by ancient olive groves and open skies.</p>
+            </div>
+
+            <div class="san-card" style="margin-top:5vh;transform:rotate(1.2deg)">
+                <div class="san-img"><img src="images/6.jpg" alt="Nature and Land"></div>
+                <p class="san-name">Nature &amp; Land</p>
+                <p class="san-text">Immerse in breathtaking nature, sacred land and ample spaces to rest, reflect and roam.</p>
+            </div>
+
+            <div class="san-card" style="margin-top:24vh;transform:rotate(-1deg)">
+                <div class="san-img"><img src="images/5.jpg" alt="Nourishing Food"></div>
+                <p class="san-name">Nourishing Food</p>
+                <p class="san-text">Organic, vegetarian meals prepared with love by our private chef. Balanced, healthy and absolutely delicious.</p>
+            </div>
+
+            <div class="san-card" style="margin-top:9vh;transform:rotate(2.5deg)">
+                <div class="san-img"><img src="images/2.jpg" alt="Human Connection"></div>
+                <p class="san-name">Human Connection</p>
+                <p class="san-text">A powerful container held by a conscious community. Real connections, shared experiences and lifelong bonds.</p>
+            </div>
+
+            <div class="san-card" style="margin-top:18vh;transform:rotate(-2.2deg)">
+                <div class="san-img"><img src="images/8.jpg" alt="Sound and Healing"></div>
+                <p class="san-name">Sound &amp; Healing</p>
+                <p class="san-text">Deep sound journeys and healing practices to restore your energy and bring you back home to yourself.</p>
+            </div>
+
+            <div class="san-card" style="margin-top:7vh;transform:rotate(0.8deg)">
+                <div class="san-img"><img src="images/7.jpg" alt="Rest and Comfort"></div>
+                <p class="san-name">Rest &amp; Comfort</p>
+                <p class="san-text">Beautiful rooms and spaces designed for deep rest, privacy and integration.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FACILITATORS -->
+<section id="facilitators">
+    <div class="fac-wrap wrap">
+        <span class="label">The Facilitators</span>
+        <h2>Guided by Experience<br>Held with Heart</h2>
+        <div class="fac-grid">
+            <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei"></div><p class="fac-role">Ceremonies · Music</p><h3 class="fac-name">Zei</h3><p>Zei is devoted to the power of sound, voice and sacred ceremony. She creates spaces of depth and safety for transformation, expression and remembrance.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael" style="transform: scale(1.2);"></div><p class="fac-role">Ceremonies · Music</p><h3 class="fac-name">Nael</h3><p>Nael weaves music, ritual and presence to guide deep inner journeys. He works from the heart and invites authentic connection and celebration of life.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="transform: scale(1.6); transform-origin: center 70%; object-position: center 30%;"></div><p class="fac-role">Host · Sound Healing</p><h3 class="fac-name">Renato</h3><p>Renato is the heart of Casa Prema. He holds the space with care and offers deep sound healing experiences that bring balance and restoration.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="transform: scale(1.2); object-position: center 50%;"></div><p class="fac-role">Music · Sound Journey</p><h3 class="fac-name">Art</h3><p>Art creates immersive soundscapes and journeys that transport you inward. His music and sound heal, elevate and expand consciousness.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section id="accommodation">
+    <div class="accom-wrap wrap accom-top">
+        <span class="label">Accommodation &amp; Investment</span>
+        <h2>Choose the Space<br>That Feels Right</h2>
+        <p class="accom-sub">All options include the full retreat program, meals, ceremonies and accommodation. Early bird pricing until 30 June 2026.</p>
+    </div>
+
+    <!-- Full-width auto-scroll image belt -->
+    <div class="accom-belt">
+        <div class="accom-belt-track">
+            <div class="accom-belt-item"><img src="images/1.jpg" alt="Casa Prema"></div>
+            <div class="accom-belt-item"><img src="images/7.jpg" alt="Natural pool"></div>
+            <div class="accom-belt-item"><img src="images/9.jpg" alt="Grounds at dusk"></div>
+            <div class="accom-belt-item"><img src="images/8.jpg" alt="Garden pathway"></div>
+            <div class="accom-belt-item"><img src="images/5.jpg" alt="Wisteria"></div>
+            <div class="accom-belt-item"><img src="images/6.jpg" alt="Garden"></div>
+            <div class="accom-belt-item"><img src="images/2.jpg" alt="The dome"></div>
+            <!-- duplicate for seamless loop -->
+            <div class="accom-belt-item"><img src="images/1.jpg" alt="Casa Prema"></div>
+            <div class="accom-belt-item"><img src="images/7.jpg" alt="Natural pool"></div>
+            <div class="accom-belt-item"><img src="images/9.jpg" alt="Grounds at dusk"></div>
+            <div class="accom-belt-item"><img src="images/8.jpg" alt="Garden pathway"></div>
+            <div class="accom-belt-item"><img src="images/5.jpg" alt="Wisteria"></div>
+            <div class="accom-belt-item"><img src="images/6.jpg" alt="Garden"></div>
+            <div class="accom-belt-item"><img src="images/2.jpg" alt="The dome"></div>
+        </div>
+    </div>
+
+    <div class="accom-bottom">
+        <div id="accom-acc" class="accom-acc">
+
+            <div class="acc-item"><button class="acc-btn"><div class="acc-btn-left"><span class="acc-title">Double — Balcony Room</span></div><span class="acc-plus"></span></button><div class="acc-body"><div class="accom-row"><div class="accom-img ph lt" style="background:#DDD0B8" data-slot="double balcony room"></div><p class="accom-desc">Private room with a balcony overlooking the land. Cosy, peaceful and designed for deep rest.</p><div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,850</span><p class="accom-early">Early bird €1,650 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Reserve</a></div></div></div></div>
+
+            <div class="acc-item"><button class="acc-btn"><div class="acc-btn-left"><span class="acc-title">Double — No Balcony</span></div><span class="acc-plus"></span></button><div class="acc-body"><div class="accom-row"><div class="accom-img ph lt" style="background:#EDE5D8" data-slot="double no balcony"></div><p class="accom-desc">Private room with garden view. Cosy, peaceful and perfect for deep rest.</p><div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,800</span><p class="accom-early">Early bird €1,600 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Reserve</a></div></div></div></div>
+
+            <div class="acc-item"><button class="acc-btn"><div class="acc-btn-left"><span class="acc-title">Double — Shared Bath</span></div><span class="acc-plus"></span></button><div class="acc-body"><div class="accom-row"><div class="accom-img ph" style="background:#B85C2A" data-slot="double shared bath"></div><p class="accom-desc">Private room in a shared bathroom setting. Comfortable and simple.</p><div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,600</span><p class="accom-early">Early bird €1,400 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Reserve</a></div></div></div></div>
+
+            <div class="acc-item"><button class="acc-btn"><div class="acc-btn-left"><span class="acc-title">Shared Room — Bunk Beds &amp; Private Bath</span></div><span class="acc-plus"></span></button><div class="acc-body"><div class="accom-row"><div class="accom-img ph" style="background:#4D4E35" data-slot="shared room bunk beds"></div><p class="accom-desc">Share with one other beautiful soul. Private bathroom for your comfort.</p><div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,400</span><p class="accom-early">Early bird €1,200 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Reserve</a></div></div></div></div>
+
+            <div class="acc-item"><button class="acc-btn"><div class="acc-btn-left"><span class="acc-title">Shared Dome — Bunk Beds &amp; Outdoor Bath</span></div><span class="acc-plus"></span></button><div class="acc-body"><div class="accom-row"><div class="accom-img ph" style="background:#2E1E10" data-slot="shared dome"></div><p class="accom-desc">A unique and sacred experience in our dome. Outdoor bath and plenty of space. Close to the land, open to the sky.</p><div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,350</span><p class="accom-early">Early bird €1,150 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Reserve</a></div></div></div></div>
+
+        </div>
+    </div><!-- /accom-bottom -->
+</section>
+
+<!-- PRACTICAL -->
+<section id="practical">
+    <div class="practical-layout wrap">
+        <div class="practical-left">
+            <span class="label">Info</span>
+            <h2>Everything<br>You Need to Know</h2>
+            <p>Living Altar is a carefully held container. Arrive with an open heart and a willingness to go deep. The rest will be taken care of.</p>
+        </div>
+        <div class="practical-grid">
+            <div class="p-item"><p class="p-label">Dates</p><p class="p-value">13–17 Aug 2026</p><p class="p-sub">Arrival from 4pm · Depart by 12pm</p></div>
+            <div class="p-item"><p class="p-label">Location</p><p class="p-value">Casa Prema</p><p class="p-sub">Portugal</p></div>
+            <div class="p-item"><p class="p-label">Duration</p><p class="p-value">5 Days / 4 Nights</p><p class="p-sub">Full immersion program</p></div>
+            <div class="p-item"><p class="p-label">Group Size</p><p class="p-value">Max 20 Guests</p><p class="p-sub">Intimate · Limited spaces</p></div>
+            <div class="p-item"><p class="p-label">Food</p><p class="p-value">All Meals Included</p><p class="p-sub">Organic, vegetarian · Locally sourced</p></div>
+            <div class="p-item"><p class="p-label">Included</p><p class="p-value">Full Program</p><p class="p-sub">Accommodation · Meals · Ceremonies · Sound journeys</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <div class="testi-wrap wrap">
+        <span class="label">Words from the Circle</span>
+        <h2>What People Say</h2>
+        <div class="testi-grid">
+            <div class="testi"><p class="testi-quote">"The retreat changed something in me that words can't fully explain. I came as one person and left remembering who I truly am."</p><p class="testi-author">Maria, Portugal</p></div>
+            <div class="testi"><p class="testi-quote">"The perfect blend of depth, beauty and heartfelt connection. Everything was held with so much care."</p><p class="testi-author">David, Germany</p></div>
+            <div class="testi"><p class="testi-quote">"A life-changing experience. The space, the people, the practices — all woven together so beautifully."</p><p class="testi-author">Sophie, UK</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+    <div class="cta-bg"><img src="images/1.jpg" alt="Casa Prema at golden hour"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-inner">
+        <h2 class="cta-h2">We Gather<br>We Listen<br>We Remember<br>We Return</h2>
+        <a href="#booking" class="btn btn-clay btn-lg">Reserve Your Spot</a>
+        <p class="cta-limit">Limited Spaces</p>
+    </div>
+</section>
+
+<div id="booking"></div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-in">
+        <div class="footer-logo-wrap">
+            <img src="images/logo_white.png" alt="Living Altar" style="width:130px;height:auto;display:block;">
+        </div>
+        <div class="footer-contacts-row">
+            <div class="footer-contact-item">
+                <span class="footer-contact-label">Retreat enquiries</span>
+                <a href="mailto:uxumusica@gmail.com" class="footer-contact-link">Request more info</a>
+            </div>
+            <div class="footer-contact-item">
+                <span class="footer-contact-label">Accommodation</span>
+                <a href="mailto:renatogkoch@gmail.com" class="footer-contact-link">Contact Casa Prema</a>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2026 Living Altar · Entelia Studio</p>
+    </div>
+</footer>
+
+<script>
+    // Parallax hero
+    const heroBg = document.getElementById('hero-bg');
+    const heroH = document.getElementById('hero').offsetHeight;
+    function updateParallax() {
+        const y = window.scrollY;
+        if (y <= heroH) heroBg.style.transform = `translateY(${y * 0.62}px)`;
+    }
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
+    // Parallax image break
+    const imgBreakBg = document.getElementById('img-break-bg');
+    const imgBreakEl = imgBreakBg ? imgBreakBg.closest('.img-break') : null;
+    function updateImgBreakParallax() {
+        if (!imgBreakBg || !imgBreakEl) return;
+        const rect = imgBreakEl.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.bottom < 0 || rect.top > viewH) return;
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        imgBreakBg.style.transform = `translateY(${(progress - 0.5) * 420}px)`;
+    }
+    window.addEventListener('scroll', updateImgBreakParallax, { passive: true });
+    updateImgBreakParallax();
+
+    // Parallax CTA background
+    const ctaBg = document.querySelector('#cta .cta-bg');
+    const ctaEl = document.getElementById('cta');
+    function updateCtaParallax() {
+        if (!ctaBg || !ctaEl) return;
+        const rect = ctaEl.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.bottom < 0 || rect.top > viewH) return;
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        ctaBg.style.transform = `translateY(${(progress - 0.5) * 420}px)`;
+    }
+    window.addEventListener('scroll', updateCtaParallax, { passive: true });
+    updateCtaParallax();
+
+    // Parallax facilitator — containers (fac-img) move up/down at staggered rates
+    const facSection = document.getElementById('facilitators');
+    const facContainers = document.querySelectorAll('.fac-img');
+    const facRates = [0.9, 0.45, 0.75, 0.3];
+    function updateFacParallax() {
+        if (!facSection || !facContainers.length) return;
+        const rect = facSection.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.bottom < 0 || rect.top > viewH) return;
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        const base = (progress - 0.5) * 340;
+        facContainers.forEach((el, i) => {
+            el.style.transform = `translateY(${base * facRates[i]}px)`;
+        });
+    }
+    window.addEventListener('scroll', updateFacParallax, { passive: true });
+    updateFacParallax();
+
+    // Horizontal sanctuary gallery
+    const sanWrapper = document.getElementById('sanctuary-scroll');
+    const sanTrack   = document.getElementById('sanctuary-track');
+    function initSanctuary() {
+        if (!sanWrapper || !sanTrack) return;
+        const travel = Math.max(0, sanTrack.scrollWidth - window.innerWidth);
+        sanWrapper.style.height = (window.innerHeight + travel) + 'px';
+    }
+    function updateSanctuary() {
+        if (!sanWrapper || !sanTrack) return;
+        const rect = sanWrapper.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.top > 0 || rect.bottom < viewH) return;
+        const scrolled = -rect.top;
+        const maxScroll = sanWrapper.offsetHeight - viewH;
+        const progress = Math.min(1, Math.max(0, scrolled / maxScroll));
+        const travel = Math.max(0, sanTrack.scrollWidth - window.innerWidth);
+        sanTrack.style.transform = `translateX(${-progress * travel}px)`;
+    }
+    window.addEventListener('scroll', updateSanctuary, { passive: true });
+    window.addEventListener('resize', () => { initSanctuary(); updateSanctuary(); });
+    window.addEventListener('load', initSanctuary);
+    initSanctuary();
+
+    // Smart nav
+    const nav = document.getElementById('nav');
+    let last = 0;
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        nav.classList.toggle('nav-hidden', y > last && y > 80);
+        last = Math.max(0, y);
+    }, { passive: true });
+
+    // Accordion
+    function initAcc(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.querySelectorAll('.acc-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.acc-item');
+                const open = item.classList.contains('open');
+                el.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+                if (!open) item.classList.add('open');
+            });
+        });
+    }
+    initAcc('journey-acc');
+    initAcc('accom-acc');
+</script>
+</body>
+</html>
