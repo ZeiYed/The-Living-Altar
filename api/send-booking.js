@@ -39,37 +39,52 @@ module.exports = async function handler(req, res) {
         });
 
     // ── 1. Participant confirmation email ─────────────────────────────
+    const firstName = (name || '').split(' ')[0];
     const participantHtml = `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#F3EDE4;font-family:Georgia,'Times New Roman',serif;">
   <div style="max-width:560px;margin:40px auto;background:#ffffff;padding:52px 44px;border-radius:3px;">
 
-    <p style="margin:0 0 36px;font-size:10px;letter-spacing:2.5px;color:#B36D32;font-family:Helvetica,Arial,sans-serif;">THE LIVING ALTAR</p>
+    <p style="margin:0 0 40px;font-size:10px;letter-spacing:2.5px;color:#B36D32;font-family:Helvetica,Arial,sans-serif;">THE LIVING ALTAR &nbsp;·&nbsp; SOUND · RITUAL · JOURNEY</p>
 
-    <h1 style="margin:0 0 12px;font-size:24px;font-weight:normal;color:#4A2B08;">Thank you, ${(name || '').split(' ')[0]}.</h1>
-    <p style="margin:0 0 36px;font-size:15px;color:#8a7060;line-height:1.85;">
-      Your booking request for <span style="color:#4A2B08;">${room || ''}</span> at the Living Altar has been received.
-      Your signed booking request is attached to this email as a PDF.
+    <h1 style="margin:0 0 20px;font-size:28px;font-weight:normal;color:#4A2B08;line-height:1.2;">Dear ${firstName},<br>welcome to the altar.</h1>
+
+    <p style="margin:0 0 20px;font-size:15px;color:#8a7060;line-height:1.9;">
+      We are deeply glad to receive your request and to welcome you into this circle.
+      The Living Altar is a five-day journey of sound, ritual, and presence — and we are honoured you are choosing to be part of it.
     </p>
 
-    <div style="border-top:1px solid #E7DDD0;border-bottom:1px solid #E7DDD0;padding:24px 0;margin:0 0 36px;">
+    <p style="margin:0 0 32px;font-size:15px;color:#8a7060;line-height:1.9;">
+      Your booking request for <span style="color:#4A2B08;font-style:italic;">${room || ''}</span> has been received and is attached to this email as a PDF for your records.
+    </p>
+
+    <div style="border-top:1px solid #E7DDD0;border-bottom:1px solid #E7DDD0;padding:28px 0;margin:0 0 32px;">
       <table style="width:100%;border-collapse:collapse;font-family:Helvetica,Arial,sans-serif;">
-        ${row('ROOM',           room || '—')}
-        ${row('OCCUPANCY',      occupancy || '—')}
+        ${row('ROOM',              room || '—')}
+        ${row('OCCUPANCY',         occupancy || '—')}
         ${bedConfig ? row('BED CONFIGURATION', bedConfig) : ''}
-        ${row('PRICE',          price || '—')}
-        ${row('SUBMITTED',      signedDate || '—')}
+        ${row('INVESTMENT',        price || '—')}
+        ${row('DATES',             'August 13–17, 2026')}
+        ${row('LOCATION',          'Casa Prema, Portugal')}
+        ${row('REQUEST SUBMITTED', signedDate || '—')}
       </table>
     </div>
 
-    <p style="margin:0 0 40px;font-size:15px;color:#8a7060;line-height:1.85;">
-      We will be in touch within 48 hours to confirm your place and share payment details.
-      A 30% deposit will be required to secure your booking.
+    <p style="margin:0 0 20px;font-size:15px;color:#8a7060;line-height:1.9;">
+      One of our team will be in touch within 48 hours to confirm your place and share the payment link.
+      A 30% deposit will be required to fully secure your space.
     </p>
 
-    <p style="margin:0;font-size:11px;color:#B4A28F;line-height:2;font-family:Helvetica,Arial,sans-serif;">
-      August 13–17, 2026 · Casa Prema, Portugal
+    <p style="margin:0 0 40px;font-size:15px;color:#8a7060;line-height:1.9;">
+      If you have any questions in the meantime, simply reply to this email — we are here and happy to support you in any way we can.
+    </p>
+
+    <p style="margin:0 0 8px;font-size:15px;color:#4A2B08;line-height:1.9;">With love and gratitude,</p>
+    <p style="margin:0 0 40px;font-size:15px;color:#4A2B08;font-style:italic;">The Living Altar team</p>
+
+    <p style="margin:0;font-size:11px;color:#B4A28F;line-height:2;font-family:Helvetica,Arial,sans-serif;border-top:1px solid #E7DDD0;padding-top:24px;">
+      August 13–17, 2026 &nbsp;·&nbsp; Casa Prema, Sintra, Portugal
     </p>
 
   </div>
@@ -84,7 +99,8 @@ module.exports = async function handler(req, res) {
   <div style="max-width:620px;margin:40px auto;background:#ffffff;padding:44px;border-radius:3px;">
 
     <p style="margin:0 0 8px;font-size:10px;letter-spacing:2.5px;color:#B36D32;">NEW BOOKING REQUEST</p>
-    <h2 style="margin:0 0 32px;font-size:20px;font-weight:normal;color:#4A2B08;font-family:Georgia,serif;">${name || ''} — ${room || ''}</h2>
+    <h2 style="margin:0 0 16px;font-size:20px;font-weight:normal;color:#4A2B08;font-family:Georgia,serif;">${name || ''} — ${room || ''}</h2>
+    <p style="margin:0 0 32px;padding:12px 16px;background:#fff8f0;border-left:3px solid #B36D32;font-size:13px;color:#4A2B08;">Forward confirmation to: <a href="mailto:${email}" style="color:#B36D32;">${email}</a> — PDF attached</p>
 
     <table style="width:100%;border-collapse:collapse;font-size:14px;">
       ${orgRow('Full Name',            name)}
@@ -109,13 +125,16 @@ module.exports = async function handler(req, res) {
 
     try {
         const [r1, r2] = await Promise.all([
+            // Participant confirmation — forward this to the participant
             sendEmail({
                 from,
-                to:          [email],
-                subject:     'Your Booking Request — the Living Altar',
+                to:          ['uxumusica@gmail.com'],
+                reply_to:    email,
+                subject:     `FORWARD TO ${email} — Booking Confirmation — ${firstName}`,
                 html:        participantHtml,
                 attachments: [{ filename: 'Living-Altar-Booking-Request.pdf', content: pdfBase64 }],
             }),
+            // Organiser notification
             sendEmail({
                 from,
                 to:      ['uxumusica@gmail.com'],
@@ -127,8 +146,8 @@ module.exports = async function handler(req, res) {
         if (!r1.ok || !r2.ok) {
             const e1 = !r1.ok ? await r1.text() : null;
             const e2 = !r2.ok ? await r2.text() : null;
-            console.error('Resend error (participant):', e1);
-            console.error('Resend error (organiser):',  e2);
+            console.error('Resend error (confirmation):', e1);
+            console.error('Resend error (organiser):',   e2);
             return res.status(500).json({ success: false });
         }
 
