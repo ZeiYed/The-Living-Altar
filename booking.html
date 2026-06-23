@@ -853,19 +853,25 @@
         }
 
         /* FOOTER */
-        footer { background: #251D10; color: var(--linen); padding: 64px clamp(24px, 5vw, 80px) 30px; }
-        .footer-in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; justify-items: center; column-gap: 72px; }
+        footer { background: #251D10; color: var(--linen); padding: 22px clamp(24px, 5vw, 80px) 22px; }
+        .footer-in { position: relative; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; justify-items: center; column-gap: 72px; }
+        .footer-center { display: flex; flex-direction: column; align-items: center; gap: 20px; }
         .footer-logo-wrap { flex-shrink: 0; justify-self: start; }
         .footer-logo-wrap img { display: block; }
-        .footer-contacts-row { display: flex; align-items: center; justify-content: center; gap: 80px; }
-        .footer-contact-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
-        .footer-contact-label { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; font-weight: 400; }
+        .footer-contacts-row { display: flex; align-items: flex-start; justify-content: center; gap: 44px; margin-top: -20px; }
+        .footer-contact-item { display: flex; }
+        .footer-contact-item a { display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; gap: 2px; color: #C0A987; transition: color .25s; }
+        .footer-contact-item a:hover { color: var(--linen); }
+        .footer-contact-icon svg { width: 92px; height: auto; display: block; }
+        .footer-contact-icon { }
+        .footer-contact-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: inherit; font-weight: 400; white-space: nowrap; }
         .footer-social { display: flex; align-items: flex-start; justify-content: flex-end; justify-self: end; gap: 32px; }
-        .footer-social a { display: inline-flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; color: #C0A987; transition: color .25s; text-decoration: none; }
+        .footer-social a { display: inline-flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 82px; text-align: center; gap: 6px; color: #C0A987; transition: color .25s; text-decoration: none; }
         .footer-social a:hover { color: var(--linen); }
-        .footer-social svg { width: 46px; height: 46px; display: block; }
-        .footer-social .s-name { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; text-align: center; white-space: nowrap; }
-        .footer-copy { margin-top: 30px; text-align: center; font-size: 9px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.3); }
+        .footer-social svg { width: 46px; height: 46px; display: block; margin-bottom: -4px; }
+        .footer-social svg rect, .footer-social svg circle { stroke-width: 0.45; }
+        .footer-social .s-name { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; text-align: center; white-space: nowrap; line-height: 1.2; }
+        .footer-copy { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); margin-top: 0; text-align: center; font-size: 9px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.3); white-space: nowrap; }
         .footer-copy a { color: inherit; text-decoration: none; border-bottom: 0.5px solid currentColor; padding-bottom: 1px; transition: color .25s; }
         .footer-copy a:hover { color: var(--linen); }
     </style>
@@ -1923,21 +1929,29 @@
         <div class="footer-logo-wrap">
             <img src="images/logo_white.png" alt="Living Altar" style="width:160px;height:auto;display:block;">
         </div>
-        <div class="footer-contacts-row">
-            <div class="footer-contact-item">
-                <a href="mailto:uxumusica@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Retreat enquiries</span></a>
+        <div class="footer-center">
+            <div class="footer-contacts-row">
+                <div class="footer-contact-item">
+                    <a href="mailto:uxumusica@gmail.com" style="text-decoration:none;">
+                        <span class="footer-contact-icon"><svg viewBox="0 6 44 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 10.5 C25.3 16.2 25.3 23.8 22 28.5 C18.7 23.8 18.7 16.2 22 10.5Z" stroke="currentColor" stroke-width="0.45" stroke-linejoin="round"/><path d="M22 28.5 C16.3 26.6 11.6 21.9 9.7 16.2 C14.4 18.1 19.2 22.8 22 28.5Z" stroke="currentColor" stroke-width="0.45" stroke-linejoin="round"/><path d="M22 28.5 C27.7 26.6 32.5 21.9 34.4 16.2 C29.6 18.1 24.9 22.8 22 28.5Z" stroke="currentColor" stroke-width="0.45" stroke-linejoin="round"/><path d="M7 27.5 Q22 31.5 37 27.5" stroke="currentColor" stroke-width="0.45" stroke-linecap="round"/></svg></span>
+                        <span class="footer-contact-label">Retreat enquiries</span>
+                    </a>
+                </div>
+                <div class="footer-contact-item">
+                    <a href="mailto:renatogkoch@gmail.com" style="text-decoration:none;">
+                        <span class="footer-contact-icon"><svg viewBox="0 10 44 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 34 C8 12 36 12 36 34" stroke="currentColor" stroke-width="0.45" stroke-linecap="round"/><path d="M6 34 Q22 36.5 38 34" stroke="currentColor" stroke-width="0.45" stroke-linecap="round"/><path d="M18 34 C18 26 26 26 26 34" stroke="currentColor" stroke-width="0.45" stroke-linecap="round"/></svg></span>
+                        <span class="footer-contact-label">Accommodation enquiries</span>
+                    </a>
+                </div>
             </div>
-            <div class="footer-contact-item">
-                <a href="mailto:renatogkoch@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Accommodation enquiries</span></a>
-            </div>
+            <p class="footer-copy">&copy; 2026 Living Altar &middot; <a href="https://www.entelia.studio" target="_blank" rel="noopener">Entelia Studio</a></p>
         </div>
         <div class="footer-social">
-            <a href="https://www.instagram.com/uxumusica" target="_blank" rel="noopener" aria-label="uXu on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">uXu<br>Musica</span></a>
-            <a href="https://www.instagram.com/awakeningprema" target="_blank" rel="noopener" aria-label="Awakening Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Awakening<br>Prema</span></a>
-            <a href="https://www.instagram.com/casapremaretreat" target="_blank" rel="noopener" aria-label="Casa Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Casa<br>Prema</span></a>
+            <a href="https://www.instagram.com/uxumusica" target="_blank" rel="noopener" aria-label="uXu on Instagram" title="uXu on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">uXu<br>Musica</span></a>
+            <a href="https://www.instagram.com/awakeningprema" target="_blank" rel="noopener" aria-label="Awakening Prema on Instagram" title="Awakening Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Awakening<br>Prema</span></a>
+            <a href="https://www.instagram.com/casapremaretreat" target="_blank" rel="noopener" aria-label="Casa Prema on Instagram" title="Casa Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Casa<br>Prema</span></a>
         </div>
     </div>
-    <p class="footer-copy">&copy; 2026 Living Altar · <a href="https://www.entelia.studio" target="_blank" rel="noopener">Entelia Studio</a></p>
 </footer>
 
 <script>
