@@ -1024,24 +1024,24 @@
             <p>This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.</p>
 
             <h3>1. Booking Confirmation</h3>
-            <p>This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.</p>
+            <p>This booking is provisional until full payment has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of full payment. Payment details will be communicated by email within 48 hours of receiving this form.</p>
 
             <h3>2. Pricing &amp; Payment</h3>
             <p>Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.</p>
             <ul>
-                <li>A non-refundable deposit of 30% of the total booking fee is required to confirm your place.</li>
-                <li>The remaining balance is due no later than July 20, 2026.</li>
-                <li>All payments are made in EUR via bank transfer. Payment details will be provided upon confirmation of your booking.</li>
-                <li>The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.</li>
+                <li>Full payment is required to confirm your place.</li>
+                <li>Payment is made via payment link. Payment details will be provided by email within 48 hours of submission.</li>
+                <li>The Organiser reserves the right to release unconfirmed places after 72 hours if no payment is received.</li>
             </ul>
 
             <h3>3. Cancellation Policy</h3>
             <ul>
-                <li><strong>Before July 1, 2026:</strong> Deposit forfeited; any remaining balance paid is refunded in full.</li>
-                <li><strong>July 1 – July 31, 2026:</strong> 50% of the total booking fee is forfeited.</li>
-                <li><strong>August 1, 2026 and beyond:</strong> No refund is available.</li>
+                <li><strong>Until July 5, 2026:</strong> Full refund.</li>
+                <li><strong>July 6 – July 12, 2026:</strong> 50% refund.</li>
+                <li><strong>July 13, 2026 and beyond:</strong> No refund is available.</li>
+                <li><strong>Force majeure:</strong> If the Participant is unable to attend due to circumstances beyond their reasonable control, they may submit a written request with supporting documentation. If approved by the Organiser, the amount paid may be held as credit toward a future retreat.</li>
             </ul>
-            <p>The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.</p>
+            <p>The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 60 days.</p>
 
             <h3>4. Health &amp; Wellbeing</h3>
             <p>The Participant confirms that they are in good mental and physical health and are capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this booking form.</p>
@@ -1135,15 +1135,15 @@
 
     // ── ALL ROOMS DATA ───────────────────────────────────────────
     const allRooms = [
-        { name: 'Root',        chakra: 'Muladhara',        eb: 1800, regular: 2000, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Large en-suite bathroom · Direct garden access · Ground floor',       images: ['Accomodation/Rooms/room1.1.png','Accomodation/Rooms/room1.2.png','Accomodation/Rooms/room1.3.png','Accomodation/Rooms/room1.4.png'] },
-        { name: 'Sacral',      chakra: 'Svadhisthana',     eb: 1400, regular: 1600, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Shared bathroom · Ground floor',                                      images: ['Accomodation/Rooms/room2.1.png','Accomodation/Rooms/room2.2.png','Accomodation/Rooms/room2.3.png','Accomodation/Rooms/bath4.1.png'] },
-        { name: 'Solar Plexus',chakra: 'Manipura',         eb: 1400, regular: 1600, bedChoice: false, maxOccupancy: 2, desc: 'Sleeps 2 · Trundle bed (single + pull-out) · Shared bathroom · First floor',       images: ['Accomodation/Rooms/room3.1.png','Accomodation/Rooms/room3.2.png','Accomodation/Rooms/bath4.1.png','Accomodation/Rooms/bath4.2.png'] },
-        { name: 'Heart',       chakra: 'Anahata',          eb: 1200, regular: 1400, bedChoice: false, maxOccupancy: 4, desc: 'Sleeps 4 · 2x bunk beds · Private bathroom · First floor',                         images: ['Accomodation/Rooms/room4.2.jpg','Accomodation/Rooms/room4.3.jpg','Accomodation/Rooms/room4.1.png','Accomodation/Rooms/bath3.png'] },
-        { name: 'Throat',      chakra: 'Vishuddha',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room5.1.png','Accomodation/Rooms/room5.2.png','Accomodation/Rooms/room5.3.jpg','Accomodation/Rooms/bath1.png'] },
-        { name: 'Third Eye',   chakra: 'Ajna',             eb: 1600, regular: 1800, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · No balcony · First floor',                        images: ['Accomodation/Rooms/room6.1.png','Accomodation/Rooms/room6.2.png','Accomodation/Rooms/room6.3.png','Accomodation/Rooms/bath2.png'] },
-        { name: 'Crown',       chakra: 'Sahasrara',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room7.1.png','Accomodation/Rooms/room7.2.png','Accomodation/Rooms/room7.3.png','Accomodation/Rooms/bath2.png'] },
-        { name: 'Dome',        chakra: 'Outdoor Sanctuary',eb: 1150, regular: 1350, bedChoice: false, maxOccupancy: 4, desc: 'Outdoor dome · 2x bunk beds · Outdoor washroom · 2 showers & toilets',             images: ['Accomodation/Outdoor areas/dome1.png','Accomodation/Outdoor areas/dome2.jpg','Accomodation/Outdoor areas/wash-house1.1.png','Accomodation/Outdoor areas/wash-house1.3.jpg'] },
-        { name: 'Camping',     chakra: 'Under the Trees',  eb:  800, regular: 1000, bedChoice: false, maxOccupancy: 2, campingMode: true, desc: 'Bring your own tent · Outdoor washroom · Shaded spot among the trees',             images: ['Accomodation/Outdoor areas/tent1.1.jpg','Accomodation/Outdoor areas/tent1.2.jpg','Accomodation/Outdoor areas/wash-house1.2.png','Accomodation/Outdoor areas/wash-house1.4.jpg'] },
+        { name: 'Root',        chakra: 'Muladhara',        eb: 1890, regular: 2100, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Large en-suite bathroom · Direct garden access · Ground floor',       images: ['Accomodation/Rooms/room1.1.png','Accomodation/Rooms/room1.2.png','Accomodation/Rooms/room1.3.png','Accomodation/Rooms/room1.4.png'] },
+        { name: 'Sacral',      chakra: 'Svadhisthana',     eb: 1470, regular: 1680, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Shared bathroom · Ground floor',                                      images: ['Accomodation/Rooms/room2.1.png','Accomodation/Rooms/room2.2.png','Accomodation/Rooms/room2.3.png','Accomodation/Rooms/bath4.1.png'] },
+        { name: 'Solar Plexus',chakra: 'Manipura',         eb: 1470, regular: 1680, bedChoice: false, maxOccupancy: 2, desc: 'Sleeps 2 · Trundle bed (single + pull-out) · Shared bathroom · First floor',       images: ['Accomodation/Rooms/room3.1.png','Accomodation/Rooms/room3.2.png','Accomodation/Rooms/bath4.1.png','Accomodation/Rooms/bath4.2.png'] },
+        { name: 'Heart',       chakra: 'Anahata',          eb: 1260, regular: 1470, bedChoice: false, maxOccupancy: 4, desc: 'Sleeps 4 · 2x bunk beds · Private bathroom · First floor',                         images: ['Accomodation/Rooms/room4.2.jpg','Accomodation/Rooms/room4.3.jpg','Accomodation/Rooms/room4.1.png','Accomodation/Rooms/bath3.png'] },
+        { name: 'Throat',      chakra: 'Vishuddha',        eb: 1735, regular: 1945, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room5.1.png','Accomodation/Rooms/room5.2.png','Accomodation/Rooms/room5.3.jpg','Accomodation/Rooms/bath1.png'] },
+        { name: 'Third Eye',   chakra: 'Ajna',             eb: 1680, regular: 1890, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · No balcony · First floor',                        images: ['Accomodation/Rooms/room6.1.png','Accomodation/Rooms/room6.2.png','Accomodation/Rooms/room6.3.png','Accomodation/Rooms/bath2.png'] },
+        { name: 'Crown',       chakra: 'Sahasrara',        eb: 1735, regular: 1945, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room7.1.png','Accomodation/Rooms/room7.2.png','Accomodation/Rooms/room7.3.png','Accomodation/Rooms/bath2.png'] },
+        { name: 'Dome',        chakra: 'Outdoor Sanctuary',eb: 1210, regular: 1420, bedChoice: false, maxOccupancy: 4, desc: 'Outdoor dome · 2x bunk beds · Outdoor washroom · 2 showers & toilets',             images: ['Accomodation/Outdoor areas/dome1.png','Accomodation/Outdoor areas/dome2.jpg','Accomodation/Outdoor areas/wash-house1.1.png','Accomodation/Outdoor areas/wash-house1.3.jpg'] },
+        { name: 'Camping',     chakra: 'Under the Trees',  eb:  840, regular: 1050, bedChoice: false, maxOccupancy: 2, campingMode: true, desc: 'Bring your own tent · Outdoor washroom · Shaded spot among the trees',             images: ['Accomodation/Outdoor areas/tent1.1.jpg','Accomodation/Outdoor areas/tent1.2.jpg','Accomodation/Outdoor areas/wash-house1.2.png','Accomodation/Outdoor areas/wash-house1.4.jpg'] },
     ];
 
     // ── BOOKING FLOW INIT ────────────────────────────────────────
@@ -1464,18 +1464,18 @@
             ['August 13–17, 2026 · Casa Prema, Portugal', null],
             ['This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.', null],
             ['1. Booking Confirmation', 'heading'],
-            ['This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.', null],
+            ['This booking is provisional until full payment has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of full payment. Payment details will be communicated by email within 48 hours of receiving this form.', null],
             ['2. Pricing & Payment', 'heading'],
             ['Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.', null],
-            ['- A non-refundable deposit of 30% of the total booking fee is required to confirm your place.', null],
-            ['- The remaining balance is due no later than July 20, 2026.', null],
-            ['- All payments are made in EUR via bank transfer. Payment details will be provided upon confirmation of your booking.', null],
-            ['- The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.', null],
+            ['- Full payment is required to confirm your place.', null],
+            ['- Payment is made via payment link. Payment details will be provided by email within 48 hours of submission.', null],
+            ['- The Organiser reserves the right to release unconfirmed places after 72 hours if no payment is received.', null],
             ['3. Cancellation Policy', 'heading'],
-            ['- Before July 1, 2026: Deposit forfeited; any remaining balance paid is refunded in full.', null],
-            ['- July 1 – July 31, 2026: 50% of the total booking fee is forfeited.', null],
-            ['- August 1, 2026 and beyond: No refund is available.', null],
-            ['The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.', null],
+            ['- Until July 5, 2026: Full refund.', null],
+            ['- July 6 – July 12, 2026: 50% refund.', null],
+            ['- July 13, 2026 and beyond: No refund is available.', null],
+            ['- Force majeure: If the Participant is unable to attend due to circumstances beyond their reasonable control, they may submit a written request with supporting documentation. If approved by the Organiser, the amount paid may be held as credit toward a future retreat.', null],
+            ['The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 60 days.', null],
             ['4. Health & Wellbeing', 'heading'],
             ['The Participant confirms that they are in good mental and physical health and are capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this booking form.', null],
             ['Some experiences within the retreat programme may be emotionally or physically intensive in nature. Participation in any individual activity is always voluntary. The Organiser and its facilitators reserve the right to ask a Participant to refrain from specific activities if it is considered that participation could pose a risk to their wellbeing or the wellbeing of others.', null],
