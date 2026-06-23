@@ -60,13 +60,13 @@
         #hero { padding: 0; height: 120vh; min-height: 680px; position: relative; overflow: hidden; display: flex; align-items: stretch; justify-content: center; text-align: center; }
         #hero-bg { position: absolute; inset: 0; background: #17110a url('images/4.jpg') center bottom/auto 112% no-repeat; will-change: transform; z-index: 0; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,5,2,.2) 0%, rgba(6,5,2,.35) 100%); z-index: 1; }
-        .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; padding: clamp(205px,34vh,420px) 24px 0; text-align: center; }
+        .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(205px,34vh,420px) 24px clamp(210px,26vh,290px); text-align: center; }
         .hero-text-block { margin-top: 0; }
-        .hero-logo { width: clamp(160px, 22.4vw, 256px); overflow: hidden; }
-        .hero-logo img { width: 100%; height: auto; opacity: .95; display: block; margin-bottom: -8%; }
+        .hero-logo { width: clamp(192px, 26.9vw, 307px); }
+        .hero-logo img { width: 100%; height: auto; opacity: .95; display: block; }
         .hero-text-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
         .hero-h1 { font-family: var(--serif); font-size: clamp(30px,5.1vw,63px); font-weight: 300; font-style: normal; line-height: 1.1; color: var(--linen); opacity: .95; white-space: nowrap; text-align: center; width: 100%; }
-        .hero-eyebrow { font-size: 18px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--linen); opacity: .8; margin-top: 4px; text-align: center; width: 100%; }
+        .hero-eyebrow { font-size: 22px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--linen); opacity: .8; margin-top: 4px; text-align: center; width: 100%; }
 
         /* about */
         #about { background: #251D10; padding: 0; }
@@ -116,7 +116,7 @@
         .acc-btn-left { display: flex; align-items: center; gap: 20px; }
         .acc-day { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.38); min-width: 36px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px; }
         .acc-date { font-size: 12px; letter-spacing: .1em; text-transform: none; color: rgba(244,239,230,.6); }
-        .acc-title { font-family: var(--serif); font-size: 24px; font-weight: 400; }
+        .acc-title { font-family: var(--serif); font-size: 28px; font-weight: 400; }
         .acc-plus { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
         .acc-plus::before, .acc-plus::after { content: ''; position: absolute; background: rgba(244,239,230,.45); transition: transform .3s, opacity .3s; }
         .acc-plus::before { width: 1px; height: 14px; top: 2px; left: 8.5px; }
@@ -132,33 +132,11 @@
         .rhythm-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(244,239,230,.07); font-size: 13px; color: rgba(244,239,230,.65); }
         .rhythm-row:last-of-type { border: none; }
         .rhythm-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
-        .rhythm-note { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(244,239,230,.3); margin-top: 18px; }
+        .rhythm-note { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(244,239,230,1); margin-top: 18px; }
 
         /* sanctuary spacers */
         .sanctuary-spacer { height: clamp(60px,8vw,108px); background: var(--linen); }
 
-        /* skip button — floats during horizontal scroll */
-        #exp-skip {
-            position: fixed; bottom: 36px; left: max(var(--pad), calc((100% - var(--max)) / 2)); z-index: 200;
-            display: flex; align-items: center; gap: 10px;
-            padding: 8px 20px 8px 16px;
-            background: var(--linen); color: var(--earth);
-            border: 3px solid var(--earth); border-radius: 100px; cursor: pointer;
-            font-family: var(--sans); font-size: 10px; font-weight: 700;
-            letter-spacing: 0.2em; text-transform: uppercase;
-            opacity: 0; pointer-events: none;
-            transition: opacity .4s ease, transform .4s ease, background .2s ease, color .2s ease;
-            transform: translateY(8px);
-        }
-        #exp-skip.visible {
-            opacity: 1; pointer-events: auto; transform: translateY(0);
-        }
-        #exp-skip:hover { background: var(--earth); color: var(--linen); }
-        #exp-skip svg {
-            flex-shrink: 0;
-            transition: transform .3s ease;
-        }
-        #exp-skip.going-up svg { transform: rotate(180deg); }
 
         /* sanctuary — scroll-pinned horizontal gallery */
         #sanctuary-scroll { position: relative; }
@@ -191,15 +169,18 @@
         .exp-title h3 { font-family: var(--serif); font-size: clamp(24px,2.8vw,40px); font-weight: 400; color: var(--earth); line-height: 1.15; }
         .exp-desc { flex-shrink: 0; width: 170px; }
         .exp-desc p { font-size: 13px; line-height: 1.8; color: rgba(74,43,8,.56); }
+        #exp-skip { position: absolute; bottom: clamp(28px,4vh,48px); left: max(var(--pad), calc((100% - var(--max)) / 2)); z-index: 20; display: flex; align-items: center; gap: 10px; padding: 9px 22px; border: 2.5px solid var(--earth); border-radius: 100px; background: var(--linen); color: var(--earth); font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; transition: background .25s, color .25s; }
+        #exp-skip:hover { background: var(--earth); color: var(--linen); }
+        #exp-skip svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform .3s; }
 
         /* facilitators */
         #facilitators { background: var(--sand); }
         .fac-wrap h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 26px; color: var(--earth); }
-        .fac-wrap .label { color: rgba(74,43,8,.45); }
+        .fac-wrap .label { color: rgba(74,43,8,.75); }
         .fac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 36px; }
         .fac-img { width: 95%; aspect-ratio: 3 / 4; margin: 24px auto 50px; overflow: hidden; }
         .fac-role { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(74,43,8,.5); margin-bottom: 6px; font-weight: 700; }
-        .fac-name { font-family: var(--serif); font-size: 28px; margin-bottom: 14px; color: #3A3D22; font-weight: 700; }
+        .fac-name { font-family: var(--serif); font-size: 28px; margin-bottom: 14px; color: var(--olive); font-weight: 700; }
         .fac-card p { font-size: 13px; line-height: 1.82; color: rgba(74,43,8,1); }
 
         /* testimonials */
@@ -250,14 +231,23 @@
         .accom-expand-images .room-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .accom-expand-images .room-img-ph { width: 100%; height: 100%; background: rgba(244,239,230,.1); display: block; }
         .acc-title-wrap { display: flex; flex-direction: column; gap: 3px; }
-        .acc-chakra { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(244,239,230,.4); }
+        .acc-chakra { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--clay); font-weight: 700; }
+        .acc-preview-desc { font-size: 15px; color: rgba(244,239,230,.35); letter-spacing: .02em; margin-top: 3px; }
         .accom-desc { font-size: 14px; line-height: 1.8; color: var(--stone); margin-bottom: 12px; }
+        .accom-human-desc { font-size: 14px; line-height: 1.8; color: var(--stone); margin-bottom: 36px; }
+        .accom-features { list-style: none; padding: 0; margin: 0 0 24px; }
+        .accom-features li { font-size: 13px; color: var(--stone); padding: 6px 0; border-bottom: 1px solid rgba(244,239,230,.08); display: flex; align-items: center; gap: 10px; }
+        .accom-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
         .accom-bed-note { font-size: 11px; line-height: 1.6; color: rgba(244,239,230,.35); font-style: italic; margin-bottom: 24px; }
         .accom-price-box { flex-shrink: 0; }
-        .accom-price-label { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--stone); margin-bottom: 6px; }
-        .accom-price { display: block; font-family: var(--serif); font-size: 32px; color: var(--clay); line-height: 1; }
+        .accom-price-row { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+        .accom-price-row:first-child { margin-top: -20px; }
+        .accom-price-box { flex-shrink: 0; min-width: 0; }
+        .accom-price-eb { font-family: var(--serif); font-size: 32px; color: var(--clay); line-height: 1; }
+        .accom-eb-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); margin-right: 6px; }
+        .accom-price-original { font-family: var(--serif); font-size: 32px; color: var(--linen); line-height: 1; opacity: .35; }
+        .accom-early { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--linen); opacity: .35; }
         .accom-btn { display: block; width: fit-content; padding: 14px 36px 14px 56px; font-size: 9px; background-size: 116.5% 100%; background-position: left center; }
-        .accom-early { font-size: 12px; color: var(--stone); margin-top: 6px; }
         .accom-btn { margin-top: 18px; }
 
         /* practical */
@@ -284,8 +274,8 @@
         .cta-limit { font-size: 9px; letter-spacing: .26em; text-transform: uppercase; color: rgba(244,239,230,.6); margin-top: 6px; }
 
         /* lightbox */
-        #lightbox { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
-        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+        #lightbox.active { display: flex; opacity: 1; pointer-events: auto; }
         #lightbox-overlay { position: absolute; inset: 0; background: rgba(6,5,2,.92); }
         #lightbox-img-wrap { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; max-width: 88vw; max-height: 88vh; }
         #lightbox-img { display: block; max-width: 88vw; max-height: 88vh; object-fit: contain; transition: opacity .2s ease; }
@@ -302,9 +292,9 @@
         .footer-in { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; justify-items: center; column-gap: 72px; }
         .footer-logo-wrap { flex-shrink: 0; justify-self: start; }
         .footer-logo-wrap img { display: block; }
-        .footer-contacts-row { display: flex; align-items: center; justify-content: center; gap: 48px; }
+        .footer-contacts-row { display: flex; align-items: center; justify-content: center; gap: 80px; }
         .footer-contact-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
-        .footer-contact-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; font-weight: 400; }
+        .footer-contact-label { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; font-weight: 400; }
         .footer-contact-link { font-size: 19.2px; color: rgba(244,239,230,.6); border-bottom: 1px solid rgba(244,239,230,.2); padding-bottom: 1px; transition: color .25s, border-color .25s; }
         .footer-contact-link:hover { color: var(--linen); border-color: rgba(244,239,230,.5); }
         .footer-social { display: flex; align-items: flex-start; justify-content: flex-end; justify-self: end; gap: 32px; }
@@ -313,7 +303,7 @@
         .footer-social svg { width: 46px; height: 46px; display: block; }
         .footer-social .s-name { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; text-align: center; white-space: nowrap; }
         .footer-copy { margin-top: 30px; text-align: center; font-size: 9px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.3); }
-        .footer-copy a { color: inherit; border-bottom: 0.5px solid currentColor; padding-bottom: 1px; transition: color .25s, border-color .25s; }
+        .footer-copy a { color: inherit; text-decoration: none; border-bottom: 0.5px solid currentColor; padding-bottom: 1px; transition: color .25s, border-color .25s; }
         .footer-copy a:hover { color: var(--linen); border-color: var(--linen); }
         @media (max-width: 720px) {
             .footer-in { grid-template-columns: 1fr; justify-items: center; gap: 28px; text-align: center; }
@@ -347,7 +337,7 @@
             .hero-eyebrow { bottom: clamp(28px,5vh,56px); }
             .hero-body { padding-top: 160px; gap: 18px; }
             .hero-text-block { margin-top: 0; }
-            .hero-logo { width: clamp(136px, 38.4vw, 176px); }
+            .hero-logo { width: clamp(163px, 46vw, 211px); }
 
             /* nav + fixed reserve */
             #nav { padding: 16px 16px 12px; }
@@ -398,7 +388,7 @@
 <body>
 
 <!-- FIXED RESERVE BUTTON -->
-<a href="#booking" id="reserve-fixed">Reserve Your Spot</a>
+<a href="booking.html" id="reserve-fixed">Reserve Your Spot</a>
 
 <!-- NAV -->
 <nav id="nav">
@@ -422,8 +412,7 @@
             <img src="images/logo_hero.png" alt="Living Altar">
         </div>
         <div class="hero-text-block">
-            <h1 class="hero-h1">A Return To What Truly Matters</h1>
-            <p class="hero-eyebrow">Portugal &nbsp;·&nbsp; August 13–17, 2026</p>
+<p class="hero-eyebrow">Portugal &nbsp;·&nbsp; August 13–17, 2026</p>
         </div>
     </div>
 </section>
@@ -542,8 +531,8 @@
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Landing · Opening Circle · Settling</p>
-                        <p>Arrive, settle in, open the circle and connect. A gentle arrival — space to land, breathe, and begin releasing the world you came from.</p>
+                        <p class="acc-subtitle">Arrival · Welcome Dinner · Opening Circle</p>
+                        <p>Arrive, settle into your space and meet the people you'll share this journey with. The evening opens with a shared meal and a fire gathering to open the circle.</p>
                     </div></div>
                 </div>
 
@@ -553,19 +542,19 @@
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Cacao · Movement · Sound</p>
-                        <p>Open the body and voice. Through cacao, movement and sound we unlock what the body holds — releasing tension, finding flow, awakening presence.</p>
+                        <p class="acc-subtitle">Morning Practice · Water Ritual · Cacao &amp; Ecstatic Dance</p>
+                        <p>The body leads the way. A morning practice opens the day before an afternoon herbal cleansing and water ritual. As night falls, cacao is shared and live music carries you into ecstatic dance.</p>
                     </div></div>
                 </div>
 
                 <div class="acc-item">
                     <button class="acc-btn">
-                        <div class="acc-btn-left"><span class="acc-day">Day 3<span class="acc-date">15|08</span></span><span class="acc-title">Ceremony &amp; Medicine Journey</span></div>
+                        <div class="acc-btn-left"><span class="acc-day">Day 3<span class="acc-date">15|08</span></span><span class="acc-title">Ceremony &amp; Sacred Journey</span></div>
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Preparation · Ceremony · Deep Work</p>
-                        <p>The heart of the retreat. Prepare, go deep and receive — held in ceremony with care and intention. The threshold moment of the journey.</p>
+                        <p class="acc-subtitle">Morning Practice · Nature Walk &amp; Altar Building · Ceremony</p>
+                        <p>A morning practice opens the day. The afternoon takes you out onto the land to gather flowers and herbs, followed by meditation and altar building together. When night falls, we enter the main ceremony. Light nourishment follows to close.</p>
                     </div></div>
                 </div>
 
@@ -575,8 +564,8 @@
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Nature Time · Reflection · Returning to the Body</p>
-                        <p>Integrate what arose. Spend time in the land, in silence, in gentle movement. Return to balance at your own pace.</p>
+                        <p class="acc-subtitle">Morning Practice · Breathwork &amp; Cold Plunge · Sound Healing · Hapé</p>
+                        <p>Space to settle what moved through you. After a morning practice, the afternoon brings breathwork and a cold plunge before sound healing in the dome. The evening closes with a Hapé ceremony for grounding.</p>
                     </div></div>
                 </div>
 
@@ -586,8 +575,8 @@
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Gratitude · Closing Circle · Departure</p>
-                        <p>Reflect, celebrate and carry it all home. A closing circle to honour what was — and who you are becoming.</p>
+                        <p class="acc-subtitle">Morning Practice · Closing Circle · Integration</p>
+                        <p>One last morning practice together before the circle closes. We gather to reflect, speak and honour what the five days held.</p>
                     </div></div>
                 </div>
 
@@ -602,7 +591,7 @@
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Main Session</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Journey</div>
-                <p class="rhythm-note">Held with flow and intention.</p>
+                <p class="rhythm-note">Indicative only. Each day's rhythm adapts around its main ceremony or activity.</p>
             </div>
         </div>
     </div>
@@ -618,6 +607,11 @@
             <span class="label">The Experience</span>
             <h2>Ancient Practices<br>for Modern Lives</h2>
         </div>
+
+        <button id="exp-skip" aria-label="Skip gallery">
+            <svg id="exp-skip-arrow" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Continue
+        </button>
 
         <div id="sanctuary-track">
 
@@ -774,7 +768,7 @@
     <div class="accom-wrap wrap accom-top">
         <span class="label">Accommodation &amp; Investment</span>
         <h2>Choose the Space<br>That Feels Right</h2>
-        <p class="accom-sub">All options include the full retreat program, meals, ceremonies and accommodation. Early bird pricing until 30 June 2026.</p>
+        <p class="accom-sub">All options include ceremonies, activities, meals and accommodation. Early bird pricing until July 5th, 2026.</p>
     </div>
 
     <!-- Full-width auto-scroll image belt -->
@@ -809,7 +803,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room1.1.png" alt="Root room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Root</span><span class="acc-chakra">Muladhara</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Root</span><span class="acc-chakra">Muladhara</span><span class="acc-preview-desc">Double room · Large en-suite bathroom · Bathroom shelving &amp; storage · Direct garden access from room · Ground floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -821,9 +815,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/room1.4.png" alt="Root room"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,850</span><p class="accom-early">Early bird €1,650 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A double room on the ground floor with a large en-suite bathroom, direct garden access from the room, and extra storage shelving in the bathroom. Can be set up as a queen or two single beds.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,800</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€2,000</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Root&chakra=Muladhara&eb=1800&regular=2000" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -832,7 +826,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room2.1.png" alt="Sacral room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Sacral</span><span class="acc-chakra">Svadhisthana</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Sacral</span><span class="acc-chakra">Svadhisthana</span><span class="acc-preview-desc">Double room · Shared bathroom · Ground floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -844,9 +838,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath4.1.png" alt="Sacral bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,850</span><p class="accom-early">Early bird €1,650 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A double room on the ground floor with access to the shared bathroom on the main floor. Can be set up as a queen or two single beds.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Sacral&chakra=Svadhisthana&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -855,7 +849,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room3.1.png" alt="Solar Plexus room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Solar Plexus</span><span class="acc-chakra">Manipura</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Solar Plexus</span><span class="acc-chakra">Manipura</span><span class="acc-preview-desc">Sleeps 2 · Trundle bed (single + pull-out) · Shared bathroom (ground floor) · First floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -867,9 +861,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath4.2.png" alt="Solar Plexus bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,800</span><p class="accom-early">Early bird €1,600 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A room for two with a trundle bed — a single above and a pull-out mattress beneath. Shared bathroom on the ground floor.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Solar%20Plexus&chakra=Manipura&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -878,7 +872,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room4.2.jpg" alt="Heart room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Heart</span><span class="acc-chakra">Anahata</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Heart</span><span class="acc-chakra">Anahata</span><span class="acc-preview-desc">Sleeps 4 · 2x bunk beds · Private bathroom · First floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -890,9 +884,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath3.png" alt="Heart bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,800</span><p class="accom-early">Early bird €1,600 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A room with two bunk beds for four guests and a private bathroom.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,200</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,400</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Heart&chakra=Anahata&eb=1200&regular=1400" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -901,7 +895,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room5.1.png" alt="Throat room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Throat</span><span class="acc-chakra">Vishuddha</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Throat</span><span class="acc-chakra">Vishuddha</span><span class="acc-preview-desc">Double room · Private bathroom · Private balcony · First floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -913,9 +907,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath1.png" alt="Throat bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,600</span><p class="accom-early">Early bird €1,400 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A double room with a private bathroom and a balcony overlooking the land. Can be set up as a queen or two single beds.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Throat&chakra=Vishuddha&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -924,7 +918,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room6.1.png" alt="Third Eye room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Third Eye</span><span class="acc-chakra">Ajna</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Third Eye</span><span class="acc-chakra">Ajna</span><span class="acc-preview-desc">Double room · Private bathroom · No balcony · First floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -936,9 +930,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath2.png" alt="Third Eye bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,600</span><p class="accom-early">Early bird €1,400 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A double room with a private bathroom. Can be set up as a queen or two single beds.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,600</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,800</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Third%20Eye&chakra=Ajna&eb=1600&regular=1800" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -947,7 +941,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room7.1.png" alt="Crown room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Crown</span><span class="acc-chakra">Sahasrara</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Crown</span><span class="acc-chakra">Sahasrara</span><span class="acc-preview-desc">Double room · Private bathroom · Private balcony · First floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -959,9 +953,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath2.png" alt="Crown bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Bed configuration (twin or queen) can be arranged at booking.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,350</span><p class="accom-early">Early bird €1,150 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A double room with a private bathroom and a balcony open to the land. Can be set up as a queen or two single beds.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Crown&chakra=Sahasrara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -970,7 +964,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Outdoor areas/dome1.png" alt="The Dome"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Dome</span><span class="acc-chakra">Outdoor Sanctuary</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Dome</span><span class="acc-chakra">Outdoor Sanctuary</span><span class="acc-preview-desc">Outdoor dome · 2x bunk beds · Outdoor washroom · 2 showers & 2 running water toilets</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -982,9 +976,9 @@
                         <div class="room-img"><img src="Accomodation/Outdoor areas/wash-house1.3.jpg" alt="Outdoor bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">Description coming soon.</p>
-                        <p class="accom-bed-note">Private outdoor dome with en-suite outdoor bathroom.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,200</span><p class="accom-early">Early bird €1,000 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">An outdoor geodesic dome with 2x bunk beds for four people and a outdoor washroom with two showers and two toilets.</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,150</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,350</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Dome&chakra=Outdoor%20Sanctuary&eb=1150&regular=1350" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -993,7 +987,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Outdoor areas/tent1.1.jpg" alt="Camping"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Camping</span><span class="acc-chakra">Under the Trees</span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Camping</span><span class="acc-chakra">Under the Trees</span><span class="acc-preview-desc">Bring your own tent · Outdoor washroom · 2 showers & 2 running water toilets · Shaded spot among the trees</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -1005,9 +999,9 @@
                         <div class="room-img"><img src="Accomodation/Outdoor areas/wash-house1.4.jpg" alt="Shared outdoor shower"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-desc">A shaded camping space nestled among the trees, right next to the dome. Bring your own tent and settle into the land. Access to shared outdoor bathrooms.</p>
-                        <p class="accom-bed-note">Tent not provided. Shared outdoor bathroom with the dome.</p>
-                        <div class="accom-price-box"><p class="accom-price-label">Full Retreat Price</p><span class="accom-price">€1,200</span><p class="accom-early">Early bird €1,000 · ends 30 Jun</p><a href="#booking" class="btn btn-earth accom-btn">Book</a></div>
+                        <p class="accom-human-desc">A shaded outdoor camping spot among the trees with access to the outdoor washroom. Bring your own tent — or we can set one up for you (extra charges apply).</p>
+                        
+                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€800</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,000</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Camping&chakra=Under%20the%20Trees&eb=800&regular=1000" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1025,11 +1019,11 @@
             <p>Living Altar is a carefully held container. Arrive with an open heart and a willingness to go deep. The rest will be taken care of.</p>
         </div>
         <div class="practical-grid">
-            <div class="p-item"><p class="p-label">Dates</p><p class="p-value">13–17 Aug 2026</p><p class="p-sub">Arrival from 4pm · Depart by 12pm</p></div>
+            <div class="p-item"><p class="p-label">Dates</p><p class="p-value">13–17 Aug 2026</p><p class="p-sub">Arrival from 4pm · Depart by 2pm</p></div>
             <div class="p-item"><p class="p-label">Location</p><p class="p-value">Monte dos Maldonados</p><p class="p-sub"><a href="https://maps.app.goo.gl/QeiSoeLWyrieu42r6?g_st=ic" target="_blank" rel="noopener" style="color:#5F6138; border-bottom:1px solid rgba(95,97,56,.45);">📍 Casa Prema</a></p></div>
             <div class="p-item"><p class="p-label">Duration</p><p class="p-value">5 Days / 4 Nights</p><p class="p-sub">Full immersion program</p></div>
-            <div class="p-item"><p class="p-label">Group Size</p><p class="p-value">Max 20 Guests</p><p class="p-sub">Intimate · Limited spaces</p></div>
-            <div class="p-item"><p class="p-label">Food</p><p class="p-value">All Meals Included</p><p class="p-sub">Organic, vegetarian · Locally sourced</p></div>
+            <div class="p-item"><p class="p-label">Group Size</p><p class="p-value">20 Guests</p><p class="p-sub">Intimate · Limited spaces</p></div>
+            <div class="p-item"><p class="p-label">Food</p><p class="p-value">All Meals Included</p><p class="p-sub">Organic · Inclusive · Locally sourced</p></div>
             <div class="p-item"><p class="p-label">Included</p><p class="p-value">Full Program +</p><p class="p-sub">Accommodation · Meals · Activities</p></div>
         </div>
     </div>
@@ -1054,7 +1048,7 @@
     <div class="cta-overlay"></div>
     <div class="cta-inner">
         <h2 class="cta-h2">We Gather<br>We Listen<br>We Remember<br>We Return</h2>
-        <a href="#booking" class="btn btn-clay btn-lg">Reserve Your Spot</a>
+        <a href="booking.html" class="btn btn-clay btn-lg">Reserve Your Spot</a>
         <p class="cta-limit">Limited Spaces</p>
     </div>
 </section>
@@ -1069,12 +1063,10 @@
         </div>
         <div class="footer-contacts-row">
             <div class="footer-contact-item">
-                <span class="footer-contact-label">Retreat enquiries</span>
-                <a href="mailto:uxumusica@gmail.com" class="footer-contact-link">Request more info</a>
+                <a href="mailto:uxumusica@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Retreat enquiries</span></a>
             </div>
             <div class="footer-contact-item">
-                <span class="footer-contact-label">Accommodation</span>
-                <a href="mailto:renatogkoch@gmail.com" class="footer-contact-link">Contact Casa Prema</a>
+                <a href="mailto:renatogkoch@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Accommodation enquiries</span></a>
             </div>
         </div>
         <div class="footer-social">
@@ -1086,12 +1078,6 @@
     <p class="footer-copy">&copy; 2026 Living Altar · <a href="https://www.entelia.studio" target="_blank" rel="noopener">Entelia Studio</a></p>
 </footer>
 
-<button id="exp-skip" aria-label="Skip to next section">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Continue
-</button>
 
 <!-- LIGHTBOX -->
 <div id="lightbox" aria-hidden="true">
@@ -1192,6 +1178,26 @@
     window.addEventListener('load', initSanctuary);
     initSanctuary();
 
+    // Continue / skip button
+    const expSkip = document.getElementById('exp-skip');
+    const expSkipArrow = document.getElementById('exp-skip-arrow');
+    let lastScrollY = window.scrollY;
+    let scrollingDown = true;
+    if (expSkip && sanWrapper) {
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            scrollingDown = y >= lastScrollY;
+            lastScrollY = y;
+            if (expSkipArrow) expSkipArrow.style.transform = scrollingDown ? '' : 'rotate(180deg)';
+        }, { passive: true });
+        expSkip.addEventListener('click', () => {
+            const target = scrollingDown
+                ? document.getElementById('facilitators').getBoundingClientRect().top + window.scrollY
+                : document.getElementById('journey').getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: target, behavior: 'smooth' });
+        });
+    }
+
     // Smart nav
     const nav = document.getElementById('nav');
     let last = 0;
@@ -1216,30 +1222,6 @@
     }
     initAcc('journey-acc');
     initAcc('accom-acc');
-
-    // Exp-skip button — show while inside horizontal scroll section, flip on scroll direction
-    const expSkip = document.getElementById('exp-skip');
-    let lastScrollY = window.scrollY;
-    let goingUp = false;
-    function updateExpSkip() {
-        if (!sanWrapper || !expSkip) return;
-        const currentY = window.scrollY;
-        goingUp = currentY < lastScrollY;
-        lastScrollY = currentY;
-        const rect = sanWrapper.getBoundingClientRect();
-        const active = rect.top <= 0 && rect.bottom >= window.innerHeight;
-        expSkip.classList.toggle('visible', active);
-        expSkip.classList.toggle('going-up', active && goingUp);
-    }
-    window.addEventListener('scroll', updateExpSkip, { passive: true });
-    window.addEventListener('load', updateExpSkip);
-    updateExpSkip();
-    expSkip.addEventListener('click', () => {
-        const target = goingUp
-            ? document.getElementById('journey')
-            : document.getElementById('facilitators');
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
 
     // Lightbox
     const lightbox = document.getElementById('lightbox');
@@ -1291,6 +1273,12 @@
     });
     document.addEventListener('mouseover', e => {
         if (e.target.closest('.room-img')) e.target.closest('.room-img').style.cursor = 'pointer';
+    });
+</script>
+
+<script>
+    document.addEventListener('contextmenu', e => {
+        if (e.target.tagName === 'IMG') e.preventDefault();
     });
 </script>
 </body>

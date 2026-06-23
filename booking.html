@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Place — Living Altar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand: #D1B89A;
+            --clay: #B36D32;
+            --olive: #5F6138;
+            --stone: #B4A28F;
+            --earth: #4A2B08;
+            --linen: #F3EDE4;
+            --linen-dark: #E7DDD0;
+            --ocean: #3A647A;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --pad: clamp(24px, 5vw, 72px);
+            --max: 940px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--sans); background: var(--linen); color: var(--earth); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+
+        /* NAV */
+        #book-nav {
+            background: transparent;
+            padding: 18px var(--pad);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        #book-nav-back {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--linen);
+            opacity: .9;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity .2s;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+        }
+        #book-nav-back:hover { opacity: 1; }
+
+        /* HERO */
+        #book-hero {
+            position: relative;
+            overflow: hidden;
+            background: #1a0e04 url('images/Hero.jpg') center 65%/cover no-repeat;
+            padding: 0 var(--pad);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: clamp(220px, 35vw, 360px);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,5,2,0.42);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-logo {
+            width: clamp(115px, 20vw, 230px);
+            display: block;
+            margin: 0 auto;
+            filter: brightness(0) invert(1);
+            opacity: .92;
+        }
+
+        /* INNER WRAP */
+        .section-wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        /* SELECTION CARD */
+        #selection-section {
+            background: var(--linen);
+        }
+        .selection-inner {
+            padding: clamp(48px, 7vw, 80px) var(--pad);
+        }
+        .selection-grid {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 56px;
+            align-items: start;
+        }
+        .selection-right {
+            width: fit-content;
+        }
+        .bed-pref-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); margin-bottom: 10px; }
+        .bed-options { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+        .bed-note { font-size: 13px; color: var(--earth); opacity: .7; letter-spacing: .01em; }
+        .booking-notice {
+            max-width: var(--max);
+            margin: 0 auto 44px;
+            background: rgba(179,109,50,.1);
+            border-left: 3px solid var(--clay);
+            border-radius: 2px;
+            padding: 18px 22px;
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--earth);
+        }
+        .booking-notice strong { font-weight: 600; }
+        .solo-note {
+            margin-top: 14px;
+            padding: 14px 18px;
+            background: rgba(179,109,50,.13);
+            border-radius: 2px;
+            font-size: 12.5px;
+            line-height: 1.65;
+            color: var(--earth);
+        }
+        .bed-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--earth);
+            opacity: .75;
+        }
+        .bed-option input[type="radio"] {
+            accent-color: var(--clay);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .bed-option:hover { opacity: 1; }
+        .selection-left .room-tag {
+            font-size: 10px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--clay);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .selection-left h2 {
+            font-size: clamp(32px, 3.5vw, 48px);
+            color: var(--earth);
+            margin-bottom: 28px;
+        }
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        .price-row + .price-row { margin-top: 8px; }
+        .price-num {
+            font-family: var(--serif);
+            font-size: 40px;
+            line-height: 1;
+            color: var(--clay);
+        }
+        .price-tag {
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--clay);
+        }
+        .price-num-reg {
+            font-family: var(--serif);
+            font-size: 40px;
+            line-height: 1;
+            color: var(--earth);
+            opacity: .28;
+        }
+        .price-tag-reg {
+            font-size: 10px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--earth);
+            opacity: .35;
+        }
+
+        .includes-heading {
+            font-size: 10px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--stone);
+            margin-bottom: 16px;
+        }
+        .includes-list { list-style: none; }
+        .includes-list li {
+            font-size: 13px;
+            color: var(--earth);
+            opacity: .72;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--linen-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .includes-list li:last-child { border-bottom: none; }
+        .includes-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--clay);
+            flex-shrink: 0;
+        }
+
+        /* INFO STRIP */
+        #info-strip {
+            background: var(--ocean);
+            padding: clamp(28px, 4vw, 44px) var(--pad);
+        }
+        .info-strip-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            gap: clamp(32px, 5vw, 64px);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .info-item { display: flex; flex-direction: column; gap: 5px; align-items: center; }
+        .info-label {
+            font-size: 9px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--linen);
+            opacity: .38;
+        }
+        .info-value {
+            font-family: var(--serif);
+            font-size: 18px;
+            color: var(--linen);
+            opacity: .82;
+        }
+
+        .form-room-name {
+            font-family: var(--serif);
+            font-size: clamp(36px, 4.5vw, 56px);
+            font-weight: 300;
+            color: var(--earth);
+            margin-bottom: 28px;
+            line-height: 1.1;
+        }
+
+        /* FORM SECTION */
+        #form-section {
+            padding: 0 var(--pad) clamp(56px, 8vw, 96px);
+            background: var(--linen);
+        }
+        .sec-heading {
+            font-family: var(--serif);
+            font-size: clamp(28px, 3vw, 40px);
+            color: var(--earth);
+            margin-bottom: 6px;
+        }
+        .sec-sub {
+            font-size: 13px;
+            color: var(--stone);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .fg { display: flex; flex-direction: column; gap: 6px; }
+        .fg.full { grid-column: 1 / -1; }
+        .fg label {
+            font-size: 9px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--stone);
+            font-weight: 500;
+        }
+        .fg label .req { color: var(--clay); }
+        .field-error {
+            display: none;
+            color: #9B3A2A;
+            font-size: 11px;
+            letter-spacing: .04em;
+            margin-top: 6px;
+        }
+        .field-error.visible { display: block; }
+        .fg input,
+        .fg textarea {
+            background: white;
+            border: 1px solid var(--linen-dark);
+            border-radius: 3px;
+            padding: 13px 15px;
+            font-family: var(--sans);
+            font-size: 14px;
+            color: var(--earth);
+            font-weight: 300;
+            outline: none;
+            width: 100%;
+            transition: border-color .2s;
+        }
+        .fg input:focus, .fg textarea:focus { border-color: var(--clay); }
+        .fg textarea { resize: vertical; min-height: 96px; }
+        .fg .helper { font-size: 11px; color: var(--stone); opacity: .7; line-height: 1.5; }
+
+        .room-readonly {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--linen-dark);
+            border: 1px solid var(--linen-dark);
+            border-radius: 3px;
+            padding: 13px 15px;
+        }
+        .room-readonly-name { font-family: var(--serif); font-size: 20px; color: var(--earth); }
+        .room-readonly-chakra { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--clay); font-weight: 700; margin-top: 2px; }
+
+        .room-preview {
+            margin-bottom: 72px;
+            border-radius: 0;
+            overflow: hidden;
+        }
+        .room-preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+        }
+        .room-preview-thumb {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nodeclare-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nodeclare-row input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: var(--clay);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .nodeclare-label {
+            font-size: 12px;
+            color: var(--stone);
+            cursor: pointer;
+        }
+
+        /* AGREEMENT */
+        #agreement-section {
+            background: #EAE0D3;
+            padding: clamp(56px, 8vw, 96px) var(--pad);
+        }
+        .agreement-scroll-box {
+            max-height: 540px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid var(--linen-dark);
+            border-radius: 4px;
+            padding: 32px 36px;
+            margin: 28px 0 8px;
+            font-size: 13px;
+            line-height: 1.88;
+            color: var(--earth);
+        }
+        .agreement-scroll-box h3 {
+            font-family: var(--serif);
+            font-size: 19px;
+            color: var(--earth);
+            margin: 28px 0 8px;
+            font-weight: 400;
+        }
+        .agreement-scroll-box h3:first-child { margin-top: 0; }
+        .agreement-scroll-box p { margin-bottom: 12px; opacity: .8; }
+        .agreement-scroll-box ul { padding-left: 18px; margin-bottom: 12px; opacity: .8; }
+        .agreement-scroll-box ul li { margin-bottom: 5px; }
+        .agreement-scroll-box strong { font-weight: 500; }
+        .scroll-hint {
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--stone);
+            opacity: .6;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .agreement-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 28px;
+        }
+        .btn-view-agreement {
+            font-family: var(--sans);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--earth);
+            background: transparent;
+            border: 1.5px solid rgba(74,43,8,.3);
+            border-radius: 100px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+        .btn-view-agreement:hover { background: var(--earth); color: var(--linen); border-color: var(--earth); }
+
+        /* AGREEMENT OVERLAY */
+        #agreement-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 600;
+            background: rgba(20,10,3,0.72);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 4vw, 48px);
+        }
+        #agreement-overlay.open { display: flex; }
+        .ag-overlay-card {
+            background: var(--linen);
+            border-radius: 6px;
+            width: 100%;
+            max-width: 720px;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 24px 72px rgba(10,5,2,0.4);
+        }
+        .ag-overlay-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            border-bottom: 1px solid var(--linen-dark);
+            flex-shrink: 0;
+        }
+        .ag-overlay-title {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--earth);
+            font-weight: 400;
+        }
+        .ag-overlay-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--stone);
+            font-size: 18px;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 3px;
+            transition: color .2s, background .2s;
+        }
+        .ag-overlay-close:hover { color: var(--earth); background: var(--linen-dark); }
+        .ag-overlay-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 32px 36px;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--earth);
+        }
+        .ag-overlay-body h3 {
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--earth);
+            margin: 28px 0 8px;
+        }
+        .ag-overlay-body h3:first-child { margin-top: 0; }
+        .ag-overlay-body p { margin-bottom: 12px; opacity: .8; }
+        .ag-overlay-body ul { padding-left: 18px; margin-bottom: 12px; opacity: .8; }
+        .ag-overlay-body ul li { margin-bottom: 5px; }
+        .ag-overlay-body strong { font-weight: 500; }
+        .ag-overlay-footer {
+            padding: 18px 28px;
+            border-top: 1px solid var(--linen-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .ag-footer-note {
+            font-size: 11px;
+            color: var(--stone);
+            opacity: .7;
+        }
+        .btn-ag-download {
+            font-family: var(--sans);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            background: var(--earth);
+            color: var(--linen);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: opacity .2s;
+            white-space: nowrap;
+        }
+        .btn-ag-download:hover { opacity: .82; }
+
+        /* SIGN SECTION */
+        #sign-section {
+            background: var(--linen);
+            padding: clamp(56px, 8vw, 96px) var(--pad);
+        }
+        .sig-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 32px;
+        }
+        .sig-field label {
+            font-size: 9px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--stone);
+            font-weight: 500;
+        }
+        .sig-input {
+            font-family: var(--serif);
+            font-size: 30px;
+            font-style: italic;
+            border: none;
+            border-bottom: 1.5px solid rgba(74,43,8,.35);
+            border-radius: 0;
+            background: transparent;
+            padding: 8px 0;
+            color: var(--earth);
+            outline: none;
+            width: 100%;
+            transition: border-color .2s;
+        }
+        .sig-input:focus { border-bottom-color: var(--earth); }
+        .sig-date {
+            font-size: 11px;
+            color: var(--stone);
+            margin-top: 4px;
+            opacity: .7;
+        }
+
+        .agree-wrap {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: var(--linen-dark);
+            border-radius: 4px;
+        }
+        .agree-wrap input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            accent-color: var(--clay);
+            cursor: pointer;
+        }
+        .agree-wrap label {
+            font-size: 13px;
+            color: var(--earth);
+            opacity: .75;
+            line-height: 1.7;
+            cursor: pointer;
+        }
+
+        .submit-row {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .btn-submit {
+            padding: 17px 48px;
+            background: var(--earth);
+            color: var(--linen);
+            border: none;
+            border-radius: 2px;
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity .25s;
+        }
+        .btn-submit:hover:not(:disabled) { opacity: .82; }
+        .btn-submit:disabled { opacity: .35; cursor: not-allowed; }
+        .submit-note {
+            font-size: 12px;
+            color: var(--earth);
+            line-height: 1.65;
+        }
+
+        /* SUCCESS OVERLAY */
+        #success-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--earth);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: var(--pad);
+        }
+        #success-overlay.show { display: flex; }
+        #success-overlay .s-label {
+            font-size: 10px;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--clay);
+            margin-bottom: 20px;
+        }
+        #success-overlay h2 {
+            font-family: var(--serif);
+            font-size: clamp(38px, 5.5vw, 64px);
+            font-weight: 300;
+            color: var(--linen);
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        #success-overlay p {
+            font-size: 15px;
+            color: var(--linen);
+            opacity: .6;
+            max-width: 640px;
+            line-height: 1.85;
+            margin-bottom: 44px;
+        }
+        .btn-download {
+            display: inline-block;
+            padding: 13px 36px;
+            border: 1.5px solid rgba(243,237,228,.4);
+            color: var(--linen);
+            background: transparent;
+            border-radius: 100px;
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .25s, color .25s, border-color .25s;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .btn-download:hover { background: var(--linen); color: var(--earth); border-color: var(--linen); }
+        .back-link {
+            display: block;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--linen);
+            opacity: .35;
+            text-decoration: none;
+            transition: opacity .2s;
+            margin-top: 4px;
+        }
+        .back-link:hover { opacity: .7; }
+
+        /* ROOM PICKER */
+        #room-picker { display: none; }
+        body.picker-mode #room-picker { display: block; }
+        body.picker-mode #book-hero,
+        body.picker-mode #selection-section,
+        body.picker-mode #form-section,
+        body.picker-mode #agreement-section,
+        body.picker-mode #sign-section { display: none; }
+
+        .rp-header {
+            background: #3A3D22;
+            padding: 0 var(--pad);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: clamp(220px, 35vw, 360px);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .rp-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 300;
+            color: var(--linen);
+            margin: 16px 0 10px;
+        }
+        .rp-sub {
+            font-size: 14px;
+            color: var(--linen);
+            opacity: .5;
+            letter-spacing: .03em;
+        }
+        .rp-list-wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: clamp(36px, 5vw, 64px) var(--pad) clamp(56px, 8vw, 96px);
+        }
+        #rooms-list {
+            border: 1px solid var(--linen-dark);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .rp-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--linen-dark);
+            cursor: pointer;
+            background: white;
+            transition: background .15s;
+            position: relative;
+        }
+        .rp-card:last-child { border-bottom: none; }
+        .rp-card:hover { background: var(--linen); }
+        .rp-card.selected { background: var(--linen-dark); box-shadow: inset 4px 0 0 var(--clay); }
+        .rp-radio { position: absolute; opacity: 0; pointer-events: none; }
+        .rp-thumb-wrap {
+            width: 88px;
+            height: 66px;
+            flex-shrink: 0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .rp-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .rp-info { flex: 1; min-width: 0; }
+        .rp-chakra {
+            font-size: 9px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--clay);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .rp-name {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--earth);
+            line-height: 1.15;
+            margin-bottom: 4px;
+        }
+        .rp-desc {
+            font-size: 12px;
+            color: var(--stone);
+            opacity: .8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .rp-price {
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .rp-eb-price {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--clay);
+            line-height: 1.1;
+        }
+        .rp-reg-price {
+            font-family: var(--serif);
+            font-size: 16px;
+            color: var(--earth);
+            opacity: .28;
+        }
+        .rp-price-tag {
+            font-family: var(--sans);
+            font-size: 9px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .rp-selector {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(74,43,8,.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color .15s;
+        }
+        .rp-card.selected .rp-selector {
+            background: var(--clay);
+            border-color: var(--clay);
+        }
+        .rp-card.selected .rp-selector::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        .rp-foot {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 680px) {
+            .selection-grid { grid-template-columns: 1fr; gap: 36px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .fg.full { grid-column: 1; }
+            .info-strip-inner { gap: 24px; }
+            .rp-card { gap: 12px; padding: 14px 16px; }
+            .rp-thumb-wrap { width: 60px; height: 46px; }
+            .rp-desc { display: none; }
+            .rp-price { display: none; }
+        }
+
+        /* FOOTER */
+        footer { background: #251D10; color: var(--linen); padding: 64px clamp(24px, 5vw, 80px) 30px; }
+        .footer-in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; justify-items: center; column-gap: 72px; }
+        .footer-logo-wrap { flex-shrink: 0; justify-self: start; }
+        .footer-logo-wrap img { display: block; }
+        .footer-contacts-row { display: flex; align-items: center; justify-content: center; gap: 80px; }
+        .footer-contact-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+        .footer-contact-label { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; font-weight: 400; }
+        .footer-social { display: flex; align-items: flex-start; justify-content: flex-end; justify-self: end; gap: 32px; }
+        .footer-social a { display: inline-flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; color: #C0A987; transition: color .25s; text-decoration: none; }
+        .footer-social a:hover { color: var(--linen); }
+        .footer-social svg { width: 46px; height: 46px; display: block; }
+        .footer-social .s-name { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #C0A987; text-align: center; white-space: nowrap; }
+        .footer-copy { margin-top: 30px; text-align: center; font-size: 9px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.3); }
+        .footer-copy a { color: inherit; text-decoration: none; border-bottom: 0.5px solid currentColor; padding-bottom: 1px; transition: color .25s; }
+        .footer-copy a:hover { color: var(--linen); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="book-nav">
+    <a href="index.html" id="book-nav-back">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M8 2L3 6.5l5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to retreat
+    </a>
+</nav>
+
+<!-- ROOM PICKER (shown when arriving with no room param) -->
+<section id="room-picker">
+    <div class="rp-header">
+        <span class="label" style="color:var(--clay);">Living Altar · August 13–17, 2026</span>
+        <h1 class="rp-title">Choose Your Room</h1>
+        <p class="rp-sub">Select your accommodation below to continue.</p>
+        <p class="rp-sub" style="margin-top:6px;">Prices are per person. Need the room to yourself? Reserve both beds at a 10% discount.</p>
+    </div>
+    <div class="rp-list-wrap">
+        <div id="rooms-list"></div>
+        <div class="rp-foot">
+            <button class="btn-submit" id="picker-continue" disabled>Continue to Booking</button>
+            <p class="submit-note" id="picker-note">Select a room above to continue.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HERO -->
+<section id="book-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <img src="images/logo_white.png" alt="Living Altar" class="hero-logo">
+    </div>
+</section>
+
+<!-- SELECTION RECAP -->
+<section id="selection-section">
+    <div class="selection-inner">
+        <div class="selection-grid">
+            <div class="selection-left">
+                <p class="room-tag" id="sel-chakra">Room Selection</p>
+                <h2 id="sel-room">Your Room</h2>
+                <div class="price-row">
+                    <span class="price-num" id="sel-eb">—</span>
+                    <span class="price-tag">Early bird</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num-reg" id="sel-reg">—</span>
+                    <span class="price-tag-reg">Regular price | July 6</span>
+                </div>
+                <div id="sel-occupancy-group" style="display:none; margin-top:28px;">
+                    <p class="bed-pref-label">Booking for</p>
+                    <div class="bed-options" id="occ-opts"></div>
+                </div>
+                <div id="sel-bed-config-group" style="display:none; margin-top:20px;">
+                    <p class="bed-pref-label">Bed configuration</p>
+                    <div class="bed-options" id="bed-opts"></div>
+                </div>
+            </div>
+            <div class="selection-right">
+                <p class="includes-heading">What's included</p>
+                <ul class="includes-list">
+                    <li>5 days · 4 nights at Casa Prema, Portugal</li>
+                    <li>All ceremonies &amp; guided experiences</li>
+                    <li>Daily activities, movement &amp; integration</li>
+                    <li>Organic meals — breakfast, lunch &amp; dinner</li>
+                    <li>Accommodation as selected</li>
+                    <li>Full facilitation &amp; on-site support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PERSONAL DETAILS -->
+<section id="form-section">
+    <div class="section-wrap">
+        <div class="room-preview" id="room-preview" style="display:none;">
+            <div class="room-preview-grid" id="room-preview-grid"></div>
+        </div>
+        <h2 class="sec-heading">Your Details</h2>
+        <p class="sec-sub">All information is held in strict confidence and used only for your booking.</p>
+
+        <div class="form-grid" id="form-fields">
+            <input type="hidden" id="f-occupancy" name="Occupancy" value="">
+            <input type="hidden" id="f-bed-pref" name="Bed Configuration" value="">
+            <div class="fg">
+                <label for="f-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="f-name" placeholder="As on your passport" required>
+            </div>
+            <div class="fg">
+                <label for="f-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="f-email" placeholder="you@example.com" required>
+            </div>
+            <div class="fg">
+                <label for="f-phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="f-phone" placeholder="+1 234 567 8900" required>
+            </div>
+            <div class="fg">
+                <label for="f-whatsapp">WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" id="f-whatsapp" placeholder="+1 234 567 8900">
+                <div class="nodeclare-row" style="margin-top:10px;">
+                    <input type="checkbox" id="f-wa-same" class="nodeclare-cb">
+                    <label for="f-wa-same" class="nodeclare-label">Same as my phone number</label>
+                </div>
+            </div>
+            <div class="fg">
+                <label for="f-country">Nationality <span class="req">*</span></label>
+                <input type="text" id="f-country" placeholder="e.g. United Kingdom" required>
+            </div>
+            <div class="fg">
+                <label for="f-residency">Country of Residency <span class="req">*</span></label>
+                <input type="text" id="f-residency" placeholder="e.g. United Arab Emirates" required>
+            </div>
+            <div class="fg full">
+                <label for="f-diet">Dietary Requirements <span class="req">*</span></label>
+                <input type="text" id="f-diet" placeholder="e.g. Vegan, gluten-free, nut allergy…">
+                <div class="nodeclare-row" style="margin-top:10px;">
+                    <input type="checkbox" id="f-nodiet" class="nodeclare-cb">
+                    <label for="f-nodiet" class="nodeclare-label">No dietary requirements</label>
+                </div>
+            </div>
+            <div class="fg full">
+                <label for="f-health">Health &amp; Medical Notes <span class="req">*</span></label>
+                <textarea id="f-health" placeholder="Please share anything relevant to your health or wellbeing that we should be aware of. This is kept strictly confidential."></textarea>
+                <div class="nodeclare-row" style="margin-top:10px;">
+                    <input type="checkbox" id="f-nodeclare" class="nodeclare-cb">
+                    <label for="f-nodeclare" class="nodeclare-label">Nothing to declare</label>
+                </div>
+                <span class="helper">This information is confidential and used solely to ensure your safety and comfort during the retreat.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING AGREEMENT -->
+<section id="agreement-section">
+    <div class="section-wrap">
+        <h2 class="sec-heading">Booking Agreement</h2>
+        <p class="sec-sub">Please read the following agreement in full before signing.</p>
+
+        <div class="agreement-scroll-box" id="agreement-box">
+            <h3>Living Altar Retreat — Booking Agreement</h3>
+            <p>August 13–17, 2026 · Casa Prema, Portugal</p>
+            <p>This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.</p>
+
+            <h3>1. Booking Confirmation</h3>
+            <p>This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.</p>
+
+            <h3>2. Pricing &amp; Payment</h3>
+            <p>Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.</p>
+            <ul>
+                <li>A non-refundable deposit of 30% of the total booking fee is required to confirm your place.</li>
+                <li>The remaining balance is due no later than July 20, 2026.</li>
+                <li>All payments are made in EUR via bank transfer. Payment details will be provided upon confirmation of your booking.</li>
+                <li>The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.</li>
+            </ul>
+
+            <h3>3. Cancellation Policy</h3>
+            <ul>
+                <li><strong>Before July 1, 2026:</strong> Deposit forfeited; any remaining balance paid is refunded in full.</li>
+                <li><strong>July 1 – July 31, 2026:</strong> 50% of the total booking fee is forfeited.</li>
+                <li><strong>August 1, 2026 and beyond:</strong> No refund is available.</li>
+            </ul>
+            <p>The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.</p>
+
+            <h3>4. Health &amp; Wellbeing</h3>
+            <p>The Participant confirms that they are in good mental and physical health and are capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this booking form.</p>
+            <p>Some experiences within the retreat programme may be emotionally or physically intensive in nature. Participation in any individual activity is always voluntary. The Organiser and its facilitators reserve the right to ask a Participant to refrain from specific activities if it is considered that participation could pose a risk to their wellbeing or the wellbeing of others.</p>
+            <p>The Participant is responsible for consulting their own healthcare professional prior to attending, particularly if they have any concerns about their health or suitability for the programme.</p>
+
+            <h3>5. Conduct &amp; Community</h3>
+            <p>The Participant agrees to engage with the retreat and the broader community with respect, openness, and care for others. The Organiser reserves the right to ask any participant to leave the retreat if their conduct is deemed harmful, disruptive, or contrary to the spirit and intention of the space — without refund.</p>
+
+            <h3>6. Liability</h3>
+            <p>The Organiser accepts no liability for loss, theft, or damage to personal belongings during the retreat. The Participant is responsible for arranging adequate travel and health insurance, including trip cancellation coverage. Participation in all activities is undertaken at the Participant's own risk.</p>
+
+            <h3>7. Photography &amp; Media</h3>
+            <p>The Organiser may photograph or film aspects of the retreat for documentary or promotional purposes. The Participant may opt out of appearing in any media at any time by informing the Organiser or the facilitators directly. Media featuring participants who have opted out will not be published or distributed.</p>
+
+            <h3>8. Confidentiality</h3>
+            <p>All personal information shared as part of this booking — and all experiences shared within the retreat space — is held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.</p>
+
+            <h3>9. Governing Agreement</h3>
+            <p>By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.</p>
+        </div>
+        <p class="scroll-hint" id="scroll-hint">Scroll to read the full agreement</p>
+        <div class="agreement-actions">
+            <button class="btn-view-agreement" id="view-agreement-btn">View Full Agreement</button>
+        </div>
+    </div>
+</section>
+
+<!-- AGREEMENT OVERLAY -->
+<div id="agreement-overlay">
+    <div class="ag-overlay-card">
+        <div class="ag-overlay-header">
+            <span class="ag-overlay-title">Booking Agreement</span>
+            <button class="ag-overlay-close" id="ag-overlay-close" aria-label="Close">✕</button>
+        </div>
+        <div class="ag-overlay-body" id="ag-overlay-body"></div>
+        <div class="ag-overlay-footer">
+            <span class="ag-footer-note">Living Altar · August 13–17, 2026 · Casa Prema, Portugal</span>
+            <button class="btn-ag-download" id="ag-download-btn">Download PDF</button>
+        </div>
+    </div>
+</div>
+
+<!-- SIGN & SUBMIT -->
+<section id="sign-section">
+    <div class="section-wrap">
+        <h2 class="sec-heading">Sign &amp; Submit</h2>
+        <p class="sec-sub">Type your full name below as your digital signature. This confirms your agreement to the terms above.</p>
+
+        <div class="sig-field">
+            <label for="sig-name">Your Signature</label>
+            <input type="text" class="sig-input" id="sig-name" placeholder="Type your full name" autocomplete="off" spellcheck="false">
+            <span class="sig-date" id="sig-date"></span>
+        </div>
+
+        <div class="agree-wrap">
+            <input type="checkbox" id="agree-cb">
+            <label for="agree-cb">I have read and fully agree to the Living Altar Booking Agreement above. I understand that submitting this form constitutes a binding booking request, subject to the payment and cancellation terms described.</label>
+        </div>
+
+        <div class="submit-row">
+            <button class="btn-submit" id="submit-btn">Complete Booking Request</button>
+            <p class="submit-note">
+                You will receive a copy of your signed agreement by email.<br>
+                We'll be in touch within 48 hours to confirm your place and arrange payment.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- SUCCESS OVERLAY -->
+<div id="success-overlay">
+    <span class="s-label">Booking Request Received</span>
+    <h2>Thank you, <span id="s-name" style="color:var(--clay);"></span></h2>
+    <p>Your booking request for <strong id="s-room" style="font-weight:400;"></strong> at the Living Altar has been submitted and we'll be in touch within 48 hours to confirm your place and arrange payment.</p>
+    <button class="btn-download" id="download-btn">Download Your Booking Details</button>
+    <a href="index.html" class="back-link">Back to the retreat</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    // ── URL PARAMS ──────────────────────────────────────────────
+    const p       = new URLSearchParams(window.location.search);
+    const hasRoom = !!p.get('room');
+    let room    = p.get('room')    || '';
+    let chakra  = p.get('chakra') || '';
+    let eb      = p.get('eb')     || '';
+    let regular = p.get('regular') || '';
+
+    const fmtPrice = v => v ? '€' + Number(v).toLocaleString('en-EU') : '—';
+
+    // ── ALL ROOMS DATA ───────────────────────────────────────────
+    const allRooms = [
+        { name: 'Root',        chakra: 'Muladhara',        eb: 1800, regular: 2000, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Large en-suite bathroom · Direct garden access · Ground floor',       images: ['Accomodation/Rooms/room1.1.png','Accomodation/Rooms/room1.2.png','Accomodation/Rooms/room1.3.png','Accomodation/Rooms/room1.4.png'] },
+        { name: 'Sacral',      chakra: 'Svadhisthana',     eb: 1400, regular: 1600, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Shared bathroom · Ground floor',                                      images: ['Accomodation/Rooms/room2.1.png','Accomodation/Rooms/room2.2.png','Accomodation/Rooms/room2.3.png','Accomodation/Rooms/bath4.1.png'] },
+        { name: 'Solar Plexus',chakra: 'Manipura',         eb: 1400, regular: 1600, bedChoice: false, maxOccupancy: 2, desc: 'Sleeps 2 · Trundle bed (single + pull-out) · Shared bathroom · First floor',       images: ['Accomodation/Rooms/room3.1.png','Accomodation/Rooms/room3.2.png','Accomodation/Rooms/bath4.1.png','Accomodation/Rooms/bath4.2.png'] },
+        { name: 'Heart',       chakra: 'Anahata',          eb: 1200, regular: 1400, bedChoice: false, maxOccupancy: 4, desc: 'Sleeps 4 · 2x bunk beds · Private bathroom · First floor',                         images: ['Accomodation/Rooms/room4.2.jpg','Accomodation/Rooms/room4.3.jpg','Accomodation/Rooms/room4.1.png','Accomodation/Rooms/bath3.png'] },
+        { name: 'Throat',      chakra: 'Vishuddha',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room5.1.png','Accomodation/Rooms/room5.2.png','Accomodation/Rooms/room5.3.jpg','Accomodation/Rooms/bath1.png'] },
+        { name: 'Third Eye',   chakra: 'Ajna',             eb: 1600, regular: 1800, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · No balcony · First floor',                        images: ['Accomodation/Rooms/room6.1.png','Accomodation/Rooms/room6.2.png','Accomodation/Rooms/room6.3.png','Accomodation/Rooms/bath2.png'] },
+        { name: 'Crown',       chakra: 'Sahasrara',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Private bathroom · Private balcony · First floor',                   images: ['Accomodation/Rooms/room7.1.png','Accomodation/Rooms/room7.2.png','Accomodation/Rooms/room7.3.png','Accomodation/Rooms/bath2.png'] },
+        { name: 'Dome',        chakra: 'Outdoor Sanctuary',eb: 1150, regular: 1350, bedChoice: false, maxOccupancy: 4, desc: 'Outdoor dome · 2x bunk beds · Outdoor washroom · 2 showers & toilets',             images: ['Accomodation/Outdoor areas/dome1.png','Accomodation/Outdoor areas/dome2.jpg','Accomodation/Outdoor areas/wash-house1.1.png','Accomodation/Outdoor areas/wash-house1.3.jpg'] },
+        { name: 'Camping',     chakra: 'Under the Trees',  eb:  800, regular: 1000, bedChoice: false, maxOccupancy: 2, campingMode: true, desc: 'Bring your own tent · Outdoor washroom · Shaded spot among the trees',             images: ['Accomodation/Outdoor areas/tent1.1.jpg','Accomodation/Outdoor areas/tent1.2.jpg','Accomodation/Outdoor areas/wash-house1.2.png','Accomodation/Outdoor areas/wash-house1.4.jpg'] },
+    ];
+
+    // ── BOOKING FLOW INIT ────────────────────────────────────────
+    function initBookingFlow() {
+        const roomData = allRooms.find(r => r.name === room);
+        const imgs = roomData ? roomData.images : [];
+
+        // Room preview — 2×2 grid at top of form section
+        if (imgs.length) {
+            const grid = document.getElementById('room-preview-grid');
+            grid.innerHTML = '';
+            grid.style.gridTemplateColumns = '1fr 1fr';
+            imgs.forEach(src => {
+                const img = document.createElement('img');
+                img.className = 'room-preview-thumb';
+                img.src = src;
+                img.alt = room + ' room';
+                grid.appendChild(img);
+            });
+            document.getElementById('room-preview').style.display = 'block';
+        }
+
+        // Populate displays
+        document.getElementById('sel-chakra').textContent       = chakra || 'Room Selection';
+        document.getElementById('sel-room').textContent         = room;
+        document.getElementById('sel-eb').textContent           = fmtPrice(eb);
+        document.getElementById('sel-reg').textContent          = fmtPrice(regular);
+
+        // Occupancy + bed configuration (in selection section, mirrors to hidden form inputs)
+        const roomHasBedChoice = roomData && roomData.bedChoice;
+        const occGroup  = document.getElementById('sel-occupancy-group');
+        const bedGroup  = document.getElementById('sel-bed-config-group');
+        const bedOpts   = document.getElementById('bed-opts');
+        const hiddenOcc = document.getElementById('f-occupancy');
+        const hiddenBed = document.getElementById('f-bed-pref');
+
+        // Always show occupancy question
+        occGroup.style.display = '';
+
+        // Build occupancy options based on room capacity
+        const maxOcc    = roomData ? (roomData.maxOccupancy || 2) : 2;
+        const isCamping = roomData && roomData.campingMode;
+        const occOpts   = document.getElementById('occ-opts');
+        const occLabel  = occGroup.querySelector('.bed-pref-label');
+
+        if (isCamping) {
+            if (occLabel) occLabel.textContent = 'Your setup';
+            occOpts.innerHTML = `
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Bringing own equipment" id="occ-own"><span>I'm bringing my own equipment</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Ready setup" id="occ-ready"><span>I'd like a ready setup</span></label>
+            `;
+        } else if (maxOcc >= 4) {
+            occOpts.innerHTML = `
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Solo — shared room" id="occ-solo"><span>Solo (shared room)</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Two people" id="occ-two"><span>Two people</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Three people" id="occ-three"><span>Three people</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Four people" id="occ-four"><span>Four people</span></label>
+            `;
+        } else {
+            occOpts.innerHTML = `
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Solo — shared room" id="occ-solo"><span>Solo (shared room)</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Solo — private room" id="occ-solo-private"><span>Solo (private room)</span></label>
+                <label class="bed-option"><input type="radio" name="Occupancy" value="Two people" id="occ-two"><span>Two people</span></label>
+            `;
+        }
+
+        // Base prices for multiplying
+        const ebBase  = Number(eb);
+        const regBase = Number(regular);
+
+        function updatePrices(multiplier) {
+            const val = Math.round(ebBase * multiplier);
+            const valReg = Math.round(regBase * multiplier);
+            document.getElementById('sel-eb').textContent  = fmtPrice(String(val));
+            document.getElementById('sel-reg').textContent = fmtPrice(String(valReg));
+            const tag    = document.querySelector('.price-tag');
+            const tagReg = document.querySelector('.price-tag-reg');
+            if (multiplier === 1.8) {
+                tag.textContent    = 'Early bird · Private room (10% off)';
+                tagReg.textContent = 'Regular · Private room (10% off) | July 6';
+            } else if (multiplier === 2) {
+                tag.textContent    = 'Early bird · 2 people';
+                tagReg.textContent = 'Regular price · 2 people | July 6';
+            } else if (multiplier === 3) {
+                tag.textContent    = 'Early bird · 3 people';
+                tagReg.textContent = 'Regular price · 3 people | July 6';
+            } else if (multiplier === 4) {
+                tag.textContent    = 'Early bird · 4 people';
+                tagReg.textContent = 'Regular price · 4 people | July 6';
+            } else {
+                tag.textContent    = 'Early bird · Per person';
+                tagReg.textContent = 'Regular price · Per person | July 6';
+            }
+            // Keep eb / regular in sync so form & PDF use the right figure
+            eb      = String(val);
+            regular = String(valReg);
+        }
+
+        function getSoloNote() {
+            let note = document.getElementById('sel-solo-note');
+            if (!note) {
+                note = document.createElement('div');
+                note.id        = 'sel-solo-note';
+                note.className = 'solo-note';
+                occGroup.after(note);
+            }
+            return note;
+        }
+
+        function updateBedConfig(occValue) {
+            if (hiddenOcc) hiddenOcc.value = occValue;
+            const soloNote = getSoloNote();
+
+            if (occValue === 'Solo — private room') {
+                // Full room for one person — 2 beds × 0.9
+                updatePrices(1.8);
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = 'Solo — full room';
+                soloNote.innerHTML = 'You will have this room entirely to yourself. The price shown reflects the full room rate.';
+                soloNote.style.display = '';
+
+            } else if (occValue === 'Solo — shared room') {
+                // Single bed, may share
+                updatePrices(1);
+                soloNote.innerHTML = 'You are reserving a bed in this room, not the room exclusively. Depending on availability, you may share the space with other participants.';
+                soloNote.style.display = '';
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = roomHasBedChoice ? 'Single bed' : '';
+
+            } else if (occValue === 'Bringing own equipment') {
+                updatePrices(1);
+                soloNote.style.display = 'none';
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = '';
+
+            } else if (occValue === 'Ready setup') {
+                updatePrices(1);
+                soloNote.innerHTML = 'A ready setup is available at an additional cost. We will reach out after your booking to confirm the details.';
+                soloNote.style.display = '';
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = 'Ready setup';
+
+            } else if (occValue === 'Three people') {
+                updatePrices(3);
+                soloNote.style.display = 'none';
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = '';
+
+            } else if (occValue === 'Four people') {
+                updatePrices(4);
+                soloNote.style.display = 'none';
+                bedGroup.style.display = 'none';
+                if (hiddenBed) hiddenBed.value = '';
+
+            } else {
+                // Two people
+                updatePrices(2);
+                soloNote.style.display = 'none';
+                if (roomHasBedChoice) {
+                    bedGroup.style.display = '';
+                    bedOpts.innerHTML = `
+                        <label class="bed-option">
+                            <input type="radio" name="bed_config" value="Queen Bed" checked>
+                            <span>Queen Bed</span>
+                        </label>
+                        <label class="bed-option">
+                            <input type="radio" name="bed_config" value="Two Single Beds">
+                            <span>Two Single Beds</span>
+                        </label>`;
+                    if (hiddenBed) hiddenBed.value = 'Queen Bed';
+                    bedOpts.querySelectorAll('input[name="bed_config"]').forEach(r => {
+                        r.addEventListener('change', () => {
+                            if (hiddenBed) hiddenBed.value = r.value;
+                        });
+                    });
+                } else {
+                    bedGroup.style.display = 'none';
+                    if (hiddenBed) hiddenBed.value = '';
+                }
+            }
+        }
+
+        document.querySelectorAll('input[name="Occupancy"]').forEach(radio => {
+            radio.addEventListener('change', () => updateBedConfig(radio.value));
+            radio.addEventListener('change', () => groupErr('sel-occupancy-group', ''));
+        });
+    }
+
+    // ── ROOM PICKER INIT ─────────────────────────────────────────
+    function initPicker() {
+        document.body.classList.add('picker-mode');
+        const list = document.getElementById('rooms-list');
+
+        allRooms.forEach(r => {
+            const lbl = document.createElement('label');
+            lbl.className = 'rp-card';
+            lbl.innerHTML = `
+                <input type="radio" name="room-pick" value="${r.name}" class="rp-radio">
+                <div class="rp-thumb-wrap"><img class="rp-thumb" src="${r.images[0]}" alt="${r.name}"></div>
+                <div class="rp-info">
+                    <span class="rp-chakra">${r.chakra}</span>
+                    <div class="rp-name">${r.name}</div>
+                    <div class="rp-desc">${r.desc}</div>
+                </div>
+                <div class="rp-price">
+                    <div class="rp-eb-price">${fmtPrice(String(r.eb))}<span class="rp-price-tag"> Early bird</span></div>
+                    <div class="rp-reg-price">${fmtPrice(String(r.regular))}<span class="rp-price-tag"> from July 6</span></div>
+                </div>
+                <div class="rp-selector"></div>
+            `;
+            list.appendChild(lbl);
+        });
+
+        const continueBtn = document.getElementById('picker-continue');
+
+        document.querySelectorAll('.rp-radio').forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.querySelectorAll('.rp-card').forEach(c => c.classList.remove('selected'));
+                radio.closest('.rp-card').classList.add('selected');
+                continueBtn.disabled = false;
+                document.getElementById('picker-note').textContent = radio.value + ' selected. Ready to continue.';
+            });
+        });
+
+        continueBtn.addEventListener('click', () => {
+            const selected = document.querySelector('.rp-radio:checked');
+            if (!selected) return;
+            const r = allRooms.find(x => x.name === selected.value);
+            if (!r) return;
+
+            room    = r.name;
+            chakra  = r.chakra;
+            eb      = String(r.eb);
+            regular = String(r.regular);
+
+            document.body.classList.remove('picker-mode');
+            document.getElementById('room-picker').style.display = 'none';
+            initBookingFlow();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ── BRANCH: PICKER OR DIRECT ─────────────────────────────────
+    if (hasRoom) {
+        document.getElementById('room-picker').style.display = 'none';
+        initBookingFlow();
+    } else {
+        initPicker();
+    }
+
+    // ── DATE ─────────────────────────────────────────────────────
+    const today  = new Date();
+    const dateStr = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('sig-date').textContent = dateStr;
+
+    // ── AGREEMENT OVERLAY ───────────────────────────────────────
+    const agOverlay   = document.getElementById('agreement-overlay');
+    const agBody      = document.getElementById('ag-overlay-body');
+    const agSource    = document.getElementById('agreement-box');
+
+    document.getElementById('view-agreement-btn').addEventListener('click', () => {
+        // Mirror agreement content into overlay body
+        agBody.innerHTML = agSource.innerHTML;
+        agOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+
+    document.getElementById('ag-overlay-close').addEventListener('click', () => {
+        agOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    agOverlay.addEventListener('click', e => {
+        if (e.target === agOverlay) {
+            agOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && agOverlay.classList.contains('open')) {
+            agOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Agreement-only PDF
+    document.getElementById('ag-download-btn').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+        const M = 20, W = 170;
+        let y = 20;
+
+        const add = (text, size, style, color, gap) => {
+            doc.setFontSize(size);
+            doc.setFont('helvetica', style || 'normal');
+            doc.setTextColor(...(color || [74, 43, 8]));
+            const lines = doc.splitTextToSize(String(text), W);
+            if (y + lines.length * (size * 0.38) > 275) { doc.addPage(); y = 20; }
+            doc.text(lines, M, y);
+            y += lines.length * (size * 0.38) + (gap || 5);
+        };
+
+        const rule = (col) => {
+            doc.setDrawColor(...(col || [200, 180, 160]));
+            doc.setLineWidth(0.4);
+            doc.line(M, y, 190, y);
+            y += 7;
+        };
+
+        add('LIVING ALTAR', 20, 'bold', [74, 43, 8], 4);
+        add('Booking Agreement', 12, 'normal', [150, 120, 90], 3);
+        add('August 13–17, 2026 · Casa Prema, Portugal', 10, 'normal', [150, 120, 90], 3);
+        rule([179, 109, 50]);
+
+        const sections = [
+            ['Living Altar Retreat — Booking Agreement', null],
+            ['August 13–17, 2026 · Casa Prema, Portugal', null],
+            ['This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.', null],
+            ['1. Booking Confirmation', 'heading'],
+            ['This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.', null],
+            ['2. Pricing & Payment', 'heading'],
+            ['Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.', null],
+            ['- A non-refundable deposit of 30% of the total booking fee is required to confirm your place.', null],
+            ['- The remaining balance is due no later than July 20, 2026.', null],
+            ['- All payments are made in EUR via bank transfer. Payment details will be provided upon confirmation of your booking.', null],
+            ['- The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.', null],
+            ['3. Cancellation Policy', 'heading'],
+            ['- Before July 1, 2026: Deposit forfeited; any remaining balance paid is refunded in full.', null],
+            ['- July 1 – July 31, 2026: 50% of the total booking fee is forfeited.', null],
+            ['- August 1, 2026 and beyond: No refund is available.', null],
+            ['The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.', null],
+            ['4. Health & Wellbeing', 'heading'],
+            ['The Participant confirms that they are in good mental and physical health and are capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this booking form.', null],
+            ['Some experiences within the retreat programme may be emotionally or physically intensive in nature. Participation in any individual activity is always voluntary. The Organiser and its facilitators reserve the right to ask a Participant to refrain from specific activities if it is considered that participation could pose a risk to their wellbeing or the wellbeing of others.', null],
+            ['The Participant is responsible for consulting their own healthcare professional prior to attending, particularly if they have any concerns about their health or suitability for the programme.', null],
+            ['5. Conduct & Community', 'heading'],
+            ['The Participant agrees to engage with the retreat and the broader community with respect, openness, and care for others. The Organiser reserves the right to ask any participant to leave the retreat if their conduct is deemed harmful, disruptive, or contrary to the spirit and intention of the space — without refund.', null],
+            ['6. Liability', 'heading'],
+            ['The Organiser accepts no liability for loss, theft, or damage to personal belongings during the retreat. The Participant is responsible for arranging adequate travel and health insurance, including trip cancellation coverage. Participation in all activities is undertaken at the Participant\'s own risk.', null],
+            ['7. Photography & Media', 'heading'],
+            ['The Organiser may photograph or film aspects of the retreat for documentary or promotional purposes. The Participant may opt out of appearing in any media at any time by informing the Organiser or the facilitators directly. Media featuring participants who have opted out will not be published or distributed.', null],
+            ['8. Confidentiality', 'heading'],
+            ['All personal information shared as part of this booking — and all experiences shared within the retreat space — is held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.', null],
+            ['9. Governing Agreement', 'heading'],
+            ['By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.', null],
+        ];
+
+        sections.forEach(([text, type]) => {
+            if (type === 'heading') {
+                add(text, 13, 'bold', [74, 43, 8], 3);
+            } else {
+                add(text, 10, 'normal', [74, 43, 8], 5);
+            }
+        });
+
+        doc.save('Living-Altar-Booking-Agreement.pdf');
+    });
+
+    // ── NOTHING TO DECLARE ──────────────────────────────────────
+    document.getElementById('f-nodeclare').addEventListener('change', function () {
+        const ta = document.getElementById('f-health');
+        if (this.checked) {
+            ta.disabled = true;
+            ta.value = '';
+            ta.placeholder = 'Nothing to declare';
+        } else {
+            ta.disabled = false;
+            ta.placeholder = 'Please share anything relevant to your health or wellbeing that we should be aware of. This is kept strictly confidential.';
+        }
+    });
+
+    // ── WHATSAPP SAME AS PHONE ───────────────────────────────────
+    const waInput  = document.getElementById('f-whatsapp');
+    const waSameCb = document.getElementById('f-wa-same');
+    const phoneInput = document.getElementById('f-phone');
+
+    waSameCb.addEventListener('change', function () {
+        if (this.checked) {
+            waInput.value = phoneInput.value;
+            waInput.disabled = true;
+            clearErr(waInput);
+        } else {
+            waInput.disabled = false;
+        }
+    });
+
+    phoneInput.addEventListener('input', function () {
+        if (waSameCb.checked) waInput.value = this.value;
+    });
+
+    document.getElementById('f-nodiet').addEventListener('change', function () {
+        const inp = document.getElementById('f-diet');
+        if (this.checked) {
+            inp.disabled = true;
+            inp.value = '';
+            inp.placeholder = 'No dietary requirements';
+        } else {
+            inp.disabled = false;
+            inp.placeholder = 'e.g. Vegan, gluten-free, nut allergy…';
+        }
+    });
+
+    // ── VALIDATION ───────────────────────────────────────────────
+    const sigInput  = document.getElementById('sig-name');
+    const agreeCb   = document.getElementById('agree-cb');
+    const submitBtn = document.getElementById('submit-btn');
+
+    function fieldErr(el, msg) {
+        const parent = el.closest('.fg, .sig-field, .agree-wrap') || el.parentNode;
+        let err = parent.querySelector('.field-error');
+        if (!err) {
+            err = document.createElement('span');
+            err.className = 'field-error';
+            parent.appendChild(err);
+        }
+        err.textContent = msg;
+        err.classList.add('visible');
+    }
+
+    function clearErr(el) {
+        const parent = el.closest('.fg, .sig-field, .agree-wrap') || el.parentNode;
+        const err = parent.querySelector('.field-error');
+        if (err) err.classList.remove('visible');
+    }
+
+    function groupErr(groupId, msg) {
+        const group = document.getElementById(groupId);
+        let err = group.querySelector(':scope > .field-error');
+        if (!err) {
+            err = document.createElement('span');
+            err.className = 'field-error';
+            group.appendChild(err);
+        }
+        if (msg) { err.textContent = msg; err.classList.add('visible'); }
+        else      { err.classList.remove('visible'); }
+    }
+
+    function validate() {
+        let valid = true;
+
+        // 1 — Occupancy
+        const occPicked = document.querySelector('input[name="Occupancy"]:checked');
+        if (!occPicked) {
+            groupErr('sel-occupancy-group', 'Please select how many people are booking.');
+            valid = false;
+        } else {
+            groupErr('sel-occupancy-group', '');
+        }
+
+        // 2 — Bed configuration (only when visible)
+        const bedCfgGroup = document.getElementById('sel-bed-config-group');
+        if (bedCfgGroup && bedCfgGroup.style.display !== 'none') {
+            const bedPicked = document.querySelector('input[name="bed_config"]:checked');
+            if (!bedPicked) {
+                groupErr('sel-bed-config-group', 'Please choose your bed configuration.');
+                valid = false;
+            } else {
+                groupErr('sel-bed-config-group', '');
+            }
+        }
+
+        // 3 — Required text inputs
+        const required = [
+            { id: 'f-name',      msg: 'Full name is required.' },
+            { id: 'f-email',     msg: 'Email address is required.' },
+            { id: 'f-country',   msg: 'Nationality is required.' },
+            { id: 'f-residency', msg: 'Country of residency is required.' },
+        ];
+        required.forEach(({ id, msg }) => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) { fieldErr(el, msg); valid = false; }
+            else clearErr(el);
+        });
+
+        // Phone — required + format check
+        const phoneEl = document.getElementById('f-phone');
+        if (!phoneEl.value.trim()) {
+            fieldErr(phoneEl, 'Phone number is required.');
+            valid = false;
+        } else if (!validatePhoneField(phoneEl)) {
+            valid = false;
+        }
+
+        // 4 — WhatsApp
+        const waEl = document.getElementById('f-whatsapp');
+        const waSame = document.getElementById('f-wa-same').checked;
+        if (!waSame) {
+            if (!waEl.value.trim()) {
+                fieldErr(waEl, 'WhatsApp number is required, or tick "Same as my phone number".');
+                valid = false;
+            } else if (!validatePhoneField(waEl)) {
+                valid = false;
+            }
+        } else { clearErr(waEl); }
+
+        // 5 — Dietary
+        const dietEl = document.getElementById('f-diet');
+        if (!dietEl.value.trim() && !document.getElementById('f-nodiet').checked) {
+            fieldErr(dietEl, 'Please enter your dietary requirements or tick "No dietary requirements".');
+            valid = false;
+        } else { clearErr(dietEl); }
+
+        // 6 — Health
+        const healthEl = document.getElementById('f-health');
+        if (!healthEl.value.trim() && !document.getElementById('f-nodeclare').checked) {
+            fieldErr(healthEl, 'Please share any health notes or tick "Nothing to declare".');
+            valid = false;
+        } else { clearErr(healthEl); }
+
+        // 8 — Signature
+        if (!sigInput.value.trim() || sigInput.value.trim().length < 2) {
+            fieldErr(sigInput, 'Please sign your name to complete the booking.');
+            valid = false;
+        } else { clearErr(sigInput); }
+
+        // 9 — Agreement
+        if (!agreeCb.checked) {
+            fieldErr(agreeCb, 'You must agree to the booking terms to continue.');
+            valid = false;
+        } else { clearErr(agreeCb); }
+
+        if (!valid) {
+            const first = document.querySelector('.field-error.visible');
+            if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        return valid;
+    }
+
+    // ── PHONE VALIDATION ─────────────────────────────────────────
+    function phoneError(value) {
+        const cleaned = value.replace(/[\s\-().]/g, '');
+        if (!cleaned) return null; // handled by required check
+        if (!cleaned.startsWith('+'))
+            return 'Please include your country code — e.g. +971, +44, +1.';
+        const digits = cleaned.slice(1);
+        if (!/^\d+$/.test(digits))
+            return 'Phone number should only contain digits, spaces, or hyphens after the + sign.';
+        if (digits.length < 7)
+            return 'This number looks too short. Please check it.';
+        if (digits.length > 15)
+            return 'This number looks too long — you may have an extra digit.';
+        // Extra-zero trap: +[1–3 digit country code] immediately followed by 0
+        if (/^\+\d{1,3}0\d/.test(cleaned))
+            return 'It looks like there\'s an extra 0 after the country code. Try removing it — e.g. +44 7911… not +44 07911…';
+        return null;
+    }
+
+    function validatePhoneField(el) {
+        const err = phoneError(el.value.trim());
+        if (err) { fieldErr(el, err); return false; }
+        clearErr(el);
+        return true;
+    }
+
+    // Live phone check on blur
+    ['f-phone','f-whatsapp'].forEach(id => {
+        const el = document.getElementById(id);
+        el.addEventListener('blur', function () {
+            if (this.value.trim() && !this.disabled) validatePhoneField(this);
+        });
+        el.addEventListener('input', function () { clearErr(this); });
+    });
+
+    // Clear errors on interaction
+    ['f-name','f-email','f-country','f-residency'].forEach(id => {
+        document.getElementById(id).addEventListener('input', function(){ clearErr(this); });
+    });
+    sigInput.addEventListener('input', function(){ clearErr(this); });
+    agreeCb.addEventListener('change', function(){ clearErr(this); });
+    // Occupancy error clearing now handled inside initBookingFlow after dynamic render
+
+    // Scroll hint
+    const agBox = document.getElementById('agreement-box');
+    const hint  = document.getElementById('scroll-hint');
+    agBox.addEventListener('scroll', () => {
+        if (agBox.scrollTop + agBox.clientHeight >= agBox.scrollHeight - 20) {
+            hint.style.opacity = '0';
+        }
+    });
+
+    // ── PDF GENERATION ──────────────────────────────────────────
+    let pdfBlob = null;
+
+    async function buildPDF() {
+        const logoData = 'data:image/png;base64,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';
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+        const M = 16, W = 178;
+        let y = 22;
+
+        const add = (text, size, style, color, gap) => {
+            doc.setFontSize(size);
+            doc.setFont('helvetica', style || 'normal');
+            doc.setTextColor(...(color || [74, 43, 8]));
+            const lines = doc.splitTextToSize(String(text), W);
+            if (y + lines.length * (size * 0.36) > 281) { doc.addPage(); y = 22; }
+            doc.text(lines, M, y);
+            y += lines.length * (size * 0.36) + (gap !== undefined ? gap : 3);
+        };
+
+        const rule = (col, gap) => {
+            doc.setDrawColor(...(col || [210, 190, 165]));
+            doc.setLineWidth(0.3);
+            doc.line(M, y, 194, y);
+            y += (gap !== undefined ? gap : 5);
+        };
+
+        // Header — title left, logo top right
+        const logoW = 30, logoH = Math.round(30 * 645 / 887);
+        const headerStartY = y;
+        if (logoData) {
+            doc.addImage(logoData, 'PNG', 194 - logoW, headerStartY, logoW, logoH);
+        }
+        // Bottom-align: subtitle baseline sits at logo bottom
+        y = headerStartY + logoH - (15 * 0.36 + 3);
+        add('BOOKING REQUEST', 15, 'bold', [74, 43, 8], 3);
+        add('the Living Altar  ·  August 13–17, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
+        y = headerStartY + logoH + 4;
+        rule([179, 109, 50], 5);
+
+        // Participant details
+        add('PARTICIPANT DETAILS', 8, 'bold', [150, 120, 90], 4);
+
+        const priceDeadline = new Date('2026-07-06');
+        const currentPrice  = new Date() < priceDeadline ? eb : regular;
+        const priceTag      = new Date() < priceDeadline ? 'Price (early bird)' : 'Price';
+        const occupancy     = document.getElementById('f-occupancy').value || '—';
+        const bedConfig     = document.getElementById('f-bed-pref').value;
+
+        const vals = [
+            ['Full Name',             document.getElementById('f-name').value],
+            ['Email Address',         document.getElementById('f-email').value],
+            ['Phone Number',          document.getElementById('f-phone').value],
+            ['WhatsApp',              document.getElementById('f-whatsapp').value || document.getElementById('f-phone').value],
+            ['Nationality',           document.getElementById('f-country').value],
+            ['Country of Residency',  document.getElementById('f-residency').value],
+            ['Room',                  room + (chakra ? '  ·  ' + chakra : '')],
+            ['Occupancy',             occupancy],
+            ...(bedConfig ? [['Bed Configuration', bedConfig]] : []),
+            [priceTag,                fmtPrice(currentPrice)],
+            ['Dietary Requirements',  document.getElementById('f-diet').value   || 'None stated'],
+            ['Health & Medical Notes',document.getElementById('f-health').value || 'None stated'],
+            ['Submission Date',       dateStr],
+        ];
+        vals.forEach(([label, value]) => {
+            add(label.toUpperCase(), 8, 'bold', [170, 145, 115], 2);
+            add(value, 11, 'normal', [74, 43, 8], 4);
+        });
+
+        rule([210, 190, 165], 4);
+
+        // Agreement summary
+        add('BOOKING AGREEMENT', 8, 'bold', [150, 120, 90], 3);
+        add('By signing below, the Participant confirms they have read and agreed to the Living Altar Booking Agreement in full, including the 30% non-refundable deposit, balance due by July 20 2026, cancellation terms, and all conduct and participation conditions for the retreat held August 13–17, 2026 at Casa Prema, Portugal.', 9.5, 'normal', [90, 70, 50], 3);
+
+        rule([210, 190, 165], 4);
+
+        // Signature
+        add('DIGITAL SIGNATURE', 8, 'bold', [150, 120, 90], 4);
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(20);
+        doc.setTextColor(74, 43, 8);
+        doc.text(sigInput.value, M, y); y += 9;
+        add('Signed on: ' + dateStr + '   ·   This signature constitutes a legally binding booking request.', 8, 'normal', [150, 120, 90], 0);
+
+        // ── PAGE 2: FULL BOOKING AGREEMENT ──────────────────────
+        doc.addPage();
+        y = 22;
+
+        // Page 2 header — mirrors page 1 exactly
+        const header2StartY = y;
+        if (logoData) {
+            doc.addImage(logoData, 'PNG', 194 - logoW, header2StartY, logoW, logoH);
+        }
+        y = header2StartY + logoH - (15 * 0.36 + 3);
+        add('BOOKING AGREEMENT', 15, 'bold', [74, 43, 8], 3);
+        add('the Living Altar  ·  August 13–17, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
+        y = header2StartY + logoH + 4;
+        rule([179, 109, 50], 5);
+
+        add('This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing, the Participant confirms they have read, understood, and agreed to all terms set out in this document.', 10, 'normal', [74, 43, 8], 5);
+
+        const agSections = [
+            ['1. Booking Confirmation', 'This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.'],
+            ['2. Pricing & Payment', 'Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026. A non-refundable deposit of 30% of the total booking fee is required to confirm your place. The remaining balance is due no later than July 20, 2026. All payments are made in EUR via bank transfer. The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.'],
+            ['3. Cancellation Policy', 'Before July 1, 2026: Deposit forfeited; any remaining balance paid is refunded in full. July 1–July 31, 2026: 50% of the total booking fee is forfeited. August 1, 2026 and beyond: No refund is available. The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including force majeure or insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.'],
+            ['4. Health & Wellbeing', 'The Participant confirms they are in good mental and physical health and capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this form. Some experiences may be emotionally or physically intensive. Participation in any individual activity is always voluntary. The Participant is responsible for consulting their own healthcare professional prior to attending.'],
+            ['5. Conduct & Community', 'The Participant agrees to engage with the retreat and the broader community with respect, openness, and care for others. The Organiser reserves the right to ask any participant to leave the retreat if their conduct is deemed harmful, disruptive, or contrary to the spirit and intention of the space — without refund.'],
+            ['6. Liability', 'The Organiser accepts no liability for loss, theft, or damage to personal belongings during the retreat. The Participant is responsible for arranging adequate travel and health insurance, including trip cancellation coverage. Participation in all activities is undertaken at the Participant\'s own risk.'],
+            ['7. Photography & Media', 'The Organiser may photograph or film aspects of the retreat for documentary or promotional purposes. The Participant may opt out of appearing in any media at any time by informing the Organiser or facilitators directly. Media featuring participants who have opted out will not be published or distributed.'],
+            ['8. Confidentiality', 'All personal information shared as part of this booking, and all experiences shared within the retreat space, are held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.'],
+            ['9. Governing Agreement', 'By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.'],
+        ];
+        agSections.forEach(([heading, text]) => {
+            add(heading, 10, 'bold', [74, 43, 8], 2);
+            add(text, 9.5, 'normal', [74, 43, 8], 5);
+        });
+
+        return doc;
+    }
+
+    // ── SUBMIT ──────────────────────────────────────────────────
+    submitBtn.addEventListener('click', async () => {
+        if (!validate()) return;
+
+        const name    = document.getElementById('f-name').value.trim();
+        const email   = document.getElementById('f-email').value.trim();
+        const phone   = document.getElementById('f-phone').value.trim();
+        const country   = document.getElementById('f-country').value.trim();
+        const residency = document.getElementById('f-residency').value.trim();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+
+        // Build PDF and convert to base64
+        pdfBlob = (await buildPDF()).output('blob');
+        const pdfBase64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = reject;
+            reader.readAsDataURL(pdfBlob);
+        });
+
+        // POST to Vercel API route
+        const emailPrice = new Date() < new Date('2026-07-06') ? fmtPrice(eb) : fmtPrice(regular);
+        const bedCfgVal  = document.getElementById('f-bed-pref').value;
+
+        let submitted = false;
+        try {
+            const res  = await fetch('/api/send-booking', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    whatsapp:   document.getElementById('f-whatsapp').value || phone,
+                    country,
+                    residency,
+                    room:       room + (chakra ? ' · ' + chakra : ''),
+                    occupancy:  document.getElementById('f-occupancy').value || '—',
+                    bedConfig:  bedCfgVal || null,
+                    price:      emailPrice,
+                    dietary:    document.getElementById('f-diet').value   || 'None stated',
+                    health:     document.getElementById('f-health').value || 'None stated',
+                    signature:  sigInput.value,
+                    signedDate: dateStr,
+                    pdfBase64,
+                }),
+            });
+            const data = await res.json();
+            submitted  = data.success === true;
+            if (!submitted) console.warn('send-booking response:', JSON.stringify(data));
+        } catch (err) {
+            console.error('Submission error:', err.message);
+        }
+
+        // Show success (always show to user; email delivery is async)
+        document.getElementById('s-name').textContent = name.split(' ')[0];
+        document.getElementById('s-room').textContent = room + (chakra ? ' · ' + chakra : '');
+        document.getElementById('success-overlay').classList.add('show');
+    });
+
+    // Download PDF
+    document.getElementById('download-btn').addEventListener('click', () => {
+        if (!pdfBlob) return;
+        const url = URL.createObjectURL(pdfBlob);
+        const a   = document.createElement('a');
+        a.href     = url;
+        a.download = `Living-Altar-Booking-${room.replace(/\s+/g, '-')}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+</script>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-in">
+        <div class="footer-logo-wrap">
+            <img src="images/logo_white.png" alt="Living Altar" style="width:160px;height:auto;display:block;">
+        </div>
+        <div class="footer-contacts-row">
+            <div class="footer-contact-item">
+                <a href="mailto:uxumusica@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Retreat enquiries</span></a>
+            </div>
+            <div class="footer-contact-item">
+                <a href="mailto:renatogkoch@gmail.com" style="text-decoration:none;"><span class="footer-contact-label">Accommodation enquiries</span></a>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/uxumusica" target="_blank" rel="noopener" aria-label="uXu on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">uXu<br>Musica</span></a>
+            <a href="https://www.instagram.com/awakeningprema" target="_blank" rel="noopener" aria-label="Awakening Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Awakening<br>Prema</span></a>
+            <a href="https://www.instagram.com/casapremaretreat" target="_blank" rel="noopener" aria-label="Casa Prema on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg><span class="s-name">Casa<br>Prema</span></a>
+        </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Living Altar · <a href="https://www.entelia.studio" target="_blank" rel="noopener">Entelia Studio</a></p>
+</footer>
+
+<script>
+    document.addEventListener('contextmenu', e => {
+        if (e.target.tagName === 'IMG') e.preventDefault();
+    });
+</script>
+</body>
+</html>
