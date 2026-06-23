@@ -44,19 +44,22 @@ module.exports = async function handler(req, res) {
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#F3EDE4;font-family:Georgia,'Times New Roman',serif;">
-  <div style="max-width:560px;margin:40px auto;background:#ffffff;padding:52px 44px;border-radius:3px;">
+  <div style="max-width:560px;margin:40px auto;">
 
-    <p style="margin:0 0 40px;font-size:10px;letter-spacing:2.5px;color:#B36D32;font-family:Helvetica,Arial,sans-serif;">THE LIVING ALTAR &nbsp;·&nbsp; SOUND · RITUAL · JOURNEY</p>
+    <div style="text-align:center;padding:32px 0 24px;">
+      <img src="https://the-living-altar.vercel.app/images/logo.png" alt="The Living Altar" width="160" style="display:inline-block;max-width:160px;">
+    </div>
 
-    <h1 style="margin:0 0 20px;font-size:28px;font-weight:normal;color:#4A2B08;line-height:1.2;">Dear ${firstName},<br>welcome to the altar.</h1>
+    <div style="background:#ffffff;padding:52px 44px;border-radius:3px;">
+
+    <h1 style="margin:0 0 20px;font-size:26px;font-weight:normal;color:#4A2B08;line-height:1.3;">Dear ${firstName},<br>welcome to the Living Altar, Portugal retreat.</h1>
 
     <p style="margin:0 0 20px;font-size:15px;color:#8a7060;line-height:1.9;">
-      We are deeply glad to receive your request and to welcome you into this circle.
-      The Living Altar is a five-day journey of sound, ritual, and presence — and we are honoured you are choosing to be part of it.
+      We are deeply glad to receive your request and to welcome you into the circle. The Living Altar is a five-day journey of sound, ritual, and presence — and we are honoured you are choosing to be part of it.
     </p>
 
     <p style="margin:0 0 32px;font-size:15px;color:#8a7060;line-height:1.9;">
-      Your booking request for <span style="color:#4A2B08;font-style:italic;">${room || ''}</span> has been received and is attached to this email as a PDF for your records.
+      Your booking request for <span style="color:#4A2B08;font-style:italic;">${room || ''}</span> has been received and is attached to this email as a PDF for your records as well as your booking agreement.
     </p>
 
     <div style="border-top:1px solid #E7DDD0;border-bottom:1px solid #E7DDD0;padding:28px 0;margin:0 0 32px;">
@@ -72,8 +75,7 @@ module.exports = async function handler(req, res) {
     </div>
 
     <p style="margin:0 0 20px;font-size:15px;color:#8a7060;line-height:1.9;">
-      One of our team will be in touch within 48 hours to confirm your place and share the payment link.
-      A 30% deposit will be required to fully secure your space.
+      We will be in touch within 48 hours to confirm your place and share the payment link.
     </p>
 
     <p style="margin:0 0 40px;font-size:15px;color:#8a7060;line-height:1.9;">
@@ -81,12 +83,13 @@ module.exports = async function handler(req, res) {
     </p>
 
     <p style="margin:0 0 8px;font-size:15px;color:#4A2B08;line-height:1.9;">With love and gratitude,</p>
-    <p style="margin:0 0 40px;font-size:15px;color:#4A2B08;font-style:italic;">The Living Altar team</p>
+    <p style="margin:0 0 40px;font-size:15px;color:#4A2B08;font-style:italic;">The Living Altar Family 🌿</p>
 
     <p style="margin:0;font-size:11px;color:#B4A28F;line-height:2;font-family:Helvetica,Arial,sans-serif;border-top:1px solid #E7DDD0;padding-top:24px;">
       August 13–17, 2026 &nbsp;·&nbsp; Casa Prema, Sintra, Portugal
     </p>
 
+    </div>
   </div>
 </body>
 </html>`;
