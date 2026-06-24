@@ -361,7 +361,7 @@
         @media (max-width: 600px) {
             /* hero */
             #hero { height: 100vh; height: 100svh; min-height: 560px; }
-            #hero-bg { background: #17110a url('images/3_hero.jpg') 70% 90% / cover no-repeat; }
+            #hero-bg { background: #17110a url('images/3_hero.jpg') 70% 90% / cover no-repeat; will-change: auto; }
             .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 14px; }
             .hero-body { padding-top: 110px; padding-bottom: 60px; gap: 18px; }
             .hero-text-block { margin-top: 0; }
@@ -416,13 +416,13 @@
 
             /* about retreat images */
             .about-images-stack { height: 820px; }
-            .about-stack-img:nth-child(2) { top: calc(45% - 30px); }
-            .about-stack-img:nth-child(3) { top: calc(70% - 50px); }
+            .about-stack-img:nth-child(2) { top: calc(45% - 20px); }
+            .about-stack-img:nth-child(3) { top: calc(70% - 30px); }
 
             .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
             .pillar p { max-width: 320px; margin: 0 auto; }
             .img-break { height: 56vh; }
-            .about-video-ph { width: 100%; height: auto; aspect-ratio: 9/16; }
+            .about-video-ph { width: 100% !important; height: auto !important; aspect-ratio: 9/16 !important; min-height: unset !important; }
             .fac-grid { grid-template-columns: 1fr; gap: 16px; }
             .fac-img { aspect-ratio: 3 / 4; }
             .fac-card { padding: 0 2.5% 48px; }
@@ -435,6 +435,9 @@
             .acc-title { font-size: 20px; }
             .acc-btn-left { gap: 14px; }
             .acc-body-in { padding-left: 0; }
+
+            /* experience: raise Continue button above browser chrome */
+            #exp-skip { bottom: clamp(80px,14vh,110px) !important; }
 
             /* sanctuary gallery */
             #sanctuary-hdr { padding: 48px var(--pad) 14px; }
@@ -912,7 +915,7 @@
         <div class="fac-grid">
             <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei" style="object-position: center 65%;"></div><p class="fac-role">Ceremonialist · Voice Artist</p><h3 class="fac-name">Zei</h3><p>A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African indigenous tradition and Sufi practice, Zei has also sat with wisdom keepers across the Amazon, South America and the East, learning their songs, their prayers, their way of connection. With her voice, she carries that blended wisdom into sound and sacred ceremonial space. She curates conscious events rooted in community, unity and the belief that people heal better together.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael"></div><p class="fac-role">Ceremonialist · Musician</p><h3 class="fac-name">Nael</h3><p>A multi-instrumental musician and ceremonial space holder, Nael has been playing since a very young age, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound and instruments is matched only by the heart behind it. Whether performing solo or within a circle, he holds space the way he plays, with precision, warmth and an unwavering commitment to community.</p></div>
-            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in unconditional love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="object-position: center 65%;"></div><p class="fac-role">Musician · Sound Alchemist</p><h3 class="fac-name">Art</h3><p>An artist in the truest sense, always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters to learn their secrets, and weaving them into sound that is entirely his own. He teaches instruments including the handpan, and brings a devotional depth to everything he plays. Beyond music, his practice spans movement, breathwork and embodiment, a full-spectrum presence on and off the stage.</p></div>
         </div>
     </div>

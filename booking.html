@@ -892,6 +892,13 @@
             .footer-social { justify-content: center; }
         }
         @media (max-width: 600px) {
+            /* Room picker: label closer to title */
+            .rp-header .label { margin-bottom: 2px; }
+            .rp-title { margin-top: 2px; }
+
+            /* Hero logo: 50% bigger */
+            .hero-logo { width: clamp(172px, 30vw, 345px); }
+
             /* General mobile */
             .selection-grid { grid-template-columns: 1fr; gap: 24px; }
             .form-grid { grid-template-columns: 1fr; }
