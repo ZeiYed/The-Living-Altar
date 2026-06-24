@@ -895,19 +895,22 @@
         }
         @media (max-width: 600px) {
             /* Hero: space between back button and logo */
-            #book-hero { padding-top: 130px; justify-content: flex-end; padding-bottom: 40px; min-height: 320px; }
+            #book-hero { padding-top: 130px; justify-content: flex-end; padding-bottom: 72px; min-height: 360px; }
+            #book-hero .hero-content { margin-bottom: 50px; }
 
-            /* Room list: bigger thumbnails and names */
-            .rp-thumb-wrap { width: 120px !important; height: 86px !important; }
-            .rp-name { font-size: 28px !important; }
+            /* Room list: thumbnails and stacked price */
+            .rp-thumb-wrap { width: 96px !important; height: 70px !important; }
+            .rp-name { font-size: 31px !important; }
             .rp-price { display: block !important; text-align: right; }
             .rp-eb-price { font-size: 18px !important; }
             .rp-reg-price { font-size: 13px !important; }
+            .rp-price-tag { display: block !important; font-size: 9px !important; margin-top: 1px; }
 
             /* Room picker: label closer to title */
-            .rp-header { padding-top: 70px; }
+            .rp-header { padding-top: 70px; padding-bottom: 72px; min-height: 360px; }
             .rp-header .label { margin-bottom: 2px; }
             .rp-title { margin-top: 2px; }
+            .rp-desc { display: block; max-width: none; }
 
             /* Hero logo: 50% bigger */
             .hero-logo { width: clamp(172px, 30vw, 345px); }
