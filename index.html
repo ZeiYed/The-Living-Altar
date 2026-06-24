@@ -47,11 +47,11 @@
         .btn-earth:hover { background-color: transparent !important; filter: brightness(0.85); }
 
         /* fixed reserve */
-        #reserve-fixed { position: fixed; top: 18px; right: var(--pad); z-index: 300; padding: 20px 56px; background-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-size: 100% 100%; background-repeat: no-repeat; color: var(--linen); font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; transition: filter .3s; white-space: nowrap; }
+        #reserve-fixed { position: fixed; top: 28px; right: var(--pad); z-index: 300; padding: 20px 56px; background-color: transparent; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-size: 100% 100%; background-repeat: no-repeat; color: var(--linen); font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; transition: filter .3s; white-space: nowrap; }
         #reserve-fixed:hover { filter: brightness(0.85); }
 
         /* nav */
-        #nav { position: fixed; inset: 0 0 auto 0; z-index: 200; padding: 28px var(--pad); display: flex; align-items: center; justify-content: center; background: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 100%); transition: transform .4s ease, opacity .4s ease; }
+        #nav { position: fixed; inset: 0 0 auto 0; z-index: 200; padding: 45px var(--pad); display: flex; align-items: center; justify-content: center; background: linear-gradient(to bottom, rgba(0,0,0,.4) 0%, transparent 100%); transition: transform .4s ease, opacity .4s ease; }
         #nav.nav-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
         .nav-links { display: flex; align-items: center; gap: clamp(20px,3vw,48px); }
         .nav-link { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--linen); opacity: .92; transition: opacity .25s; white-space: nowrap; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
@@ -428,9 +428,9 @@
             .h2-mob { display: inline; }
 
             /* about retreat images */
-            .about-images-stack { height: 820px; }
+            .about-images-stack { height: 740px; }
             .about-stack-img:nth-child(1) { width: 94%; }
-            .about-stack-img:nth-child(2) { top: calc(45% - 90px); }
+            .about-stack-img:nth-child(2) { top: calc(45% - 120px); }
             .about-stack-img:nth-child(3) { top: calc(70% - 120px); }
 
             .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -560,7 +560,7 @@
         <a href="#sanctuary-scroll" class="mobile-menu-link">Experience</a>
         <a href="#facilitators"     class="mobile-menu-link">Facilitators</a>
         <a href="#accommodation"    class="mobile-menu-link">Accommodation</a>
-        <a href="#practical"        class="mobile-menu-link">Info</a>
+        <a href="#practical"        class="mobile-menu-link">Essentials</a>
     </nav>
 </div>
 
@@ -576,7 +576,7 @@
         <a href="#sanctuary-scroll" class="nav-link">Experience</a>
         <a href="#facilitators"  class="nav-link">Facilitators</a>
         <a href="#accommodation" class="nav-link">Accommodation</a>
-        <a href="#practical"     class="nav-link">Info</a>
+        <a href="#practical"     class="nav-link">Essentials</a>
     </div>
 </nav>
 
@@ -1188,7 +1188,7 @@
 <section id="practical">
     <div class="practical-layout wrap">
         <div class="practical-left">
-            <span class="label">Info</span>
+            <span class="label">Essentials</span>
             <h2>Everything<br>You Need to Know</h2>
             <p>Living Altar is a carefully held container. Arrive with an open heart and a willingness to go deep. The rest will be taken care of.</p>
         </div>
