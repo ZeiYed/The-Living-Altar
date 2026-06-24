@@ -86,14 +86,16 @@
         .about-text p { font-size: 14px; line-height: 1.85; color: var(--stone); margin-bottom: 14px; max-width: 100%; }
         .about-text .label { color: rgba(244,239,230,.38); }
         .about-text .divider { background: var(--clay); }
+        .h2-mob { display: none; }
+        .h2-desk { display: inline; }
         .about-sub { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin: 28px 0 8px; }
         .about-learn { margin-top: 36px; }
         .about-images-stack { position: relative; width: 100%; height: 100%; min-height: 620px; }
         .about-stack-img { position: absolute; overflow: hidden; }
         .about-stack-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .about-stack-img:nth-child(1) { top: -3%; right: 0; width: 84%; height: auto; z-index: 1; }
-        .about-stack-img:nth-child(2) { top: 45%; left: 0; width: 95%; aspect-ratio: 5/4; height: auto; z-index: 2; }
-        .about-stack-img:nth-child(3) { bottom: -6%; right: -6%; width: 84%; aspect-ratio: 5/4; height: auto; z-index: 3; }
+        .about-stack-img:nth-child(1) { top: calc(-3% - 30px); right: 0; width: 84%; height: auto; z-index: 1; }
+        .about-stack-img:nth-child(2) { top: calc(45% - 10px); left: 0; width: 95%; aspect-ratio: 5/4; height: auto; z-index: 2; }
+        .about-stack-img:nth-child(3) { bottom: calc(-6% - 20px); right: -6%; width: 84%; aspect-ratio: 5/4; height: auto; z-index: 3; }
         .about-video-ph { width: 100%; background: #1A1208; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
         .about-video-ph svg { opacity: .35; }
         .about-video-ph p { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(244,239,230,.28); }
@@ -188,8 +190,8 @@
         #facilitators { background: var(--sand); }
         .fac-wrap h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 26px; color: var(--earth); }
         .fac-wrap .label { color: rgba(74,43,8,.75); }
-        .fac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 36px; }
-        .fac-img { width: 95%; aspect-ratio: 3 / 4; margin: 24px auto 50px; overflow: hidden; }
+        .fac-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 36px; margin-top: clamp(32px,4vw,56px); }
+        .fac-img { width: 100%; aspect-ratio: 3 / 4; margin: 24px auto 50px; overflow: hidden; }
         .fac-role { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(74,43,8,.5); margin-bottom: 6px; font-weight: 700; }
         .fac-name { font-family: var(--serif); font-size: 28px; margin-bottom: 14px; color: var(--olive); font-weight: 700; }
         .fac-card p { font-size: 13px; line-height: 1.82; color: rgba(74,43,8,1); }
@@ -258,7 +260,7 @@
         .accom-eb-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--clay); margin-right: 6px; }
         .accom-price-original { font-family: var(--serif); font-size: 32px; color: var(--linen); line-height: 1; opacity: .35; }
         .accom-early { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--linen); opacity: .35; }
-        .accom-btn { display: block; width: fit-content; padding: 14px 36px 14px 56px; font-size: 9px; background-size: 116.5% 100%; background-position: left center; }
+        .accom-btn { display: block; width: fit-content; padding: 25px 65px; font-size: 12.8px; background-size: 100% 100%; background-position: unset; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); margin-left: -25px; }
         .accom-btn { margin-top: 18px; }
 
         /* practical */
@@ -359,8 +361,8 @@
         @media (max-width: 600px) {
             /* hero */
             #hero { height: 100vh; height: 100svh; min-height: 560px; }
-            #hero-bg { background-image: url('images/3_hero.jpg'); background-size: auto 140%; background-position: 70% 90%; }
-            .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 17.6px; }
+            #hero-bg { background: #17110a url('images/3_hero.jpg') 70% 90% / cover no-repeat; }
+            .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 14px; }
             .hero-body { padding-top: 110px; padding-bottom: 60px; gap: 18px; }
             .hero-text-block { margin-top: 0; }
             .hero-logo { width: clamp(163px, 46vw, 211px); }
@@ -408,6 +410,15 @@
             .btn-lg { padding: 26px 64px; background-size: 100% 90%; }
 
             /* sections */
+            /* about title: 3-line mobile split */
+            .h2-desk { display: none; }
+            .h2-mob { display: inline; }
+
+            /* about retreat images */
+            .about-images-stack { height: 820px; }
+            .about-stack-img:nth-child(2) { top: calc(45% - 30px); }
+            .about-stack-img:nth-child(3) { top: calc(70% - 50px); }
+
             .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
             .pillar p { max-width: 320px; margin: 0 auto; }
             .img-break { height: 56vh; }
@@ -449,7 +460,7 @@
             .accom-expand { grid-template-columns: 1fr !important; }
             .accom-expand-right { width: 100%; text-align: left; }
             .accom-price-box { display: block !important; text-align: left; padding-left: 0 !important; margin-left: 0 !important; }
-            .accom-btn { background-size: 100% 100%; padding: 27px 60px; font-size: 13.5px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); display: block !important; width: fit-content !important; margin-left: -25px !important; }
+            .accom-btn { background-size: 100% 100%; padding: 32px 72px; font-size: 12.8px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); display: block !important; width: fit-content !important; margin-left: -25px !important; }
 
             /* practical */
             .practical-grid { grid-template-columns: 1fr; }
@@ -570,7 +581,7 @@
         <div class="about-text">
             <span class="label">The Retreat</span>
             <div class="divider"></div>
-            <h2>An Immersive Journey Through<br>Sound, Ceremony &amp; Nature</h2>
+            <h2><span class="h2-desk">An Immersive Journey Through<br>Sound, Ceremony &amp; Nature</span><span class="h2-mob">An Immersive Journey<br>Through Sound<br>Ceremony &amp; Nature</span></h2>
             <div class="divider"></div>
             <p>Living Altar is a five-day immersion that weaves together ancient practices, music, movement, and ceremony to create the conditions for meaningful transformation. Designed to help you slow down, listen deeply, and reconnect with the wisdom of your own heart.</p>
             <p>At the heart of the retreat is a dedicated evening of deep inner exploration, gathered around a ceremonial altar — a space for prayer, music, contemplation, and remembrance — followed by a full day of integration, rest, and embodied reflection.</p>
@@ -900,9 +911,9 @@
         <h2>Guided by Experience<br>Held with Heart</h2>
         <div class="fac-grid">
             <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei" style="object-position: center 65%;"></div><p class="fac-role">Ceremonialist · Voice Artist</p><h3 class="fac-name">Zei</h3><p>A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African indigenous tradition and Sufi practice, Zei has also sat with wisdom keepers across the Amazon, South America and the East, learning their songs, their prayers, their way of connection. With her voice, she carries that blended wisdom into sound and sacred ceremonial space. She curates conscious events rooted in community, unity and the belief that people heal better together.</p></div>
-            <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael" style="transform: scale(1.2);"></div><p class="fac-role">Ceremonialist · Musician</p><h3 class="fac-name">Nael</h3><p>A multi-instrumental musician and ceremonial space holder, Nael has been playing since a very young age, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound and instruments is matched only by the heart behind it. Whether performing solo or within a circle, he holds space the way he plays, with precision, warmth and an unwavering commitment to community.</p></div>
-            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="transform: scale(1.6); transform-origin: center 70%; object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in unconditional love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
-            <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="transform: scale(1.2); object-position: center 65%;"></div><p class="fac-role">Musician · Sound Alchemist</p><h3 class="fac-name">Art</h3><p>An artist in the truest sense, always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters to learn their secrets, and weaving them into sound that is entirely his own. He teaches instruments including the handpan, and brings a devotional depth to everything he plays. Beyond music, his practice spans movement, breathwork and embodiment, a full-spectrum presence on and off the stage.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael"></div><p class="fac-role">Ceremonialist · Musician</p><h3 class="fac-name">Nael</h3><p>A multi-instrumental musician and ceremonial space holder, Nael has been playing since a very young age, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound and instruments is matched only by the heart behind it. Whether performing solo or within a circle, he holds space the way he plays, with precision, warmth and an unwavering commitment to community.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in unconditional love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="object-position: center 65%;"></div><p class="fac-role">Musician · Sound Alchemist</p><h3 class="fac-name">Art</h3><p>An artist in the truest sense, always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters to learn their secrets, and weaving them into sound that is entirely his own. He teaches instruments including the handpan, and brings a devotional depth to everything he plays. Beyond music, his practice spans movement, breathwork and embodiment, a full-spectrum presence on and off the stage.</p></div>
         </div>
     </div>
 </section>
@@ -1283,28 +1294,6 @@
     window.addEventListener('scroll', updateCtaParallax, { passive: true });
     updateCtaParallax();
 
-    // Parallax facilitator — containers (fac-img) move up/down at staggered rates
-    const facSection = document.getElementById('facilitators');
-    const facContainers = document.querySelectorAll('.fac-img');
-    const facRates = [0.9, 0.45, 0.75, 0.3];
-    function updateFacParallax() {
-        if (!facSection || !facContainers.length) return;
-        if (window.innerWidth <= 960) {
-            facContainers.forEach(el => { el.style.transform = ''; });
-            return;
-        }
-        const rect = facSection.getBoundingClientRect();
-        const viewH = window.innerHeight;
-        if (rect.bottom < 0 || rect.top > viewH) return;
-        const progress = (viewH - rect.top) / (viewH + rect.height);
-        const base = (progress - 0.5) * 340;
-        facContainers.forEach((el, i) => {
-            el.style.transform = `translateY(${base * facRates[i]}px)`;
-        });
-    }
-    window.addEventListener('scroll', updateFacParallax, { passive: true });
-    window.addEventListener('resize', updateFacParallax);
-    updateFacParallax();
 
     // Horizontal sanctuary gallery
     const sanWrapper = document.getElementById('sanctuary-scroll');
