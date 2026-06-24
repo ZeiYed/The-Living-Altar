@@ -229,7 +229,7 @@
         .accom-belt-item:nth-child(9n)   { transform: translateY(-16px); }
         .accom-belt-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .accom-bottom { padding: clamp(24px,3vw,40px) var(--pad) clamp(80px,10vw,140px); }
-        .accom-bottom .accom-acc { max-width: 680px; margin: 0 auto; }
+        .accom-bottom .accom-acc { max-width: 820px; margin: 0 auto; }
         .accom-acc .acc-item { border-top-color: rgba(244,239,230,.1); }
         .accom-acc .acc-item:last-child { border-bottom-color: rgba(244,239,230,.1); }
         .accom-acc .acc-btn { color: var(--linen); }
@@ -391,7 +391,8 @@
             #mobile-nav {
                 display: flex;
                 position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-                padding: 18px 20px;
+                height: 60px;
+                padding: 0 20px;
                 align-items: center;
                 background: transparent;
                 pointer-events: none;
@@ -404,7 +405,7 @@
             #hamburger span { display: block; width: 26px; height: 2.5px; background: var(--linen); opacity: 0.88; border-radius: 2px; }
 
             /* CTA button: 30% smaller, aligned with hamburger, stem on left */
-            #reserve-fixed { top: 12px; right: 2px; bottom: auto; left: auto; transform: none; padding: 15px 43px; font-size: 7.7px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-34 0 268 56'%3E%3Cpath d='M -31,28 C -18,26 -6,26 4,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); }
+            #reserve-fixed { top: 6px; right: 2px; bottom: auto; left: auto; transform: none; padding: 18px 52px; font-size: 9.2px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-34 0 268 56'%3E%3Cpath d='M -31,28 C -18,26 -6,26 4,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); }
 
             /* mobile menu overlay */
             #mobile-menu-close {
@@ -474,9 +475,11 @@
             .accom-top { padding-bottom: 48px; }
             .accom-belt-item { width: 80vw; height: 64vw; }
 
-            /* Accommodation: shrink thumb, hide preview description */
+            /* Accommodation: shrink thumb */
             .accom-acc .acc-thumb { width: 120px; height: 86px; }
-            .acc-preview-desc { display: none; }
+            .acc-preview-desc { font-size: 11px; }
+            .accom-acc .acc-title-wrap { margin-top: -8px; gap: 1px; }
+            .accom-acc .acc-chakra { font-size: 10px !important; }
             .accom-price-row:first-child { margin-top: 0; }
             .accom-acc .acc-item.open .acc-body { max-height: 960px; }
             /* Book button: right stem, trimmed viewBox so leaf body starts at left edge */
@@ -520,7 +523,7 @@
                 justify-self: center !important;
             }
             .footer-copy { display: none !important; }
-            .footer-logo-wrap img { width: 69px !important; }
+            .footer-logo-wrap img { width: 83px !important; }
             /* Row 2: social icons right */
             .footer-social {
                 grid-column: 2 !important;
@@ -529,9 +532,12 @@
                 justify-content: center !important;
                 gap: 16px !important;
                 align-items: center !important;
+                padding-top: 0 !important;
             }
+            .footer-social a:nth-child(1) { left: 0 !important; }
+            .footer-social a:nth-child(2) { left: 0 !important; }
             .footer-social a { flex-direction: column !important; min-height: auto !important; gap: 4px !important; align-items: center; }
-            .footer-social svg { width: 22px !important; height: 22px !important; margin-bottom: 0 !important; }
+            .footer-social svg { width: 26px !important; height: 26px !important; margin-bottom: 0 !important; }
             .footer-social .s-name { font-size: 7.7px !important; text-align: center; }
             /* Row 3: copyright pinned to footer bottom */
             .footer-copy {
@@ -797,22 +803,22 @@
             <!-- 1. Cacao Ceremony -->
             <!-- 1. Cacao Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:6vh; margin-right:-45px"><h3>Cacao<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:6vh"><h3>Cacao<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/Cacao1.jpg" alt="Cacao Ceremony"></div>
                 <div class="exp-img" style="margin-top:24vh"><img src="Experiences/cacao5.jpg" alt="Cacao Ceremony"></div>
-                <div class="exp-img" style="margin-top:calc(8vh + 20px)"><img src="Experiences/cacao11.jpg" alt="Cacao Ceremony"></div>
+                <div class="exp-img" style="margin-top:8vh"><img src="Experiences/cacao11.jpg" alt="Cacao Ceremony"></div>
             </div>
 
             <!-- 2. Ecstatic Dance -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:22vh; margin-right:-65px"><h3>Ecstatic<br>Dance</h3></div>
+                <div class="exp-title" style="margin-top:22vh"><h3>Ecstatic<br>Dance</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/dance3.jpg" alt="Ecstatic Dance"></div>
                 <div class="exp-img dance-img-2" style="margin-top:26vh"><img src="Experiences/dance1.jpg" alt="Ecstatic Dance"></div>
             </div>
 
             <!-- 3. Inner Journey Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:32vh; margin-right:-15px"><h3>Inner Journey<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:32vh"><h3>Inner Journey<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/ceremony1.jpg" alt="Ceremony Night"></div>
                 <div class="exp-img" style="margin-top:18vh"><img src="Experiences/ceremony2.jpg" alt="Ceremony Night"></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/ceremony3.jpg" alt="Ceremony Night"></div>
@@ -820,7 +826,7 @@
 
             <!-- 4. Hapé Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(8vh + 90px); margin-right:-45px"><h3>Hapé<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:8vh"><h3>Hapé<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:24vh"><img src="Experiences/hapé1.png" alt="Hapé Ceremony"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/hapé3.png" alt="Hapé Ceremony"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/hapé2.png" alt="Hapé Ceremony"></div>
@@ -828,16 +834,16 @@
 
             <!-- 5. Sound Healing -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:28vh; margin-right:-65px"><h3>Sound<br>Healing</h3></div>
+                <div class="exp-title" style="margin-top:28vh"><h3>Sound<br>Healing</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/sound1.jpg" alt="Sound Healing"></div>
                 <div class="exp-img" style="margin-top:16vh"><img src="Experiences/sound2.jpg" alt="Sound Healing"></div>
             </div>
 
             <!-- 6. Voice Activation -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(4vh + 40px); margin-right:-50px"><h3>Voice<br>Activation<br>&amp; Mantra<br>Singing</h3></div>
+                <div class="exp-title" style="margin-top:4vh"><h3>Voice<br>Activation<br>&amp; Mantra<br>Singing</h3></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/singing1.jpg" alt="Voice Activation"></div>
-                <div class="exp-img" style="margin-top:calc(6vh + 20px)"><img src="Experiences/singing2.jpg" alt="Mantra Singing"></div>
+                <div class="exp-img" style="margin-top:6vh"><img src="Experiences/singing2.jpg" alt="Mantra Singing"></div>
             </div>
 
             <!-- 7. Animal Flow & Yoga -->
@@ -849,20 +855,20 @@
 
             <!-- 8. Breathwork Journey -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:34vh; margin-right:-30px"><h3>Breathwork<br>Journey</h3></div>
+                <div class="exp-title" style="margin-top:34vh"><h3>Breathwork<br>Journey</h3></div>
                 <div class="exp-img" style="margin-top:8vh"><img src="Experiences/breath1.png" alt="Breathwork Journey"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/breath2.png" alt="Breathwork Journey"></div>
             </div>
 
             <!-- 9. Somatic Movement Practice -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(6vh + 10px); margin-right:-50px"><h3>Somatic<br>Movement<br>Practice</h3></div>
+                <div class="exp-title" style="margin-top:6vh"><h3>Somatic<br>Movement<br>Practice</h3></div>
                 <div class="exp-img" style="margin-top:16vh"><img src="Experiences/somatic.jpg" alt="Somatic Movement Practice"></div>
             </div>
 
             <!-- 10. Live Jams -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:20vh; margin-right:-30px"><h3>Live Jams<br>Around the Fire</h3></div>
+                <div class="exp-title" style="margin-top:20vh"><h3>Live Jams<br>Around the Fire</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/fire1.jpg" alt="Live Jams Around the Fire"></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/fire2.png" alt="Live Jams Around the Fire"></div>
                 <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/fire3.png" alt="Live Jams Around the Fire"></div>
@@ -870,21 +876,21 @@
 
             <!-- 11. Integration Circles -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:30vh; margin-right:-35px"><h3>Integration<br>Circles</h3></div>
+                <div class="exp-title" style="margin-top:30vh"><h3>Integration<br>Circles</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/circle1.1.png" alt="Integration Circles"></div>
                 <div class="exp-img" style="margin-top:calc(18vh - 30px)"><img src="Experiences/circle2.jpg" alt="Integration Circles"></div>
             </div>
 
             <!-- 12. Altar Building -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(4vh + 50px); margin-right:-60px"><h3>Altar<br>Building<br>Session</h3></div>
+                <div class="exp-title" style="margin-top:4vh"><h3>Altar<br>Building<br>Session</h3></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/altar1.png" alt="Altar Building"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/altar2.png" alt="Altar Building"></div>
             </div>
 
             <!-- 13. Water Cleansing Ritual -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:24vh; margin-right:-50px"><h3>Water<br>Cleansing<br>Ritual</h3></div>
+                <div class="exp-title" style="margin-top:24vh"><h3>Water<br>Cleansing<br>Ritual</h3></div>
                 <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/water1.jpg" alt="Water Cleansing Ritual"></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/water2.jpg" alt="Water Cleansing Ritual"></div>
             </div>
@@ -898,26 +904,26 @@
 
             <!-- 15. Sunrise Gazing & Meditation -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(4vh + 70px); margin-right:-40px; margin-bottom:-50px"><h3>Sunrise<br>Gazing &amp;<br>Meditation</h3></div>
+                <div class="exp-title" style="margin-top:4vh"><h3>Sunrise<br>Gazing &amp;<br>Meditation</h3></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/sunrise.png" alt="Sunrise Gazing"></div>
             </div>
 
             <!-- 16. Nature Meditation & Barefoot Walks -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:16vh; margin-right:-35px"><h3>Nature<br>Meditation<br>&amp; Barefoot<br>Walks</h3></div>
+                <div class="exp-title" style="margin-top:16vh"><h3>Nature<br>Meditation<br>&amp; Barefoot<br>Walks</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/walks.png" alt="Nature Meditation"></div>
             </div>
 
             <!-- 17. Free Time & Rest -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:26vh; margin-right:-45px"><h3>Free Time<br>&amp; Rest</h3></div>
+                <div class="exp-title" style="margin-top:26vh"><h3>Free Time<br>&amp; Rest</h3></div>
                 <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/relax1.jpg" alt="Free Time"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/relax2.png" alt="Free Time"></div>
             </div>
 
             <!-- 18. Shared Sacred Meals -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:calc(8vh + 50px); margin-right:-10px"><h3>Shared Sacred<br>Organic Meals</h3></div>
+                <div class="exp-title" style="margin-top:8vh"><h3>Shared Sacred<br>Organic Meals</h3></div>
                 <div class="exp-img" style="margin-top:calc(22vh - 20px)"><img src="Experiences/food1.jpg" alt="Shared Sacred Meals"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/food2.jpg" alt="Shared Sacred Meals"></div>
             </div>
@@ -982,7 +988,7 @@
                 <button class="acc-btn">
                     <div class="acc-btn-left">
                         <div class="acc-thumb"><img src="Accomodation/Rooms/room1.1.png" alt="Root room"></div>
-                        <div class="acc-title-wrap"><span class="acc-title">Root</span><span class="acc-chakra">Muladhara</span><span class="acc-preview-desc">Double room · Large en-suite bathroom · Bathroom shelving &amp; storage · Direct garden access from room · Ground floor</span></span></div>
+                        <div class="acc-title-wrap"><span class="acc-title">Root</span><span class="acc-chakra">Muladhara</span><span class="acc-preview-desc">Double room · Large en-suite bathroom · Bathroom shelving &amp; storage · Direct land access from room · Ground floor</span></span></div>
                     </div>
                     <span class="acc-plus"></span>
                 </button>
@@ -994,7 +1000,7 @@
                         <div class="room-img"><img src="Accomodation/Rooms/room1.4.png" alt="Root room"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-human-desc">A double room on the ground floor with a large en-suite bathroom, direct garden access from the room, and extra storage shelving in the bathroom. Can be set up as a queen or two single beds.</p>
+                        <p class="accom-human-desc">A double room on the ground floor with a large en-suite bathroom, direct land access from the room, and extra storage shelving in the bathroom. Can be set up as a queen or two single beds.</p>
                         
                         <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Root&chakra=Muladhara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>

@@ -785,9 +785,9 @@
             font-size: 12px;
             color: var(--stone);
             opacity: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: visible;
+            max-width: 300px;
         }
         .rp-price {
             text-align: right;
@@ -905,6 +905,7 @@
             .rp-reg-price { font-size: 13px !important; }
 
             /* Room picker: label closer to title */
+            .rp-header { padding-top: 70px; }
             .rp-header .label { margin-bottom: 2px; }
             .rp-title { margin-top: 2px; }
 
@@ -943,7 +944,7 @@
             /* Row 2: logo left, social right */
             .footer-logo-wrap { grid-column: 1 !important; grid-row: 2 !important; justify-self: center !important; }
             .footer-copy { display: none !important; }
-            .footer-logo-wrap img { width: 69px !important; }
+            .footer-logo-wrap img { width: 83px !important; }
             .footer-social {
                 grid-column: 2 !important;
                 grid-row: 2 !important;
@@ -951,9 +952,12 @@
                 justify-content: center !important;
                 gap: 16px !important;
                 align-items: center !important;
+                padding-top: 0 !important;
             }
+            .footer-social a:nth-child(1) { left: 0 !important; }
+            .footer-social a:nth-child(2) { left: 0 !important; }
             .footer-social a { flex-direction: column !important; min-height: auto !important; gap: 4px !important; align-items: center; }
-            .footer-social svg { width: 22px !important; height: 22px !important; margin-bottom: 0 !important; }
+            .footer-social svg { width: 26px !important; height: 26px !important; margin-bottom: 0 !important; }
             .footer-social .s-name { font-size: 7.7px !important; text-align: center; }
             /* Row 3: copyright pinned to footer bottom */
             .footer-copy {
@@ -1227,7 +1231,7 @@
 
     // ── ALL ROOMS DATA ───────────────────────────────────────────
     const allRooms = [
-        { name: 'Root',        chakra: 'Muladhara',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Large en-suite bathroom · Direct garden access · Ground floor',       images: ['Accomodation/Rooms/room1.1.png','Accomodation/Rooms/room1.2.png','Accomodation/Rooms/room1.3.png','Accomodation/Rooms/room1.4.png'] },
+        { name: 'Root',        chakra: 'Muladhara',        eb: 1650, regular: 1850, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Large en-suite bathroom · Direct land access · Ground floor',       images: ['Accomodation/Rooms/room1.1.png','Accomodation/Rooms/room1.2.png','Accomodation/Rooms/room1.3.png','Accomodation/Rooms/room1.4.png'] },
         { name: 'Sacral',      chakra: 'Svadhisthana',     eb: 1400, regular: 1600, bedChoice: true,  maxOccupancy: 2, desc: 'Double room · Shared bathroom · Ground floor',                                      images: ['Accomodation/Rooms/room2.1.png','Accomodation/Rooms/room2.2.png','Accomodation/Rooms/room2.3.png','Accomodation/Rooms/bath4.1.png'] },
         { name: 'Solar Plexus',chakra: 'Manipura',         eb: 1400, regular: 1600, bedChoice: false, maxOccupancy: 2, desc: 'Sleeps 2 · Trundle bed (single + pull-out) · Shared bathroom · First floor',       images: ['Accomodation/Rooms/room3.1.png','Accomodation/Rooms/room3.2.png','Accomodation/Rooms/bath4.1.png','Accomodation/Rooms/bath4.2.png'] },
         { name: 'Heart',       chakra: 'Anahata',          eb: 1200, regular: 1400, bedChoice: false, maxOccupancy: 4, desc: 'Sleeps 4 · 2x bunk beds · Private bathroom · First floor',                         images: ['Accomodation/Rooms/room4.2.jpg','Accomodation/Rooms/room4.3.jpg','Accomodation/Rooms/room4.1.png','Accomodation/Rooms/bath3.png'] },
