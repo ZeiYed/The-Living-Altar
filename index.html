@@ -1266,9 +1266,11 @@
 </div>
 
 <script>
-    // Always land at top on load/refresh
+    // Always land at top on load/refresh — runs after browser hash scroll
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
+    window.addEventListener('load', () => {
+        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, 0);
+    });
 
     // Disable right-click and drag on images
     document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
