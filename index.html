@@ -18,8 +18,8 @@
             --max: 1200px; --pad: clamp(24px, 5vw, 80px);
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { background: var(--linen); color: var(--earth); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: clip; }
+        body { background: var(--linen); color: var(--earth); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
         img { display: block; max-width: 100%; }
         .ph img, .about-visual img,
         .s-card-img img, .fac-img img, .accom-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -55,6 +55,17 @@
         .nav-links { display: flex; align-items: center; gap: clamp(20px,3vw,48px); }
         .nav-link { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--linen); opacity: .92; transition: opacity .25s; white-space: nowrap; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
         .nav-link:hover { opacity: 1; }
+
+        /* mobile nav bar — hidden on desktop, shown at 600px */
+        #mobile-nav { display: none; }
+        #mobile-menu {
+            position: fixed; inset: 0; z-index: 500;
+            background: rgba(30,20,10,0.97);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        #mobile-menu.open { opacity: 1; pointer-events: all; }
 
         /* hero */
         #hero { padding: 0; height: 120vh; min-height: 680px; position: relative; overflow: hidden; display: flex; align-items: stretch; justify-content: center; text-align: center; }
@@ -321,7 +332,10 @@
         /* responsive */
         @media (max-width: 960px) {
             .about-content { grid-template-columns: 1fr; }
-            .about-images-stack { width: 100%; height: 360px; }
+            .about-images-stack { width: 100%; height: 950px; }
+            .about-stack-img:nth-child(1) { top: 0; right: 0; width: 78%; }
+            .about-stack-img:nth-child(2) { top: 45%; left: 0; width: 78%; }
+            .about-stack-img:nth-child(3) { top: 70%; right: 0; bottom: auto; width: 78%; }
             .practical-layout { grid-template-columns: 1fr; }
             .pillars-grid { grid-template-columns: repeat(2,1fr); }
             .fac-grid { grid-template-columns: repeat(2,1fr); gap: 32px; }
@@ -345,16 +359,49 @@
         @media (max-width: 600px) {
             /* hero */
             #hero { height: 100vh; height: 100svh; min-height: 560px; }
-            .hero-eyebrow { bottom: clamp(28px,5vh,56px); }
-            .hero-body { padding-top: 160px; gap: 18px; }
+            #hero-bg { background-image: url('images/3_hero.jpg'); background-size: auto 140%; background-position: 70% 90%; }
+            .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 17.6px; }
+            .hero-body { padding-top: 110px; padding-bottom: 60px; gap: 18px; }
             .hero-text-block { margin-top: 0; }
             .hero-logo { width: clamp(163px, 46vw, 211px); }
+            .hero-text-block { margin-top: auto; margin-bottom: 80px; }
 
-            /* nav + fixed reserve */
-            #nav { padding: 16px 16px 12px; }
-            .nav-links { gap: 10px 16px; flex-wrap: wrap; justify-content: center; }
-            .nav-link { font-size: 9px; letter-spacing: 0.12em; }
-            #reserve-fixed { top: auto; right: auto; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 10px; padding: 18px 48px; }
+            /* hide desktop nav on mobile */
+            #nav { display: none; }
+
+            /* mobile nav bar */
+            #mobile-nav {
+                display: flex;
+                position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+                padding: 18px 20px;
+                align-items: center;
+                background: transparent;
+                pointer-events: none;
+            }
+            #hamburger {
+                background: none; border: none; cursor: pointer;
+                padding: 4px; display: flex; flex-direction: column; gap: 6px;
+                pointer-events: all;
+            }
+            #hamburger span { display: block; width: 26px; height: 2.5px; background: var(--linen); opacity: 0.88; border-radius: 2px; }
+
+            /* CTA button: 30% smaller, aligned with hamburger, stem on left */
+            #reserve-fixed { top: 12px; right: 2px; bottom: auto; left: auto; transform: none; padding: 15px 43px; font-size: 7.7px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-34 0 268 56'%3E%3Cpath d='M -31,28 C -18,26 -6,26 4,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); }
+
+            /* mobile menu overlay */
+            #mobile-menu-close {
+                position: absolute; top: 22px; right: 22px;
+                background: none; border: none; cursor: pointer;
+                color: var(--linen); font-size: 22px; opacity: 0.55; padding: 6px; line-height: 1;
+            }
+            .mobile-menu-links { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+            .mobile-menu-link {
+                font-family: var(--serif); font-size: 34px; font-weight: 300;
+                font-style: italic; color: var(--linen); opacity: 0.82; letter-spacing: 0.02em;
+                transition: opacity 0.2s;
+            }
+            .mobile-menu-link:active { opacity: 1; }
+            #mobile-reserve { display: none; }
 
             /* buttons */
             .btn { padding: 22px 56px; letter-spacing: 0.18em; }
@@ -364,9 +411,14 @@
             .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
             .pillar p { max-width: 320px; margin: 0 auto; }
             .img-break { height: 56vh; }
-            .about-video-ph { height: 60vh; }
-            .fac-grid { grid-template-columns: 1fr; }
+            .about-video-ph { width: 100%; height: auto; aspect-ratio: 9/16; }
+            .fac-grid { grid-template-columns: 1fr; gap: 16px; }
             .fac-img { aspect-ratio: 3 / 4; }
+            .fac-card { padding: 0 2.5% 48px; }
+            .fac-card:last-child { padding-bottom: 0; }
+            .fac-grid { margin-top: 48px; }
+            .fac-img { width: 100%; }
+            .fac-name { font-size: 36px; }
 
             /* accordions */
             .acc-title { font-size: 20px; }
@@ -375,15 +427,17 @@
 
             /* sanctuary gallery */
             #sanctuary-hdr { padding: 48px var(--pad) 14px; }
-            #sanctuary-hdr h2 { font-size: 26px; }
+            #sanctuary-hdr h2 { font-size: 34px; }
             #sanctuary-track { gap: 10px; padding-top: 180px; padding-left: var(--pad); padding-right: 8vw; }
             .exp-img { height: clamp(220px,36vh,320px); }
-            .exp-title { width: 140px; }
-            .exp-title h3 { font-size: 18px; }
+            .exp-title { width: 140px; margin-right: -20px; }
+            .exp-title h3 { font-size: 24px; font-weight: 500; }
             .exp-desc { width: 130px; }
-            .exp-title, .exp-img, .exp-desc { margin-top: 6vh !important; }
+            .exp-title, .exp-img, .exp-desc { margin-top: 6vh; }
+            #sanctuary-scroll { background: var(--linen); }
 
             /* accommodation belt */
+            .accom-top { padding-bottom: 48px; }
             .accom-belt-item { width: 80vw; height: 64vw; }
 
             /* Accommodation: shrink thumb, hide preview description */
@@ -391,20 +445,94 @@
             .acc-preview-desc { display: none; }
             .accom-price-row:first-child { margin-top: 0; }
             .accom-acc .acc-item.open .acc-body { max-height: 960px; }
-            /* Book button: normalize SVG background */
-            .accom-btn { background-size: 100% 100%; padding: 18px 40px; }
-
-            /* footer clearance for fixed reserve button */
-            footer { padding-bottom: 96px; }
+            /* Book button: right stem, trimmed viewBox so leaf body starts at left edge */
+            .accom-expand { grid-template-columns: 1fr !important; }
+            .accom-expand-right { width: 100%; text-align: left; }
+            .accom-price-box { display: block !important; text-align: left; padding-left: 0 !important; margin-left: 0 !important; }
+            .accom-btn { background-size: 100% 100%; padding: 27px 60px; font-size: 13.5px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C%2Fsvg%3E"); display: block !important; width: fit-content !important; margin-left: -25px !important; }
 
             /* practical */
             .practical-grid { grid-template-columns: 1fr; }
             .p-item:nth-child(odd) { padding-right: 0; border-right: none; }
             .p-item:nth-child(even) { padding-left: 0; }
+
+            /* footer: 3-row mobile layout */
+            footer { padding: 12px var(--pad) 44px; position: relative; }
+            .footer-in {
+                display: grid !important;
+                grid-template-columns: auto auto !important;
+                grid-template-rows: auto auto !important;
+                justify-content: center !important;
+                justify-items: center !important;
+                align-items: center !important;
+                gap: 24px 24px !important;
+                position: static !important;
+            }
+            /* Row 1: contacts side by side (inside footer-center) */
+            .footer-center { grid-column: 1 / -1 !important; grid-row: 1 !important; justify-self: stretch !important; width: 100%; border-bottom: 0.5px solid rgba(244,239,230,0.15); padding-bottom: 24px; }
+            .footer-contacts-row {
+                flex-direction: row !important;
+                justify-content: center !important;
+                align-items: flex-start !important;
+                gap: 28px !important;
+                margin-top: 0 !important;
+            }
+            .footer-contact-icon svg { width: 92px !important; height: 60px !important; }
+            .footer-contact-label { font-size: 11px !important; letter-spacing: 0.12em !important; }
+            /* Row 2: logo left */
+            .footer-logo-wrap {
+                grid-column: 1 !important;
+                grid-row: 2 !important;
+                justify-self: center !important;
+            }
+            .footer-logo-wrap img { width: 90px !important; }
+            /* Row 2: social icons right */
+            .footer-social {
+                grid-column: 2 !important;
+                grid-row: 2 !important;
+                justify-self: center !important;
+                justify-content: center !important;
+                gap: 16px !important;
+                align-items: center !important;
+            }
+            .footer-social a { flex-direction: column !important; min-height: auto !important; gap: 4px !important; align-items: center; }
+            .footer-social svg { width: 29px !important; height: 29px !important; margin-bottom: 0 !important; }
+            .footer-social .s-name { font-size: 10px !important; text-align: center; }
+            /* Row 3: copyright pinned to footer bottom */
+            .footer-copy {
+                position: absolute !important;
+                bottom: 14px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                text-align: center !important;
+                white-space: nowrap !important;
+                font-size: 7.2px !important;
+            }
         }
     </style>
 </head>
 <body>
+
+<!-- MOBILE NAV BAR (mobile only) -->
+<div id="mobile-nav">
+    <button id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</div>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="mobile-menu">
+    <button id="mobile-menu-close" aria-label="Close menu">&#215;</button>
+    <nav class="mobile-menu-links">
+        <a href="#about"            class="mobile-menu-link">Retreat</a>
+        <a href="#pillars"          class="mobile-menu-link">Vision</a>
+        <a href="#journey"          class="mobile-menu-link">Program</a>
+        <a href="#sanctuary-scroll" class="mobile-menu-link">Experience</a>
+        <a href="#facilitators"     class="mobile-menu-link">Facilitators</a>
+        <a href="#accommodation"    class="mobile-menu-link">Accommodation</a>
+        <a href="#practical"        class="mobile-menu-link">Info</a>
+    </nav>
+</div>
 
 <!-- FIXED RESERVE BUTTON -->
 <a href="booking.html" id="reserve-fixed">Reserve Your Spot</a>
@@ -453,9 +581,6 @@
             <h4 class="about-sub">Why we created this</h4>
             <p>Because some of life's most important conversations cannot happen in the rush of everyday life. Living Altar was created as a space to pause, gather, remember what matters, and return home with greater clarity and presence.</p>
 
-            <div class="about-learn">
-                <a href="the_living_altar.pdf" target="_blank" rel="noopener" class="btn btn-clay btn-sm">Learn More</a>
-            </div>
         </div>
         <div class="about-images-stack">
             <div class="about-stack-img"><img src="images/5.jpg" alt="The gardens"></div>
@@ -637,22 +762,22 @@
             <!-- 1. Cacao Ceremony -->
             <!-- 1. Cacao Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:6vh"><h3>Cacao<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:6vh; margin-right:-45px"><h3>Cacao<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/Cacao1.jpg" alt="Cacao Ceremony"></div>
                 <div class="exp-img" style="margin-top:24vh"><img src="Experiences/cacao5.jpg" alt="Cacao Ceremony"></div>
-                <div class="exp-img" style="margin-top:8vh"><img src="Experiences/cacao11.jpg" alt="Cacao Ceremony"></div>
+                <div class="exp-img" style="margin-top:calc(8vh + 20px)"><img src="Experiences/cacao11.jpg" alt="Cacao Ceremony"></div>
             </div>
 
             <!-- 2. Ecstatic Dance -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:22vh"><h3>Ecstatic<br>Dance</h3></div>
+                <div class="exp-title" style="margin-top:22vh; margin-right:-65px"><h3>Ecstatic<br>Dance</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/dance3.jpg" alt="Ecstatic Dance"></div>
                 <div class="exp-img" style="margin-top:26vh"><img src="Experiences/dance1.jpg" alt="Ecstatic Dance"></div>
             </div>
 
             <!-- 3. Inner Journey Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:32vh"><h3>Inner Journey<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:32vh; margin-right:-15px"><h3>Inner Journey<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/ceremony1.jpg" alt="Ceremony Night"></div>
                 <div class="exp-img" style="margin-top:18vh"><img src="Experiences/ceremony2.jpg" alt="Ceremony Night"></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/ceremony3.jpg" alt="Ceremony Night"></div>
@@ -660,7 +785,7 @@
 
             <!-- 4. Hapé Ceremony -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:8vh"><h3>Hapé<br>Ceremony</h3></div>
+                <div class="exp-title" style="margin-top:calc(8vh + 90px); margin-right:-45px"><h3>Hapé<br>Ceremony</h3></div>
                 <div class="exp-img" style="margin-top:24vh"><img src="Experiences/hapé1.png" alt="Hapé Ceremony"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/hapé3.png" alt="Hapé Ceremony"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/hapé2.png" alt="Hapé Ceremony"></div>
@@ -668,16 +793,16 @@
 
             <!-- 5. Sound Healing -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:28vh"><h3>Sound<br>Healing</h3></div>
+                <div class="exp-title" style="margin-top:28vh; margin-right:-65px"><h3>Sound<br>Healing</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/sound1.jpg" alt="Sound Healing"></div>
                 <div class="exp-img" style="margin-top:16vh"><img src="Experiences/sound2.jpg" alt="Sound Healing"></div>
             </div>
 
             <!-- 6. Voice Activation -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:4vh"><h3>Voice<br>Activation<br>&amp; Mantra<br>Singing</h3></div>
+                <div class="exp-title" style="margin-top:calc(4vh + 40px); margin-right:-50px"><h3>Voice<br>Activation<br>&amp; Mantra<br>Singing</h3></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/singing1.jpg" alt="Voice Activation"></div>
-                <div class="exp-img" style="margin-top:6vh"><img src="Experiences/singing2.jpg" alt="Mantra Singing"></div>
+                <div class="exp-img" style="margin-top:calc(6vh + 20px)"><img src="Experiences/singing2.jpg" alt="Mantra Singing"></div>
             </div>
 
             <!-- 7. Animal Flow & Yoga -->
@@ -689,43 +814,43 @@
 
             <!-- 8. Breathwork Journey -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:34vh"><h3>Breathwork<br>Journey</h3></div>
+                <div class="exp-title" style="margin-top:34vh; margin-right:-30px"><h3>Breathwork<br>Journey</h3></div>
                 <div class="exp-img" style="margin-top:8vh"><img src="Experiences/breath1.png" alt="Breathwork Journey"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/breath2.png" alt="Breathwork Journey"></div>
             </div>
 
             <!-- 9. Somatic Movement Practice -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:6vh"><h3>Somatic<br>Movement<br>Practice</h3></div>
+                <div class="exp-title" style="margin-top:calc(6vh + 10px); margin-right:-50px"><h3>Somatic<br>Movement<br>Practice</h3></div>
                 <div class="exp-img" style="margin-top:16vh"><img src="Experiences/somatic.jpg" alt="Somatic Movement Practice"></div>
             </div>
 
             <!-- 10. Live Jams -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:20vh"><h3>Live Jams<br>Around the Fire</h3></div>
+                <div class="exp-title" style="margin-top:20vh; margin-right:-30px"><h3>Live Jams<br>Around the Fire</h3></div>
                 <div class="exp-img" style="margin-top:4vh"><img src="Experiences/fire1.jpg" alt="Live Jams Around the Fire"></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/fire2.png" alt="Live Jams Around the Fire"></div>
-                <div class="exp-img" style="margin-top:6vh"><img src="Experiences/fire3.png" alt="Live Jams Around the Fire"></div>
+                <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/fire3.png" alt="Live Jams Around the Fire"></div>
             </div>
 
             <!-- 11. Integration Circles -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:30vh"><h3>Integration<br>Circles</h3></div>
+                <div class="exp-title" style="margin-top:30vh; margin-right:-35px"><h3>Integration<br>Circles</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/circle1.1.png" alt="Integration Circles"></div>
-                <div class="exp-img" style="margin-top:18vh"><img src="Experiences/circle2.jpg" alt="Integration Circles"></div>
+                <div class="exp-img" style="margin-top:calc(18vh - 30px)"><img src="Experiences/circle2.jpg" alt="Integration Circles"></div>
             </div>
 
             <!-- 12. Altar Building -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:4vh"><h3>Altar<br>Building<br>Session</h3></div>
+                <div class="exp-title" style="margin-top:calc(4vh + 50px); margin-right:-60px"><h3>Altar<br>Building<br>Session</h3></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/altar1.png" alt="Altar Building"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/altar2.png" alt="Altar Building"></div>
             </div>
 
             <!-- 13. Water Cleansing Ritual -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:24vh"><h3>Water<br>Cleansing<br>Ritual</h3></div>
-                <div class="exp-img" style="margin-top:6vh"><img src="Experiences/water1.jpg" alt="Water Cleansing Ritual"></div>
+                <div class="exp-title" style="margin-top:24vh; margin-right:-50px"><h3>Water<br>Cleansing<br>Ritual</h3></div>
+                <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/water1.jpg" alt="Water Cleansing Ritual"></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/water2.jpg" alt="Water Cleansing Ritual"></div>
             </div>
 
@@ -733,32 +858,32 @@
             <div class="exp-chapter">
                 <div class="exp-title" style="margin-top:32vh"><h3>Natural Pool<br>Cold Plunge</h3></div>
                 <div class="exp-img" style="margin-top:8vh"><img src="Experiences/pool1.jpg" alt="Cold Plunge"></div>
-                <div class="exp-img" style="margin-top:22vh"><img src="Experiences/pool2.png" alt="Cold Plunge"></div>
+                <div class="exp-img" style="margin-top:calc(22vh - 20px)"><img src="Experiences/pool2.png" alt="Cold Plunge"></div>
             </div>
 
             <!-- 15. Sunrise Gazing & Meditation -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:4vh"><h3>Sunrise<br>Gazing &amp;<br>Meditation</h3></div>
+                <div class="exp-title" style="margin-top:calc(4vh + 70px); margin-right:-40px; margin-bottom:-50px"><h3>Sunrise<br>Gazing &amp;<br>Meditation</h3></div>
                 <div class="exp-img" style="margin-top:22vh"><img src="Experiences/sunrise.png" alt="Sunrise Gazing"></div>
             </div>
 
             <!-- 16. Nature Meditation & Barefoot Walks -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:16vh"><h3>Nature<br>Meditation<br>&amp; Barefoot<br>Walks</h3></div>
+                <div class="exp-title" style="margin-top:16vh; margin-right:-35px"><h3>Nature<br>Meditation<br>&amp; Barefoot<br>Walks</h3></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/walks.png" alt="Nature Meditation"></div>
             </div>
 
             <!-- 17. Free Time & Rest -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:26vh"><h3>Free Time<br>&amp; Rest</h3></div>
-                <div class="exp-img" style="margin-top:6vh"><img src="Experiences/relax1.jpg" alt="Free Time"></div>
+                <div class="exp-title" style="margin-top:26vh; margin-right:-45px"><h3>Free Time<br>&amp; Rest</h3></div>
+                <div class="exp-img" style="margin-top:calc(6vh + 30px)"><img src="Experiences/relax1.jpg" alt="Free Time"></div>
                 <div class="exp-img" style="margin-top:20vh"><img src="Experiences/relax2.png" alt="Free Time"></div>
             </div>
 
             <!-- 18. Shared Sacred Meals -->
             <div class="exp-chapter">
-                <div class="exp-title" style="margin-top:8vh"><h3>Shared Sacred<br>Organic Meals</h3></div>
-                <div class="exp-img" style="margin-top:22vh"><img src="Experiences/food1.jpg" alt="Shared Sacred Meals"></div>
+                <div class="exp-title" style="margin-top:calc(8vh + 50px); margin-right:-10px"><h3>Shared Sacred<br>Organic Meals</h3></div>
+                <div class="exp-img" style="margin-top:calc(22vh - 20px)"><img src="Experiences/food1.jpg" alt="Shared Sacred Meals"></div>
                 <div class="exp-img" style="margin-top:6vh"><img src="Experiences/food2.jpg" alt="Shared Sacred Meals"></div>
             </div>
 
@@ -774,7 +899,7 @@
         <span class="label">The Facilitators</span>
         <h2>Guided by Experience<br>Held with Heart</h2>
         <div class="fac-grid">
-            <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei" style="object-position: center 65%;"></div><p class="fac-role">Ceremonialist · Voice Artist</p><h3 class="fac-name">Zei</h3><p>A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African indigenous tradition and Sufi practice, Zei has also sat with wisdom keepers across the Amazon, South America and the East, learning their songs, their prayers, their way of holding space. With her voice, she carries that blended wisdom into sound, into ceremony, into the room. She curates conscious events rooted in community, unity and the belief that people heal better together.</p></div>
+            <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei" style="object-position: center 65%;"></div><p class="fac-role">Ceremonialist · Voice Artist</p><h3 class="fac-name">Zei</h3><p>A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African indigenous tradition and Sufi practice, Zei has also sat with wisdom keepers across the Amazon, South America and the East, learning their songs, their prayers, their way of connection. With her voice, she carries that blended wisdom into sound and sacred ceremonial space. She curates conscious events rooted in community, unity and the belief that people heal better together.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael" style="transform: scale(1.2);"></div><p class="fac-role">Ceremonialist · Musician</p><h3 class="fac-name">Nael</h3><p>A multi-instrumental musician and ceremonial space holder, Nael has been playing since a very young age, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound and instruments is matched only by the heart behind it. Whether performing solo or within a circle, he holds space the way he plays, with precision, warmth and an unwavering commitment to community.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="transform: scale(1.6); transform-origin: center 70%; object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in unconditional love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="transform: scale(1.2); object-position: center 65%;"></div><p class="fac-role">Musician · Sound Alchemist</p><h3 class="fac-name">Art</h3><p>An artist in the truest sense, always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters to learn their secrets, and weaving them into sound that is entirely his own. He teaches instruments including the handpan, and brings a devotional depth to everything he plays. Beyond music, his practice spans movement, breathwork and embodiment, a full-spectrum presence on and off the stage.</p></div>
@@ -1225,7 +1350,7 @@
         });
     }
 
-    // Smart nav
+    // Smart nav (desktop)
     const nav = document.getElementById('nav');
     let last = 0;
     window.addEventListener('scroll', () => {
@@ -1233,6 +1358,18 @@
         nav.classList.toggle('nav-hidden', y > last && y > 80);
         last = Math.max(0, y);
     }, { passive: true });
+
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+        mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+    }
 
     // Accordion
     function initAcc(id) {
