@@ -757,8 +757,8 @@
         .rp-card.selected { background: var(--linen-dark); box-shadow: inset 4px 0 0 var(--clay); }
         .rp-radio { position: absolute; opacity: 0; pointer-events: none; }
         .rp-thumb-wrap {
-            width: 88px;
-            height: 66px;
+            width: 176px;
+            height: 124px;
             flex-shrink: 0;
             border-radius: 3px;
             overflow: hidden;
@@ -766,7 +766,7 @@
         .rp-thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
         .rp-info { flex: 1; min-width: 0; }
         .rp-chakra {
-            font-size: 9px;
+            font-size: 12px;
             letter-spacing: .22em;
             text-transform: uppercase;
             color: var(--clay);
@@ -776,7 +776,7 @@
         }
         .rp-name {
             font-family: var(--serif);
-            font-size: 22px;
+            font-size: 36px;
             color: var(--earth);
             line-height: 1.15;
             margin-bottom: 4px;
@@ -784,7 +784,7 @@
         .rp-desc {
             font-size: 12px;
             color: var(--stone);
-            opacity: .8;
+            opacity: 1;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -795,7 +795,7 @@
         }
         .rp-eb-price {
             font-family: var(--serif);
-            font-size: 22px;
+            font-size: 30px;
             color: var(--clay);
             line-height: 1.1;
         }
@@ -898,6 +898,9 @@
             /* Room list: bigger thumbnails and names */
             .rp-thumb-wrap { width: 120px !important; height: 86px !important; }
             .rp-name { font-size: 28px !important; }
+            .rp-price { display: block !important; text-align: right; }
+            .rp-eb-price { font-size: 18px !important; }
+            .rp-reg-price { font-size: 13px !important; }
 
             /* Room picker: label closer to title */
             .rp-header .label { margin-bottom: 2px; }
@@ -1431,8 +1434,8 @@
                 <input type="radio" name="room-pick" value="${r.name}" class="rp-radio">
                 <div class="rp-thumb-wrap"><img class="rp-thumb" src="${r.images[0]}" alt="${r.name}"></div>
                 <div class="rp-info">
-                    <span class="rp-chakra">${r.chakra}</span>
                     <div class="rp-name">${r.name}</div>
+                    <span class="rp-chakra">${r.chakra}</span>
                     <div class="rp-desc">${r.desc}</div>
                 </div>
                 <div class="rp-price">
