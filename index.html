@@ -18,8 +18,8 @@
             --max: 1200px; --pad: clamp(24px, 5vw, 80px);
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { background: var(--linen); color: var(--earth); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { background: var(--linen); color: var(--earth); font-family: var(--sans); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         img { display: block; max-width: 100%; }
         .ph img, .about-visual img,
         .s-card-img img, .fac-img img, .accom-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -331,7 +331,11 @@
             .rhythm-box { display: none; }
             .accom-row { grid-template-columns: 1fr; gap: 20px; }
             .accom-price-box { text-align: left; }
-            .accom-acc .acc-item.open .acc-body { max-height: 720px; }
+            /* Expand body: stack text below images */
+            .accom-expand { grid-template-columns: 1fr; gap: 24px; }
+            .accom-expand-images { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+            .accom-expand-images .room-img { aspect-ratio: 4/3; }
+            .accom-acc .acc-item.open .acc-body { max-height: 900px; }
             #journey-acc .acc-item.open .acc-body { max-height: 400px; }
             .footer-in { grid-template-columns: 1fr; grid-template-rows: none; justify-items: center; align-items: center; gap: 16px; }
             .footer-logo-wrap, .footer-contacts-row, .footer-social, .footer-copy { grid-column: auto; grid-row: auto; }
@@ -381,6 +385,14 @@
 
             /* accommodation belt */
             .accom-belt-item { width: 80vw; height: 64vw; }
+
+            /* Accommodation: shrink thumb, hide preview description */
+            .accom-acc .acc-thumb { width: 72px; height: 52px; }
+            .acc-preview-desc { display: none; }
+            .accom-price-row:first-child { margin-top: 0; }
+            .accom-acc .acc-item.open .acc-body { max-height: 960px; }
+            /* Book button: normalize SVG background */
+            .accom-btn { background-size: 100% 100%; padding: 18px 40px; }
 
             /* footer clearance for fixed reserve button */
             footer { padding-bottom: 96px; }
