@@ -434,10 +434,10 @@
             /* about retreat images */
             .about-img1-desk { display: none !important; }
             .about-img1-mob { display: block !important; }
-            .about-images-stack { height: 740px; }
-            .about-stack-img:nth-child(1) { width: 94%; }
-            .about-stack-img:nth-child(2) { top: calc(45% - 120px); }
-            .about-stack-img:nth-child(3) { top: calc(70% - 120px); }
+            .about-images-stack { height: 665px; }
+            .about-stack-img:nth-child(1) { width: 94%; z-index: 3; }
+            .about-stack-img:nth-child(2) { top: calc(45% - 140px); z-index: 2; }
+            .about-stack-img:nth-child(3) { top: calc(70% - 120px); z-index: 1; }
 
             .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
             .pillar p { max-width: 320px; margin: 0 auto; }
@@ -471,44 +471,54 @@
             .dance-img-2 { margin-top: calc(26vh - 20px) !important; }
 
             /* ── Experience track: per-element mobile adjustments ── */
-            /* Cacao: title 10px right */
+            /* Cacao: title 10px right; img1 10px left; img2 kill space */
             #sanctuary-track > .exp-chapter:nth-child(1) > .exp-title { margin-left: 10px !important; }
-            /* Ecstatic Dance: img1 20px left; img2 aligned with img1 */
+            #sanctuary-track > .exp-chapter:nth-child(1) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            #sanctuary-track > .exp-chapter:nth-child(1) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
+            /* Ecstatic Dance: img1 20px left; img2 20px left + kill space */
             #sanctuary-track > .exp-chapter:nth-child(2) > .exp-img:nth-child(2) { margin-left: -20px !important; }
-            #sanctuary-track > .exp-chapter:nth-child(2) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
-            /* Hapé: title 60px down */
-            #sanctuary-track > .exp-chapter:nth-child(4) > .exp-title { margin-top: calc(8vh + 60px) !important; }
-            /* Sound Healing: img1 30px left; img2 aligned with img1 */
-            #sanctuary-track > .exp-chapter:nth-child(5) > .exp-img:nth-child(2) { margin-left: -30px !important; }
-            #sanctuary-track > .exp-chapter:nth-child(5) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
-            /* Voice Activation: title 40px down; img2 20px down */
-            #sanctuary-track > .exp-chapter:nth-child(6) > .exp-title { margin-top: calc(4vh + 40px) !important; }
+            #sanctuary-track > .exp-chapter:nth-child(2) > .exp-img:nth-child(3) { margin-top: 4vh !important; margin-left: -20px !important; }
+            /* Inner Journey: title 10px left */
+            #sanctuary-track > .exp-chapter:nth-child(3) > .exp-title { margin-left: -10px !important; }
+            /* Hapé: title 80px down; img1 10px left; img2 kill space */
+            #sanctuary-track > .exp-chapter:nth-child(4) > .exp-title { margin-top: calc(8vh + 80px) !important; }
+            #sanctuary-track > .exp-chapter:nth-child(4) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            #sanctuary-track > .exp-chapter:nth-child(4) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
+            /* Sound Healing: img1 40px left; img2 40px down */
+            #sanctuary-track > .exp-chapter:nth-child(5) > .exp-img:nth-child(2) { margin-left: -40px !important; }
+            #sanctuary-track > .exp-chapter:nth-child(5) > .exp-img:nth-child(3) { margin-top: calc(4vh + 40px) !important; }
+            /* Voice Activation: title 70px down; img1 5px left; img2 20px down */
+            #sanctuary-track > .exp-chapter:nth-child(6) > .exp-title { margin-top: calc(4vh + 70px) !important; }
+            #sanctuary-track > .exp-chapter:nth-child(6) > .exp-img:nth-child(2) { margin-left: -5px !important; }
             #sanctuary-track > .exp-chapter:nth-child(6) > .exp-img:nth-child(3) { margin-top: calc(6vh + 20px) !important; }
             /* Breathwork: img1 5px left */
             #sanctuary-track > .exp-chapter:nth-child(8) > .exp-img:nth-child(2) { margin-left: -5px !important; }
-            /* Somatic: title 40px down */
+            /* Somatic: title 40px down; img1 10px left */
             #sanctuary-track > .exp-chapter:nth-child(9) > .exp-title { margin-top: calc(6vh + 40px) !important; }
-            /* Live Jams: img1 5px left; img2 aligned with img1 */
+            #sanctuary-track > .exp-chapter:nth-child(9) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            /* Live Jams: title kill space; img1 5px left; img2 aligned */
+            #sanctuary-track > .exp-chapter:nth-child(10) > .exp-title { margin-top: 4vh !important; }
             #sanctuary-track > .exp-chapter:nth-child(10) > .exp-img:nth-child(2) { margin-left: -5px !important; }
             #sanctuary-track > .exp-chapter:nth-child(10) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
-            /* Integration Circles: img1 5px left; img2 aligned with img1 */
+            /* Integration Circles: img1 5px left; img2 aligned */
             #sanctuary-track > .exp-chapter:nth-child(11) > .exp-img:nth-child(2) { margin-left: -5px !important; }
             #sanctuary-track > .exp-chapter:nth-child(11) > .exp-img:nth-child(3) { margin-top: 6vh !important; }
-            /* Altar Building: title 40px down; img1 10px left; img2 aligned with img1 */
+            /* Altar Building: title 40px down; img1 20px left; img2 aligned */
             #sanctuary-track > .exp-chapter:nth-child(12) > .exp-title { margin-top: calc(4vh + 40px) !important; }
-            #sanctuary-track > .exp-chapter:nth-child(12) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            #sanctuary-track > .exp-chapter:nth-child(12) > .exp-img:nth-child(2) { margin-left: -20px !important; }
             #sanctuary-track > .exp-chapter:nth-child(12) > .exp-img:nth-child(3) { margin-top: 20vh !important; }
-            /* Water Cleansing: img1 10px left */
-            #sanctuary-track > .exp-chapter:nth-child(13) > .exp-img:nth-child(2) { margin-left: -10px !important; }
-            /* Sunrise: title 60px down */
-            #sanctuary-track > .exp-chapter:nth-child(15) > .exp-title { margin-top: calc(4vh + 60px) !important; }
-            /* Nature Meditation: img1 5px left */
-            #sanctuary-track > .exp-chapter:nth-child(16) > .exp-img:nth-child(2) { margin-left: -5px !important; }
-            /* Free Time & Rest: img1 10px left; img2 aligned with img1 */
-            #sanctuary-track > .exp-chapter:nth-child(17) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            /* Water Cleansing: img1 15px left; img2 kill space */
+            #sanctuary-track > .exp-chapter:nth-child(13) > .exp-img:nth-child(2) { margin-left: -15px !important; }
+            #sanctuary-track > .exp-chapter:nth-child(13) > .exp-img:nth-child(3) { margin-top: 4vh !important; }
+            /* Sunrise: title 90px down */
+            #sanctuary-track > .exp-chapter:nth-child(15) > .exp-title { margin-top: calc(4vh + 90px) !important; }
+            /* Nature Meditation: img1 10px left */
+            #sanctuary-track > .exp-chapter:nth-child(16) > .exp-img:nth-child(2) { margin-left: -10px !important; }
+            /* Free Time & Rest: img1 15px left; img2 aligned */
+            #sanctuary-track > .exp-chapter:nth-child(17) > .exp-img:nth-child(2) { margin-left: -15px !important; }
             #sanctuary-track > .exp-chapter:nth-child(17) > .exp-img:nth-child(3) { margin-top: calc(6vh + 30px) !important; }
-            /* Shared Meals: title 20px down */
-            #sanctuary-track > .exp-chapter:nth-child(18) > .exp-title { margin-top: calc(8vh + 20px) !important; }
+            /* Shared Meals: title 20px down; 5px left */
+            #sanctuary-track > .exp-chapter:nth-child(18) > .exp-title { margin-top: calc(8vh + 20px) !important; margin-left: -5px !important; }
 
             #sanctuary-scroll { background: var(--linen); }
 
