@@ -361,7 +361,15 @@
         @media (max-width: 600px) {
             /* hero */
             #hero { height: 100vh; height: 100svh; min-height: 560px; }
-            #hero-bg { background: #17110a url('images/3_hero.jpg') 70% 90% / cover no-repeat; will-change: auto; }
+            #hero-bg {
+                background-color: #17110a !important;
+                background-image: url('images/3_hero.jpg') !important;
+                background-position: 70% 90% !important;
+                background-size: cover !important;
+                background-repeat: no-repeat !important;
+                will-change: auto !important;
+                transform: none !important;
+            }
             .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 14px; }
             .hero-body { padding-top: 110px; padding-bottom: 60px; gap: 18px; }
             .hero-text-block { margin-top: 0; }
@@ -1260,14 +1268,16 @@
     document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
     document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
-    // Parallax hero
+    // Parallax hero (desktop only)
     const heroBg = document.getElementById('hero-bg');
     const heroH = document.getElementById('hero').offsetHeight;
     function updateParallax() {
+        if (window.innerWidth <= 600) { heroBg.style.transform = ''; return; }
         const y = window.scrollY;
         if (y <= heroH) heroBg.style.transform = `translateY(${y * 0.62}px)`;
     }
     window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax);
 
     // Parallax image break
     const imgBreakBg = document.getElementById('img-break-bg');
