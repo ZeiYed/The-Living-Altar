@@ -86,6 +86,7 @@
         .about-text p { font-size: 14px; line-height: 1.85; color: var(--stone); margin-bottom: 14px; max-width: 100%; }
         .about-text .label { color: rgba(244,239,230,.38); }
         .about-text .divider { background: var(--clay); }
+        .hero-mob-img { display: none; }
         .h2-mob { display: none; }
         .h2-desk { display: inline; }
         .about-sub { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin: 28px 0 8px; }
@@ -361,14 +362,15 @@
         @media (max-width: 600px) {
             /* hero */
             #hero { height: 100vh; height: 100svh; min-height: 560px; }
-            #hero-bg {
-                background-color: #17110a !important;
-                background-image: url('images/3_hero.jpg') !important;
-                background-position: 70% 90% !important;
-                background-size: cover !important;
-                background-repeat: no-repeat !important;
-                will-change: auto !important;
-                transform: none !important;
+            #hero-bg { background-image: none !important; will-change: auto !important; }
+            .hero-mob-img {
+                display: block;
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 70% 90%;
             }
             .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 14px; }
             .hero-body { padding-top: 110px; padding-bottom: 60px; gap: 18px; }
@@ -574,7 +576,7 @@
 
 <!-- HERO -->
 <section id="hero">
-    <div id="hero-bg"></div>
+    <div id="hero-bg"><img src="images/3_hero.jpg" class="hero-mob-img" alt=""></div>
     <div class="hero-overlay"></div>
     <div class="hero-body">
         <div class="hero-logo">
