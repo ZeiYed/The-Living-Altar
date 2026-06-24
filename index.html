@@ -71,7 +71,7 @@
         /* hero */
         #hero { padding: 0; height: 120vh; min-height: 680px; position: relative; overflow: hidden; display: flex; align-items: stretch; justify-content: center; text-align: center; }
         #hero-bg { position: absolute; inset: 0; background: #17110a url('images/4.jpg') center bottom/auto 112% no-repeat; will-change: transform; z-index: 0; }
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,5,2,.2) 0%, rgba(6,5,2,.35) 100%); z-index: 1; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(6,5,2,0.5); z-index: 1; }
         .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(205px,34vh,420px) 24px clamp(210px,26vh,290px); text-align: center; }
         .hero-text-block { margin-top: 0; }
         .hero-logo { width: clamp(192px, 26.9vw, 307px); }
@@ -95,6 +95,7 @@
         .about-images-stack { position: relative; width: 100%; height: 100%; min-height: 620px; }
         .about-stack-img { position: absolute; overflow: hidden; }
         .about-stack-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .about-img1-mob { display: none !important; }
         .about-stack-img:nth-child(1) { top: calc(-3% - 30px); right: 0; width: 84%; height: auto; z-index: 1; }
         .about-stack-img:nth-child(2) { top: calc(45% - 10px); left: 0; width: 95%; aspect-ratio: 5/4; height: auto; z-index: 2; }
         .about-stack-img:nth-child(3) { bottom: calc(-6% - 20px); right: -6%; width: 84%; aspect-ratio: 5/4; height: auto; z-index: 3; }
@@ -428,6 +429,8 @@
             .h2-mob { display: inline; }
 
             /* about retreat images */
+            .about-img1-desk { display: none; }
+            .about-img1-mob { display: block; }
             .about-images-stack { height: 740px; }
             .about-stack-img:nth-child(1) { width: 94%; }
             .about-stack-img:nth-child(2) { top: calc(45% - 120px); }
@@ -613,7 +616,7 @@
 
         </div>
         <div class="about-images-stack">
-            <div class="about-stack-img"><img src="images/4.jpg" alt="The gardens"></div>
+            <div class="about-stack-img"><img src="images/5.jpg" class="about-img1-desk" alt="The gardens"><img src="images/4.jpg" class="about-img1-mob" alt="The gardens"></div>
             <div class="about-stack-img"><img src="images/8.jpg" alt="Casa Prema"></div>
             <div class="about-stack-img"><img src="images/7.jpg" alt="Casa Prema"></div>
         </div>
