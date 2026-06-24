@@ -375,6 +375,7 @@
                 will-change: transform;
             }
             .hero-eyebrow { bottom: clamp(28px,5vh,56px); font-size: 14px; }
+            .hero-overlay { background: rgba(6,5,2,0.5) !important; }
             .hero-body { padding-top: 0; padding-bottom: 0; justify-content: center; position: relative; }
             .hero-logo { width: clamp(163px, 46vw, 211px); }
             .hero-text-block { position: absolute; bottom: clamp(40px, 7vh, 72px); left: 0; right: 0; margin: 0; }
@@ -443,11 +444,14 @@
             .fac-name { font-size: 36px; }
 
             /* accordions */
-            .acc-title { font-size: 20px; }
+            .acc-title { font-size: 24px; }
             .acc-btn-left { gap: 14px; }
             .acc-body-in { padding-left: 0; }
 
-/* sanctuary gallery */
+/* experience: raise Continue button above browser chrome */
+            #exp-skip { bottom: clamp(80px,14vh,110px) !important; }
+
+            /* sanctuary gallery */
             #sanctuary-hdr { padding: 48px var(--pad) 14px; }
             #sanctuary-hdr h2 { font-size: 34px; }
             #sanctuary-track { gap: 10px; padding-top: 180px; padding-left: var(--pad); padding-right: 8vw; }
@@ -464,7 +468,7 @@
             .accom-belt-item { width: 80vw; height: 64vw; }
 
             /* Accommodation: shrink thumb, hide preview description */
-            .accom-acc .acc-thumb { width: 72px; height: 52px; }
+            .accom-acc .acc-thumb { width: 86px; height: 62px; }
             .acc-preview-desc { display: none; }
             .accom-price-row:first-child { margin-top: 0; }
             .accom-acc .acc-item.open .acc-body { max-height: 960px; }
@@ -508,7 +512,8 @@
                 grid-row: 2 !important;
                 justify-self: center !important;
             }
-            .footer-logo-wrap img { width: 63px !important; }
+            .footer-copy { display: none !important; }
+            .footer-logo-wrap img { width: 69px !important; }
             /* Row 2: social icons right */
             .footer-social {
                 grid-column: 2 !important;
@@ -519,8 +524,8 @@
                 align-items: center !important;
             }
             .footer-social a { flex-direction: column !important; min-height: auto !important; gap: 4px !important; align-items: center; }
-            .footer-social svg { width: 20px !important; height: 20px !important; margin-bottom: 0 !important; }
-            .footer-social .s-name { font-size: 7px !important; text-align: center; }
+            .footer-social svg { width: 22px !important; height: 22px !important; margin-bottom: 0 !important; }
+            .footer-social .s-name { font-size: 7.7px !important; text-align: center; }
             /* Row 3: copyright pinned to footer bottom */
             .footer-copy {
                 position: absolute !important;
@@ -606,7 +611,7 @@
 
         </div>
         <div class="about-images-stack">
-            <div class="about-stack-img"><img src="images/3_hero.jpg" alt="The gardens"></div>
+            <div class="about-stack-img"><img src="images/4.jpg" alt="The gardens"></div>
             <div class="about-stack-img"><img src="images/8.jpg" alt="Casa Prema"></div>
             <div class="about-stack-img"><img src="images/7.jpg" alt="Casa Prema"></div>
         </div>
