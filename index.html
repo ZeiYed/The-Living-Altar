@@ -72,17 +72,61 @@
         #hero { padding: 0; height: 120vh; min-height: 680px; position: relative; overflow: hidden; display: flex; align-items: stretch; justify-content: center; text-align: center; }
         #hero-bg { position: absolute; inset: 0; background: #17110a url('images/4.jpg') center bottom/auto 112% no-repeat; will-change: transform; z-index: 0; }
         .hero-overlay { position: absolute; inset: 0; background: rgba(6,5,2,0.5); z-index: 1; }
-        .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 24px; padding: clamp(205px,34vh,420px) 24px clamp(210px,26vh,290px); text-align: center; }
+        .hero-body { position: relative; z-index: 2; color: var(--linen); width: 100%; max-width: 760px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 40px; padding: clamp(205px,34vh,420px) 24px clamp(210px,26vh,290px); text-align: center; }
         .hero-text-block { margin-top: 0; }
         .hero-logo { width: clamp(173px, 24.2vw, 276px); }
-        .hero-logo img { width: 100%; height: auto; opacity: .95; display: block; }
+        .hero-logo img { width: 100%; height: auto; display: block; opacity: .95; }
         .hero-text-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-        .hero-h1 { font-family: var(--serif); font-size: clamp(30px,5.1vw,63px); font-weight: 300; font-style: normal; line-height: 1.1; color: var(--linen); opacity: .95; white-space: nowrap; text-align: center; width: 100%; }
-        .hero-eyebrow { font-size: 22px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--linen); opacity: .8; margin-top: 4px; text-align: center; width: 100%; }
+        .hero-h1 { font-family: var(--serif); font-size: clamp(30px,5.1vw,63px); font-weight: 300; font-style: normal; line-height: 1.1; color: var(--linen); opacity: .85; white-space: nowrap; text-align: center; width: 100%; }
+        .hero-eyebrow { font-size: 22px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--linen); opacity: .85; margin-top: 4px; text-align: center; width: 100%; }
+
+        /* experience tags band */
+        .exp-tags-band {
+            background: #251D10;
+            padding: clamp(24px, 3vw, 40px) 0;
+        }
+        .exp-tags-intro {
+            font-family: var(--sans);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sand);
+            opacity: 0.7;
+            margin-bottom: 32px;
+            display: block;
+        }
+        .exp-tags-track {
+            display: block;
+            text-align: justify;
+            text-align-last: justify;
+            line-height: 1.9;
+        }
+        .exp-tag {
+            display: inline;
+            font-family: var(--sans);
+            font-size: clamp(12px, 1.6vw, 21px);
+            font-weight: 300;
+            font-style: normal;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--linen);
+            transition: color 0.2s;
+            cursor: default;
+        }
+        .exp-dot {
+            display: inline;
+            font-size: 0.4em;
+            vertical-align: middle;
+            color: var(--sand);
+            opacity: 0.8;
+            margin: 0 clamp(8px, 1vw, 14px);
+        }
+        .exp-tag:hover { color: var(--linen); }
+        .exp-tag-dot { display: none; }
 
         /* about */
-        #about { background: #251D10; padding: 0; }
-        .about-content { padding: clamp(64px,8vw,110px) var(--pad); display: grid; grid-template-columns: fit-content(62%) 1fr; gap: clamp(40px,5vw,64px); align-items: stretch; }
+        #about { background: #251D10; padding: 0 var(--pad); }
+        .about-content { padding: clamp(64px,8vw,110px) 0; display: grid; grid-template-columns: fit-content(62%) 1fr; gap: clamp(40px,5vw,64px); align-items: stretch; }
         .about-text h2 { font-size: clamp(34px,4vw,52px); color: var(--linen); }
         .about-text p { font-size: 14px; line-height: 1.85; color: var(--stone); margin-bottom: 14px; max-width: 100%; }
         .about-text .label { color: rgba(244,239,230,.38); }
@@ -91,31 +135,32 @@
         .h2-mob { display: none; }
         .h2-desk { display: inline; }
         .about-sub { font-family: var(--sans); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin: 28px 0 8px; }
-        .about-learn { margin-top: 36px; }
+        .about-learn { margin-top: 36px; text-align: left; display: none; }
+        .about-learn .btn { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-38 0 276 56'%3E%3Cpath d='M 235,28 C 222,26 210,26 196,28' fill='none' stroke='%232C2E19' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M 4,28 C 16,3 184,3 196,28 C 184,53 16,53 4,28 Z' fill='%234E5030' stroke='%232C2E19' stroke-width='3'/%3E%3Cpath d='M 4,28 C 80,25 120,25 196,28' fill='none' stroke='%232C2E19' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E"); margin-left: 0; }
         .about-images-stack { position: relative; width: 100%; height: 100%; min-height: 620px; }
         .about-stack-img { position: absolute; overflow: hidden; }
         .about-stack-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .about-img1-mob { display: none !important; }
-        .about-stack-img:nth-child(1) { top: calc(-3% - 30px); right: 0; width: 84%; height: auto; z-index: 3; }
-        .about-stack-img:nth-child(2) { top: calc(45% - 10px); left: 0; width: 95%; aspect-ratio: 5/4; height: auto; z-index: 2; }
-        .about-stack-img:nth-child(3) { bottom: calc(-6% - 20px); right: -6%; width: 84%; aspect-ratio: 5/4; height: auto; z-index: 1; }
+        .about-stack-img:nth-child(1) { top: calc(-3% - 30px); right: 0; width: 67%; height: auto; z-index: 3; }
+        .about-stack-img:nth-child(2) { top: calc(45% - 10px); left: 0; width: 76%; aspect-ratio: 5/4; height: auto; z-index: 2; }
+        .about-stack-img:nth-child(3) { bottom: calc(-6% - 20px); right: -6%; width: 67%; aspect-ratio: 5/4; height: auto; z-index: 1; }
         .about-video-ph { width: 100%; background: #1A1208; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
         .about-video-ph svg { opacity: .35; }
         .about-video-ph p { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(244,239,230,.28); }
 
         /* pillars */
-        #pillars { background: var(--ocean); }
-        .pillars-top { margin-bottom: 72px; }
+        #pillars { background: var(--ocean); padding: clamp(48px,6vw,80px) var(--pad) clamp(24px,3vw,40px); }
+        .pillars-top { margin-bottom: 48px; }
         .pillars-top h2 { font-size: clamp(34px,4vw,52px); margin-top: 12px; color: var(--linen); }
         .pillars-top .label { color: rgba(244,239,230,.45); }
         .pillars-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 48px; }
         .pillar { text-align: center; }
-        .pillar-icon { width: 44px; height: 44px; margin: 0 auto 20px; }
+        .pillar-icon { width: 80px; height: 80px; margin: 0 auto 16px; }
         .pillar-icon svg { width: 100%; height: 100%; }
-        .pillar-icon svg line, .pillar-icon svg path, .pillar-icon svg circle[r="2"] { stroke: rgba(244,239,230,0.75) !important; }
-        .pillar-icon svg circle[r="1.5"] { fill: rgba(244,239,230,0.75) !important; stroke: none !important; }
-        .pillar-name { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: var(--linen); margin-bottom: 14px; }
-        .pillar p { font-size: 14px; line-height: 1.75; color: rgba(244,239,230,.68); }
+        .pillar-icon svg line, .pillar-icon svg path, .pillar-icon svg circle[r="2"] { stroke: var(--sand) !important; stroke-width: 1.5 !important; }
+        .pillar-icon svg circle[r="1.5"] { fill: var(--sand) !important; stroke: none !important; }
+        .pillar-name { font-family: var(--sans); font-size: clamp(9px, 1.2vw, 16px); font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--sand); margin-bottom: 0; line-height: 1.1; }
+
 
         /* img break */
         .img-break { width: 100%; height: 90vh; overflow: hidden; position: relative; }
@@ -125,7 +170,7 @@
         #journey { background: #3A3D22; color: var(--linen); }
         .journey-wrap .label { color: rgba(244,239,230,.38); }
         .journey-wrap h2 { font-size: clamp(34px,4vw,52px); color: var(--linen); margin: 12px 0 64px; }
-        .journey-layout { display: grid; grid-template-columns: 1fr 260px; gap: 72px; align-items: start; }
+        .journey-layout { display: grid; grid-template-columns: 1fr 260px; gap: 72px; align-items: stretch; }
         .acc-item { border-top: 1px solid rgba(244,239,230,.13); }
         .acc-item:last-child { border-bottom: 1px solid rgba(244,239,230,.13); }
         .acc-btn { width: 100%; background: none; border: none; padding: 26px 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--linen); text-align: left; gap: 16px; }
@@ -143,12 +188,12 @@
         .acc-body-in { padding: 0 0 32px 56px; }
         .acc-subtitle { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--sand); margin-bottom: 10px; }
         .acc-body-in p { font-size: 14px; line-height: 1.82; color: rgba(244,239,230,.65); }
-        .rhythm-box { background: #4E5030; padding: 32px 28px; }
+        .rhythm-box { background: #4E5030; padding: 32px 28px; display: flex; flex-direction: column; }
         .rhythm-box h4 { font-family: var(--sans); font-size: 9px; letter-spacing: .26em; text-transform: uppercase; color: rgba(244,239,230,.4); margin-bottom: 22px; font-weight: 400; }
-        .rhythm-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(244,239,230,.07); font-size: 13px; color: rgba(244,239,230,.65); }
+        .rhythm-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(244,239,230,.07); font-size: 13px; color: rgba(244,239,230,1); }
         .rhythm-row:last-of-type { border: none; }
         .rhythm-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); flex-shrink: 0; }
-        .rhythm-note { font-family: var(--serif); font-size: 13px; font-style: italic; color: rgba(244,239,230,1); margin-top: 18px; }
+        .rhythm-note { font-family: var(--serif); font-size: 15.6px; font-style: italic; color: rgba(244,239,230,.60); margin-top: auto; padding-top: 24px; }
 
         /* sanctuary spacers */
         .sanctuary-spacer { height: clamp(60px,8vw,108px); background: var(--linen); }
@@ -267,18 +312,18 @@
         .accom-btn { margin-top: 18px; }
 
         /* practical */
-        #practical { background: var(--linen-dark); }
+        #practical { background: #3A3D22; }
         .practical-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,96px); align-items: start; }
-        .practical-left h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 28px; color: var(--earth); }
-        .practical-left .label { color: var(--clay); }
-        .practical-left p { font-size: 15px; line-height: 1.8; color: rgba(74,43,8,.58); }
+        .practical-left h2 { font-size: clamp(34px,4vw,52px); margin: 12px 0 28px; color: var(--linen); }
+        .practical-left .label { color: rgba(244,239,230,.38); }
+        .practical-left p { font-size: 15px; line-height: 1.8; color: rgba(244,239,230,.65); }
         .practical-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        .p-item { padding: 26px 0; border-bottom: 1px solid rgba(74,43,8,.1); }
-        .p-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgba(74,43,8,.1); }
+        .p-item { padding: 26px 0; border-bottom: 1px solid rgba(244,239,230,.13); }
+        .p-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgba(244,239,230,.13); }
         .p-item:nth-child(even) { padding-left: 24px; }
         .p-label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--clay); margin-bottom: 6px; }
-        .p-value { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--earth); }
-        .p-sub { font-size: 14px; color: rgba(74,43,8,.5); margin-top: 5px; }
+        .p-value { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--linen); }
+        .p-sub { font-size: 14px; color: rgba(244,239,230,.5); margin-top: 5px; }
 
         /* cta */
         #cta { padding: clamp(100px,12vw,160px) var(--pad); position: relative; text-align: center; color: var(--linen); overflow: hidden; }
@@ -382,7 +427,7 @@
             .hero-overlay { background: rgba(6,5,2,0.5) !important; }
             .hero-body { padding-top: 0; padding-bottom: 0; justify-content: center; position: relative; }
             .hero-logo { width: clamp(179px, 51vw, 232px); }
-            .hero-text-block { position: absolute; bottom: clamp(60px, 10vh, 90px); left: 0; right: 0; margin: 0; }
+            .hero-text-block { position: static; margin: 0; }
 
             /* hide desktop nav on mobile */
             #nav { display: none; }
@@ -439,8 +484,11 @@
             .about-stack-img:nth-child(2) { top: calc(45% - 120px); z-index: 2; }
             .about-stack-img:nth-child(3) { top: calc(70% - 100px); z-index: 1; }
 
-            .pillars-grid { grid-template-columns: 1fr; gap: 36px; }
-            .pillar p { max-width: 320px; margin: 0 auto; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; margin-top: -30px; max-width: 320px; margin-left: auto; margin-right: auto; }
+            .pillar-icon { width: 48px; height: 48px; }
+            .pillar-name { font-size: 13px; }
+            .exp-tag { font-size: 17px; }
+            .exp-tags-track { text-align: left; text-align-last: left; line-height: 2; }
             .img-break { height: 56vh; }
             .about-video-ph { width: 100% !important; height: auto !important; aspect-ratio: 9/16 !important; min-height: unset !important; }
             .fac-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -619,8 +667,8 @@
 <div id="mobile-menu">
     <button id="mobile-menu-close" aria-label="Close menu">&#215;</button>
     <nav class="mobile-menu-links">
+        <a href="#pillars"          class="mobile-menu-link">Offering</a>
         <a href="#about"            class="mobile-menu-link">Retreat</a>
-        <a href="#pillars"          class="mobile-menu-link">Vision</a>
         <a href="#journey"          class="mobile-menu-link">Program</a>
         <a href="#sanctuary-scroll" class="mobile-menu-link">Experience</a>
         <a href="#facilitators"     class="mobile-menu-link">Facilitators</a>
@@ -635,8 +683,8 @@
 <!-- NAV -->
 <nav id="nav">
     <div class="nav-links">
+        <a href="#pillars"       class="nav-link">Offering</a>
         <a href="#about"         class="nav-link">Retreat</a>
-        <a href="#pillars"       class="nav-link">Vision</a>
         <a href="#journey"       class="nav-link">Program</a>
         <a href="#sanctuary-scroll" class="nav-link">Experience</a>
         <a href="#facilitators"  class="nav-link">Facilitators</a>
@@ -659,78 +707,42 @@
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <div class="about-content wrap">
-        <div class="about-text">
-            <span class="label">The Retreat</span>
-            <div class="divider"></div>
-            <h2><span class="h2-desk">An Immersive Journey Through<br>Sound, Ceremony &amp; Nature</span><span class="h2-mob">An Immersive Journey<br>Through Sound<br>Ceremony &amp; Nature</span></h2>
-            <div class="divider"></div>
-            <p>Living Altar is a five-day immersion that weaves together ancient practices, music, movement, and ceremony to create the conditions for meaningful transformation. Designed to help you slow down, listen deeply, and reconnect with the wisdom of your own heart.</p>
-            <p>At the heart of the retreat is a dedicated evening of deep inner exploration, gathered around a ceremonial altar — a space for prayer, music, contemplation, and remembrance — followed by a full day of integration, rest, and embodied reflection.</p>
-
-            <h4 class="about-sub">Who is this for?</h4>
-            <p>For those who feel the need to step away from the noise, slow down, and reconnect with themselves. Whether you're feeling overwhelmed, disconnected, at a crossroads, or simply longing for something more meaningful, this space was created for you.</p>
-
-            <h4 class="about-sub">Why we created this</h4>
-            <p>Because some of life's most important conversations cannot happen in the rush of everyday life. Living Altar was created as a space to pause, gather, remember what matters, and return home with greater clarity and presence.</p>
-
-        </div>
-        <div class="about-images-stack">
-            <div class="about-stack-img"><img src="images/5.jpg" class="about-img1-desk" alt="The gardens"><img src="images/4.jpg" class="about-img1-mob" alt="The gardens"></div>
-            <div class="about-stack-img"><img src="images/8.jpg" alt="Casa Prema"></div>
-            <div class="about-stack-img"><img src="images/7.jpg" alt="Casa Prema"></div>
-        </div>
-    </div>
-    <div class="about-video-ph">
-        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="26" stroke="rgba(244,239,230,0.7)" stroke-width="1"/>
-            <path d="M23 20 L38 28 L23 36 Z" fill="rgba(244,239,230,0.7)"/>
-        </svg>
-        <p>Video coming soon</p>
-    </div>
-</section>
-
 <!-- PILLARS -->
 <section id="pillars">
     <div class="wrap">
         <div class="pillars-top">
-            <span class="label">The Vision</span>
+            <span class="label">The Offering</span>
             <h2>Four Pillars<br>One Journey</h2>
         </div>
         <div class="pillars-grid">
 
             <div class="pillar">
                 <div class="pillar-icon">
-                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(15px);">
                         <path d="M2 18 Q7 5 12 18 Q17 31 22 18 Q27 5 32 18 Q37 31 42 18" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
                         <path d="M2 27 Q7 14 12 27 Q17 40 22 27 Q27 14 32 27 Q37 40 42 27" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
                     </svg>
                 </div>
                 <p class="pillar-name">Sound</p>
-                <p>Healing through vibration, voice and resonance to clear, open and realign.</p>
             </div>
 
             <div class="pillar">
                 <div class="pillar-icon">
-                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(5px);">
                         <path d="M22 38 C15 38 10 32 10 25 C10 18 15 14 18 10 C18 14 20 16 22 14 C22 14 24 10 26 6 C30 12 34 18 34 25 C34 32 29 38 22 38Z" stroke="#4D4E35" stroke-width="1" stroke-linejoin="round"/>
                         <path d="M22 34 C19 34 17 31 17 28 C17 25 19 23 21 21 C21 23 22 24 23 23 C25 26 27 28 22 34Z" stroke="#4D4E35" stroke-width="0.7"/>
                     </svg>
                 </div>
                 <p class="pillar-name">Ritual</p>
-                <p>Sacred practices to honour transition and awaken presence and devotion.</p>
             </div>
 
             <div class="pillar">
                 <div class="pillar-icon">
-                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: translateY(5px);">
                         <path d="M22 7 C31 7 37 14 37 22 C37 30 30 37 22 37 C14 37 7 30 7 22 C7 13 14 11 22 11 C30 11 33 16 33 22 C33 28 29 33 22 33 C15 33 11 28 12 22 C13 16 16 14 22 14 C28 14 30 18 30 22 C30 26 27 29 22 29" stroke="#4D4E35" stroke-width="1" stroke-linecap="round"/>
                     </svg>
                 </div>
                 <p class="pillar-name">Journey</p>
-                <p>Guided inner journeys to explore, heal and remember who you are.</p>
             </div>
 
             <div class="pillar">
@@ -744,17 +756,55 @@
                     </svg>
                 </div>
                 <p class="pillar-name">Integration</p>
-                <p>Tools and space to embody insights and live from alignment.</p>
             </div>
 
         </div>
     </div>
+    <div class="exp-tags-band" style="background: transparent;">
+      <div class="wrap"><div class="exp-tags-track">
+        <span class="exp-tag">Cacao Ceremony</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Ecstatic Dance</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Inner Journey Ceremony</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Sound Healing</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Hapé Ceremony</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Breathwork Journey</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Voice Activation &amp; Mantra Singing</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Water Cleansing Ritual</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Sharing Circles</span><span class="exp-dot">●</span>
+        <span class="exp-tag">Live Jams Around the Fire ...</span>
+      </div></div>
+    </div>
 </section>
 
-<!-- IMAGE BREAK -->
-<div class="img-break">
-    <div class="img-break-bg" id="img-break-bg"></div>
-</div>
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-content wrap">
+        <div class="about-text">
+            <span class="label">The Retreat</span>
+            <div class="divider"></div>
+            <h2><span class="h2-desk">An Immersive Journey Through<br>Sound, Ceremony &amp; Nature</span><span class="h2-mob">An Immersive Journey<br>Through Sound<br>Ceremony &amp; Nature</span></h2>
+            <div class="divider"></div>
+            <p>Living Altar is a five-day immersion that weaves together ancient practices, music, movement, and ceremony to create the conditions for meaningful transformation. Designed to help you slow down, listen deeply, and reconnect with the wisdom of your own heart.</p>
+            <p>At the heart of the retreat is a dedicated evening of deep inner exploration, gathered around a ceremonial altar: a space for prayer, music, contemplation, and remembrance, followed by a full day of integration, rest, and embodied reflection.</p>
+
+            <h4 class="about-sub">Who is this for?</h4>
+            <p>For those who feel the need to step away from the noise, slow down, and reconnect with themselves. Whether you're feeling overwhelmed, disconnected, at a crossroads, or simply longing for something more meaningful, this space was created for you.</p>
+
+            <h4 class="about-sub">Why we created this</h4>
+            <p>Because some of life's most important conversations cannot happen in the rush of everyday life. Living Altar was created as a space to pause, gather, remember what matters, and return home with greater clarity and presence.</p>
+
+            <div class="about-learn">
+                <a href="#journey" class="btn btn-earth btn-sm">See the Full Program</a>
+            </div>
+
+        </div>
+        <div class="about-images-stack">
+            <div class="about-stack-img"><img src="images/5.jpg" class="about-img1-desk" alt="The gardens"><img src="images/4.jpg" class="about-img1-mob" alt="The gardens"></div>
+            <div class="about-stack-img"><img src="images/8.jpg" alt="Casa Prema"></div>
+            <div class="about-stack-img"><img src="images/7.jpg" alt="Casa Prema"></div>
+        </div>
+    </div>
+</section>
 
 <!-- JOURNEY -->
 <section id="journey">
@@ -770,14 +820,14 @@
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
-                        <p class="acc-subtitle">Arrival · Welcome Dinner · Opening Circle</p>
-                        <p>Arrive, settle into your space and meet the people you'll share this journey with. The evening opens with a shared meal and a fire gathering to open the circle.</p>
+                        <p class="acc-subtitle">Welcome Dinner · Opening Circle</p>
+                        <p>Settle into your space and meet the people you'll share this journey with. The evening opens with a shared meal and a fire gathering to open the circle.</p>
                     </div></div>
                 </div>
 
                 <div class="acc-item">
                     <button class="acc-btn">
-                        <div class="acc-btn-left"><span class="acc-day">Day 2<span class="acc-date">14|08</span></span><span class="acc-title">Voice, Movement &amp; the Body</span></div>
+                        <div class="acc-btn-left"><span class="acc-day">Day 2<span class="acc-date">14|08</span></span><span class="acc-title">Ritual, Body &amp; Movement</span></div>
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
@@ -799,7 +849,7 @@
 
                 <div class="acc-item">
                     <button class="acc-btn">
-                        <div class="acc-btn-left"><span class="acc-day">Day 4<span class="acc-date">16|08</span></span><span class="acc-title">Integration &amp; Nature</span></div>
+                        <div class="acc-btn-left"><span class="acc-day">Day 4<span class="acc-date">16|08</span></span><span class="acc-title">Sound &amp; Grounding Rituals</span></div>
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
@@ -810,7 +860,7 @@
 
                 <div class="acc-item">
                     <button class="acc-btn">
-                        <div class="acc-btn-left"><span class="acc-day">Day 5<span class="acc-date">17|08</span></span><span class="acc-title">Closing &amp; Return</span></div>
+                        <div class="acc-btn-left"><span class="acc-day">Day 5<span class="acc-date">17|08</span></span><span class="acc-title">Integration &amp; Closing</span></div>
                         <span class="acc-plus"></span>
                     </button>
                     <div class="acc-body"><div class="acc-body-in">
@@ -827,14 +877,22 @@
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Brunch</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Land Time</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Tea &amp; Rest</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Main Session</div>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Afternoon Session</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Journey</div>
-                <p class="rhythm-note">Indicative only. Each day's rhythm adapts around its main ceremony or activity.</p>
+                <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Session</div>
+                <p class="rhythm-note">Indicative only. Each day's rhythm adapts around its main session.</p>
             </div>
         </div>
     </div>
 </section>
+
+<div class="about-video-ph">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="28" cy="28" r="26" stroke="rgba(244,239,230,0.7)" stroke-width="1"/>
+        <path d="M23 20 L38 28 L23 36 Z" fill="rgba(244,239,230,0.7)"/>
+    </svg>
+    <p>Video coming soon</p>
+</div>
 
 <div class="sanctuary-spacer"></div>
 
@@ -1056,7 +1114,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A double room on the ground floor with a large en-suite bathroom, direct land access from the room, and extra storage shelving in the bathroom. Can be set up as a queen or two single beds.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Root&chakra=Muladhara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Root&chakra=Muladhara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1079,7 +1137,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A double room on the ground floor with access to the shared bathroom on the main floor. Can be set up as a queen or two single beds.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Sacral&chakra=Svadhisthana&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Sacral&chakra=Svadhisthana&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1100,9 +1158,9 @@
                         <div class="room-img"><img src="Accomodation/Rooms/bath4.2.png" alt="Solar Plexus bathroom"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-human-desc">A room for two with a trundle bed — a single above and a pull-out mattress beneath. Shared bathroom on the ground floor.</p>
+                        <p class="accom-human-desc">A room for two with a trundle bed: a single above and a pull-out mattress beneath. Shared bathroom on the ground floor.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Solar%20Plexus&chakra=Manipura&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,400</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,600</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Solar%20Plexus&chakra=Manipura&eb=1400&regular=1600" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1125,7 +1183,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A room with two bunk beds for four guests and a private bathroom.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,200</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,400</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Heart&chakra=Anahata&eb=1200&regular=1400" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,200</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,400</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Heart&chakra=Anahata&eb=1200&regular=1400" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1148,7 +1206,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A double room with a private bathroom and a balcony overlooking the land. Can be set up as a queen or two single beds.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Throat&chakra=Vishuddha&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Throat&chakra=Vishuddha&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1171,7 +1229,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A double room with a private bathroom. Can be set up as a queen or two single beds.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,600</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,650</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Third%20Eye&chakra=Ajna&eb=1600&regular=1800" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,600</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,650</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Third%20Eye&chakra=Ajna&eb=1600&regular=1800" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1194,7 +1252,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">A double room with a private bathroom and a balcony open to the land. Can be set up as a queen or two single beds.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Crown&chakra=Sahasrara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,650</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,850</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Crown&chakra=Sahasrara&eb=1650&regular=1850" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1217,7 +1275,7 @@
                     <div class="accom-expand-right">
                         <p class="accom-human-desc">An outdoor geodesic dome with 2x bunk beds for four people and a outdoor washroom with two showers and two toilets.</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€1,150</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,350</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Dome&chakra=Outdoor%20Sanctuary&eb=1150&regular=1350" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€1,150</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,350</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Dome&chakra=Outdoor%20Sanctuary&eb=1150&regular=1350" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1238,9 +1296,9 @@
                         <div class="room-img"><img src="Accomodation/Outdoor areas/wash-house1.4.jpg" alt="Shared outdoor shower"></div>
                     </div>
                     <div class="accom-expand-right">
-                        <p class="accom-human-desc">A shaded outdoor camping spot among the trees with access to the outdoor washroom. Bring your own tent — or we can set one up for you (extra charges apply).</p>
+                        <p class="accom-human-desc">A shaded outdoor camping spot among the trees with access to the outdoor washroom. Bring your own tent, or we can set one up for you (extra charges apply).</p>
                         
-                        <div class="accom-price-box"><div class="accom-price-row"><span class="accom-price-eb">€800</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,000</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Camping&chakra=Under%20the%20Trees&eb=800&regular=1000" class="btn btn-earth accom-btn">Book</a></div>
+                        <div class="accom-price-box"><div style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);opacity:0.6;margin-bottom:4px;">Prices per person / Starting from</div><div class="accom-price-row"><span class="accom-price-eb">€800</span><span class="accom-eb-label">Early bird</span></div><div class="accom-price-row"><span class="accom-price-original">€1,000</span><span class="accom-early">Regular price | July 6</span></div><a href="booking.html?room=Camping&chakra=Under%20the%20Trees&eb=800&regular=1000" class="btn btn-earth accom-btn">Book</a></div>
                     </div>
                 </div></div>
             </div>
@@ -1259,7 +1317,7 @@
         </div>
         <div class="practical-grid">
             <div class="p-item"><p class="p-label">Dates</p><p class="p-value">13–17 Aug 2026</p><p class="p-sub">Arrival from 4pm · Depart by 2pm</p></div>
-            <div class="p-item"><p class="p-label">Location</p><p class="p-value">Monte dos Maldonados</p><p class="p-sub"><a href="https://maps.app.goo.gl/QeiSoeLWyrieu42r6?g_st=ic" target="_blank" rel="noopener" style="color:#5F6138; border-bottom:1px solid rgba(95,97,56,.45);">📍 Casa Prema</a></p></div>
+            <div class="p-item"><p class="p-label">Location</p><p class="p-value">Monte dos Maldonados</p><p class="p-sub"><a href="https://maps.app.goo.gl/QeiSoeLWyrieu42r6?g_st=ic" target="_blank" rel="noopener" style="color:rgba(244,239,230,.5); border-bottom:1px solid rgba(244,239,230,.25);">📍 Casa Prema</a></p></div>
             <div class="p-item"><p class="p-label">Duration</p><p class="p-value">5 Days / 4 Nights</p><p class="p-sub">Full immersion program</p></div>
             <div class="p-item"><p class="p-label">Group Size</p><p class="p-value">20 Guests</p><p class="p-sub">Intimate · Limited spaces</p></div>
             <div class="p-item"><p class="p-label">Food</p><p class="p-value">All Meals Included</p><p class="p-sub">Organic · Inclusive · Locally sourced</p></div>
@@ -1276,7 +1334,7 @@
         <div class="testi-grid">
             <div class="testi"><p class="testi-quote">"The retreat changed something in me that words can't fully explain. I came as one person and left remembering who I truly am."</p><p class="testi-author">Maria, Portugal</p></div>
             <div class="testi"><p class="testi-quote">"The perfect blend of depth, beauty and heartfelt connection. Everything was held with so much care."</p><p class="testi-author">David, Germany</p></div>
-            <div class="testi"><p class="testi-quote">"A life-changing experience. The space, the people, the practices — all woven together so beautifully."</p><p class="testi-author">Sophie, UK</p></div>
+            <div class="testi"><p class="testi-quote">"A life-changing experience. The space, the people, the practices, all woven together so beautifully."</p><p class="testi-author">Sophie, UK</p></div>
         </div>
     </div>
 </section>
