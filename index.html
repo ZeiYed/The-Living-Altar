@@ -394,14 +394,14 @@
             .fac-img { margin-top: 0; margin-bottom: 24px; }
             .testi-grid { grid-template-columns: 1fr; }
             .journey-layout { grid-template-columns: 1fr; }
-            .rhythm-box { display: flex; flex-direction: column; padding: 24px 20px; margin-top: 8px; }
-            .rhythm-box h4 { margin-bottom: 12px; }
-            .rhythm-rows-track { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 0; scrollbar-width: none; }
-            .rhythm-rows-track::-webkit-scrollbar { display: none; }
-            .rhythm-row { flex-shrink: 0; border-bottom: none; padding: 4px 0; font-size: 12px; white-space: nowrap; }
-            .rhythm-row:not(:last-of-type)::after { content: ' · '; color: rgba(244,239,230,.35); margin: 0 6px; }
+            .rhythm-box { display: flex; flex-direction: column; width: 100%; box-sizing: border-box; padding: 18px 16px; margin-top: -32px; }
+            .rhythm-box h4 { margin-bottom: 8px; }
+            .rhythm-rows-track { display: block; }
+            .rhythm-row { display: inline; border-bottom: none; padding: 0; font-size: 13px; }
+            .rhythm-row::after { content: ' ● '; color: var(--clay); font-size: 0.4em; vertical-align: middle; }
+            .rhythm-row:last-of-type::after { content: ''; }
             .rhythm-dot { display: none; }
-            .rhythm-note { padding-top: 14px; margin-top: 8px; border-top: 1px solid rgba(244,239,230,.07); font-size: 12px; }
+            .rhythm-note { font-size: 13px; padding-top: 10px; margin-top: 8px; }
             .accom-row { grid-template-columns: 1fr; gap: 20px; }
             .accom-price-box { text-align: left; }
             /* Expand body: stack text below images */
@@ -489,9 +489,9 @@
             .about-images-stack { height: 680px; }
             .about-stack-img:nth-child(1) { width: 94%; z-index: 3; }
             .about-stack-img:nth-child(2) { top: calc(45% - 120px); z-index: 2; }
-            .about-stack-img:nth-child(3) { top: calc(70% - 100px); z-index: 1; }
+            .about-stack-img:nth-child(3) { top: calc(70% - 100px); z-index: 1; right: calc(-6% + 20px); }
 
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; margin-top: -30px; margin-bottom: 32px; max-width: 320px; margin-left: auto; margin-right: auto; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; margin-top: -30px; margin-bottom: 16px; max-width: 320px; margin-left: auto; margin-right: auto; }
             .pillar-icon { width: 48px; height: 48px; }
             .pillar-name { font-size: 13px; }
             .exp-tag { font-size: 19px; }
@@ -500,7 +500,7 @@
             .about-video-ph { width: 100% !important; height: auto !important; aspect-ratio: 9/16 !important; min-height: unset !important; }
             .fac-grid { grid-template-columns: 1fr; gap: 16px; }
             .fac-img { aspect-ratio: 3 / 4; }
-            .fac-img-renato img { transform: scale(1.3); transform-origin: center 30%; }
+            .fac-img-renato img { transform: scale(1.4); transform-origin: center center; object-position: center center; }
             .fac-card { padding: 0 2.5% 48px; }
             .fac-card:last-child { padding-bottom: 0; }
             .fac-grid { margin-top: 48px; }
@@ -882,13 +882,13 @@
             <div class="rhythm-box">
                 <h4>Daily Rhythm</h4>
                 <div class="rhythm-rows-track">
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Morning Practice</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Brunch</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Land Time</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Tea &amp; Rest</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Afternoon Session</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
-                <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Session</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Morning Practice</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Brunch</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Land Time</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Tea &amp; Rest</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Afternoon Session</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
+                    <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Session</div>
                 </div>
                 <p class="rhythm-note">Indicative only. Each day's rhythm adapts around its main session.</p>
             </div>
