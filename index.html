@@ -394,7 +394,14 @@
             .fac-img { margin-top: 0; margin-bottom: 24px; }
             .testi-grid { grid-template-columns: 1fr; }
             .journey-layout { grid-template-columns: 1fr; }
-            .rhythm-box { display: none; }
+            .rhythm-box { display: flex; flex-direction: column; padding: 24px 20px; margin-top: 8px; }
+            .rhythm-box h4 { margin-bottom: 12px; }
+            .rhythm-rows-track { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 0; scrollbar-width: none; }
+            .rhythm-rows-track::-webkit-scrollbar { display: none; }
+            .rhythm-row { flex-shrink: 0; border-bottom: none; padding: 4px 0; font-size: 12px; white-space: nowrap; }
+            .rhythm-row:not(:last-of-type)::after { content: ' · '; color: rgba(244,239,230,.35); margin: 0 6px; }
+            .rhythm-dot { display: none; }
+            .rhythm-note { padding-top: 14px; margin-top: 8px; border-top: 1px solid rgba(244,239,230,.07); font-size: 12px; }
             .accom-row { grid-template-columns: 1fr; gap: 20px; }
             .accom-price-box { text-align: left; }
             /* Expand body: stack text below images */
@@ -484,15 +491,16 @@
             .about-stack-img:nth-child(2) { top: calc(45% - 120px); z-index: 2; }
             .about-stack-img:nth-child(3) { top: calc(70% - 100px); z-index: 1; }
 
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; margin-top: -30px; max-width: 320px; margin-left: auto; margin-right: auto; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; margin-top: -30px; margin-bottom: 32px; max-width: 320px; margin-left: auto; margin-right: auto; }
             .pillar-icon { width: 48px; height: 48px; }
             .pillar-name { font-size: 13px; }
-            .exp-tag { font-size: 17px; }
+            .exp-tag { font-size: 19px; }
             .exp-tags-track { text-align: left; text-align-last: left; line-height: 2; }
             .img-break { height: 56vh; }
             .about-video-ph { width: 100% !important; height: auto !important; aspect-ratio: 9/16 !important; min-height: unset !important; }
             .fac-grid { grid-template-columns: 1fr; gap: 16px; }
             .fac-img { aspect-ratio: 3 / 4; }
+            .fac-img-renato img { transform: scale(1.3); transform-origin: center 30%; }
             .fac-card { padding: 0 2.5% 48px; }
             .fac-card:last-child { padding-bottom: 0; }
             .fac-grid { margin-top: 48px; }
@@ -873,6 +881,7 @@
 
             <div class="rhythm-box">
                 <h4>Daily Rhythm</h4>
+                <div class="rhythm-rows-track">
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Morning Practice</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Brunch</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Land Time</div>
@@ -880,6 +889,7 @@
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Afternoon Session</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Dinner</div>
                 <div class="rhythm-row"><span class="rhythm-dot"></span>Evening Session</div>
+                </div>
                 <p class="rhythm-note">Indicative only. Each day's rhythm adapts around its main session.</p>
             </div>
         </div>
@@ -1054,7 +1064,7 @@
         <div class="fac-grid">
             <div class="fac-card"><div class="fac-img"><img src="images/Zei.jpg" alt="Zei" style="object-position: center 65%;"></div><p class="fac-role">Ceremonialist · Voice Artist</p><h3 class="fac-name">Zei</h3><p>A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African indigenous tradition and Sufi practice, Zei has also sat with wisdom keepers across the Amazon, South America and the East, learning their songs, their prayers, their way of connection. With her voice, she carries that blended wisdom into sound and sacred ceremonial space. She curates conscious events rooted in community, unity and the belief that people heal better together.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Nael.jpg" alt="Nael"></div><p class="fac-role">Ceremonialist · Musician</p><h3 class="fac-name">Nael</h3><p>A multi-instrumental musician and ceremonial space holder, Nael has been playing since a very young age, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound and instruments is matched only by the heart behind it. Whether performing solo or within a circle, he holds space the way he plays, with precision, warmth and an unwavering commitment to community.</p></div>
-            <div class="fac-card"><div class="fac-img"><img src="images/Renato.jpg" alt="Renato" style="object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
+            <div class="fac-card"><div class="fac-img fac-img-renato"><img src="images/Renato.jpg" alt="Renato" style="object-position: center 30%;"></div><p class="fac-role">Sound Healer · Space Host</p><h3 class="fac-name">Renato</h3><p>A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded a community rooted in love, relocated to Portugal, and built a sanctuary from the ground up. He holds this space with the quiet authority of someone who has done the work. Casa Prema was built to offer others what he found for himself.</p></div>
             <div class="fac-card"><div class="fac-img"><img src="images/Art.jpg" alt="Art" style="object-position: center 65%;"></div><p class="fac-role">Musician · Sound Alchemist</p><h3 class="fac-name">Art</h3><p>An artist in the truest sense, always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters to learn their secrets, and weaving them into sound that is entirely his own. He teaches instruments including the handpan, and brings a devotional depth to everything he plays. Beyond music, his practice spans movement, breathwork and embodiment, a full-spectrum presence on and off the stage.</p></div>
         </div>
     </div>
