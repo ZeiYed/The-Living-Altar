@@ -347,6 +347,7 @@
         #lightbox-prev { left: 28px; }
         #lightbox-next { right: 28px; }
         #lightbox-counter { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 3; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(244,239,230,.4); }
+        #lightbox-nav-row { display: none; }
 
         /* footer */
         footer { background: #251D10; color: var(--linen); padding: 22px var(--pad) 32px; }
@@ -660,6 +661,30 @@
                 text-align: center !important;
                 white-space: nowrap !important;
                 font-size: 7.2px !important;
+            }
+
+            /* lightbox: arrows move below image on mobile */
+            #lightbox { flex-direction: column; justify-content: center; gap: 0; }
+            #lightbox-img-wrap { max-width: 94vw; max-height: 72vh; }
+            #lightbox-img { max-width: 94vw; max-height: 72vh; }
+            #lightbox-prev, #lightbox-next {
+                position: static;
+                transform: none;
+                top: auto; left: auto; right: auto;
+            }
+            #lightbox-nav-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                margin-top: 18px;
+                z-index: 3;
+                position: relative;
+            }
+            #lightbox-counter {
+                position: static;
+                transform: none;
+                bottom: auto; left: auto;
             }
         }
     </style>
@@ -1400,10 +1425,12 @@
 <div id="lightbox" aria-hidden="true">
     <div id="lightbox-overlay"></div>
     <button id="lightbox-close">&#x2715;</button>
-    <button id="lightbox-prev">&#8592;</button>
-    <button id="lightbox-next">&#8594;</button>
     <div id="lightbox-img-wrap"><img id="lightbox-img" src="" alt="Room"></div>
-    <div id="lightbox-counter"></div>
+    <div id="lightbox-nav-row">
+        <button id="lightbox-prev">&#8592;</button>
+        <div id="lightbox-counter"></div>
+        <button id="lightbox-next">&#8594;</button>
+    </div>
 </div>
 
 <script>
@@ -1573,6 +1600,22 @@
         if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLbImage(); }
         if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLbImage(); }
     });
+
+    // Touch swipe on lightbox image
+    let lbTouchStartX = null;
+    const lbImgWrap = document.getElementById('lightbox-img-wrap');
+    lbImgWrap.addEventListener('touchstart', e => { lbTouchStartX = e.touches[0].clientX; }, { passive: true });
+    lbImgWrap.addEventListener('touchend', e => {
+        if (lbTouchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - lbTouchStartX;
+        if (Math.abs(dx) > 40) {
+            lbIndex = dx < 0
+                ? (lbIndex + 1) % lbImages.length
+                : (lbIndex - 1 + lbImages.length) % lbImages.length;
+            showLbImage();
+        }
+        lbTouchStartX = null;
+    }, { passive: true });
 
     document.addEventListener('click', e => {
         const cell = e.target.closest('.room-img');
