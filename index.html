@@ -1557,8 +1557,13 @@
             btn.addEventListener('click', () => {
                 const item = btn.closest('.acc-item');
                 const open = item.classList.contains('open');
+                // Snapshot button position before DOM change
+                const btnTopBefore = btn.getBoundingClientRect().top;
                 el.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
                 if (!open) item.classList.add('open');
+                // Restore button to same visual position — no jump
+                const btnTopAfter = btn.getBoundingClientRect().top;
+                window.scrollBy({ top: btnTopAfter - btnTopBefore, behavior: 'instant' });
             });
         });
     }
