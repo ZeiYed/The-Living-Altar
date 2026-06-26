@@ -122,7 +122,6 @@
             margin: 0 clamp(8px, 1vw, 14px);
         }
         .exp-tag:hover { color: var(--linen); }
-        .tag-voice-mob { display: none; }
         .exp-tag-dot { display: none; }
 
         /* about */
@@ -487,18 +486,18 @@
             /* about retreat images */
             .about-img1-desk { display: none !important; }
             .about-img1-mob { display: block !important; }
-            .about-images-stack { height: 680px; }
+            .about-images-stack { height: 580px; }
             .about-stack-img:nth-child(1) { width: 94%; z-index: 3; }
             .about-stack-img:nth-child(2) { top: calc(45% - 120px); z-index: 2; }
             .about-stack-img:nth-child(3) { top: calc(70% - 100px); z-index: 1; right: calc(-6% + 20px); }
 
-            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; max-width: 320px; margin: -30px auto 16px auto; }
+            #pillars .wrap { display: flex; flex-direction: column; align-items: center; }
+            #pillars .pillars-top { width: 100%; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; width: 320px; margin-top: -30px; margin-bottom: 16px; }
             .pillar-icon { width: 48px; height: 48px; }
             .pillar-name { font-size: 13px; }
             .exp-tag { font-size: 19px; }
             .exp-tags-track { text-align: left; text-align-last: left; line-height: 2; }
-            .tag-voice-mob { display: inline; }
-            .tag-voice-desk { display: none; }
             .img-break { height: 56vh; }
             .about-video-ph { width: 100% !important; height: auto !important; aspect-ratio: 9/16 !important; min-height: unset !important; }
             .fac-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -776,11 +775,10 @@
         <span class="exp-tag">Cacao Ceremony</span><span class="exp-dot">●</span>
         <span class="exp-tag">Ecstatic Dance</span><span class="exp-dot">●</span>
         <span class="exp-tag">Inner Journey Ceremony</span><span class="exp-dot">●</span>
-        <span class="exp-tag tag-voice-mob">Voice Activation &amp; Mantra Singing</span><span class="exp-dot tag-voice-mob">●</span>
         <span class="exp-tag">Sound Healing</span><span class="exp-dot">●</span>
         <span class="exp-tag">Hapé Ceremony</span><span class="exp-dot">●</span>
         <span class="exp-tag">Breathwork Journey</span><span class="exp-dot">●</span>
-        <span class="exp-tag tag-voice-desk">Voice Activation &amp; Mantra Singing</span><span class="exp-dot tag-voice-desk">●</span>
+        <span class="exp-tag">Voice Activation &amp; Mantra Singing</span><span class="exp-dot">●</span>
         <span class="exp-tag">Water Cleansing Ritual</span><span class="exp-dot">●</span>
         <span class="exp-tag">Sharing Circles</span><span class="exp-dot">●</span>
         <span class="exp-tag">Live Jams Around the Fire ...</span>
