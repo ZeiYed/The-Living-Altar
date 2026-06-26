@@ -1601,20 +1601,29 @@
         if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLbImage(); }
     });
 
-    // Touch swipe on lightbox image
+    // Touch swipe on lightbox — block page scroll, swipe to navigate
     let lbTouchStartX = null;
-    const lbImgWrap = document.getElementById('lightbox-img-wrap');
-    lbImgWrap.addEventListener('touchstart', e => { lbTouchStartX = e.touches[0].clientX; }, { passive: true });
-    lbImgWrap.addEventListener('touchend', e => {
+    let lbTouchStartY = null;
+    lightbox.addEventListener('touchstart', e => {
+        lbTouchStartX = e.touches[0].clientX;
+        lbTouchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchmove', e => {
+        e.preventDefault(); // stop background page from scrolling
+    }, { passive: false });
+    lightbox.addEventListener('touchend', e => {
         if (lbTouchStartX === null) return;
         const dx = e.changedTouches[0].clientX - lbTouchStartX;
-        if (Math.abs(dx) > 40) {
+        const dy = e.changedTouches[0].clientY - lbTouchStartY;
+        // only fire if horizontal swipe dominates and exceeds 30px
+        if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
             lbIndex = dx < 0
                 ? (lbIndex + 1) % lbImages.length
                 : (lbIndex - 1 + lbImages.length) % lbImages.length;
             showLbImage();
         }
         lbTouchStartX = null;
+        lbTouchStartY = null;
     }, { passive: true });
 
     document.addEventListener('click', e => {
