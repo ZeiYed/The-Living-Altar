@@ -1560,11 +1560,13 @@
                 el.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
                 if (!open) {
                     item.classList.add('open');
-                    // Anchor the tapped item to the top of the viewport
-                    setTimeout(() => {
-                        const top = item.getBoundingClientRect().top + window.scrollY;
-                        window.scrollTo({ top, behavior: 'smooth' });
-                    }, 10);
+                    // Anchor the tapped item to the top of the viewport (mobile only)
+                    if (window.innerWidth <= 600) {
+                        setTimeout(() => {
+                            const top = item.getBoundingClientRect().top + window.scrollY;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                        }, 10);
+                    }
                 }
             });
         });
