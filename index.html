@@ -1556,17 +1556,38 @@
         el.querySelectorAll('.acc-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.acc-item');
-                const open = item.classList.contains('open');
-                el.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
-                if (!open) {
-                    item.classList.add('open');
-                    // Anchor the tapped item to the top of the viewport (mobile only)
-                    if (window.innerWidth <= 600) {
-                        setTimeout(() => {
-                            const top = item.getBoundingClientRect().top + window.scrollY;
-                            window.scrollTo({ top, behavior: 'smooth' });
-                        }, 10);
+                const isOpen = item.classList.contains('open');
+                const itemTop = item.getBoundingClientRect().top;
+                let scrollComp = 0;
+
+                // Close other open items
+                el.querySelectorAll('.acc-item.open').forEach(openItem => {
+                    if (openItem === item) return;
+                    const body = openItem.querySelector('.acc-body');
+                    const openTop = openItem.getBoundingClientRect().top;
+                    if (openTop < itemTop && body) {
+                        // Above the clicked item — instant close so the page doesn't slide under us
+                        scrollComp += body.offsetHeight;
+                        body.style.transition = 'none';
+                        openItem.classList.remove('open');
+                        requestAnimationFrame(() => { body.style.transition = ''; });
+                    } else {
+                        openItem.classList.remove('open');
                     }
+                });
+
+                // Toggle the clicked item
+                item.classList.toggle('open');
+
+                // Compensate scroll for the instant-closed items above (keeps button in place)
+                if (scrollComp > 0) window.scrollBy({ top: -scrollComp, behavior: 'instant' });
+
+                // Mobile only: smooth-scroll to show the newly opened item
+                if (!isOpen && window.innerWidth <= 600) {
+                    setTimeout(() => {
+                        const top = item.getBoundingClientRect().top + window.scrollY - 70;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }, 50);
                 }
             });
         });
