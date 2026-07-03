@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Living Altar — Portugal, August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#FFFFFF; font-family:'DM Sans',system-ui,sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; max-width:100%; }
+
+  .outer { max-width:640px; margin:0 auto; }
+
+  /* hero */
+  .hero { position:relative; height:431px; overflow:hidden; }
+  .hero img.hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 50%; }
+  .hero-ov { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(6,5,2,.58) 0%, rgba(6,5,2,.20) 45%, rgba(6,5,2,.06) 100%); }
+  .hero-top { position:absolute; top:0; left:0; right:0; display:flex; flex-direction:column; align-items:center; padding-top:52px; gap:0; }
+  .hero-logo { width:200px; margin-bottom:32px; }
+  .hero-eye  { font-family:'DM Sans',sans-serif; font-size:16px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:rgba(243,237,228,.90); margin-top:-4px; }
+
+  /* sections */
+  .sec-linen { background:#F3EDE4; padding:56px 48px; }
+  .sec-dark  { background:#251D10; padding:56px 48px; }
+  .sec-olive { background:#3A3D22; padding:56px 48px; }
+  .sec-ocean { background:#5C7680; padding:56px 48px; }
+  .sec-sand  { background:#D1B89A; padding:48px 48px; }
+
+  /* label + divider */
+  .lbl { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:400; letter-spacing:.28em; text-transform:uppercase; display:block; }
+  .lbl-stone  { color:#B4A28F; }
+  .lbl-linen  { color:rgba(243,237,228,.4); }
+  .lbl-clay   { color:#B36D32; }
+  .lbl-earth  { color:rgba(74,43,8,.6); }
+  .lbl-ocean  { color:rgba(243,237,228,.45); }
+  .divider { width:36px; height:1px; background:#B36D32; margin:20px 0 32px; }
+
+  /* headings */
+  .h2 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; line-height:1.1; }
+  .h2-linen { font-size:42px; color:#F3EDE4; }
+  .h2-earth { font-size:42px; color:#4A2B08; }
+
+  /* body copy */
+  .copy { font-size:14px; line-height:1.88; }
+  .copy-stone { color:#B4A28F; }
+  .copy-earth { color:#4A2B08; }
+  .copy-linen { color:rgba(243,237,228,.65); }
+  .sub-lbl { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:400; letter-spacing:.24em; text-transform:uppercase; color:#B36D32; margin:28px 0 6px; display:block; }
+
+  /* statement heading (invitation) */
+  .statement { font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; font-weight:400; line-height:1.1; color:#4A2B08; margin-bottom:36px; }
+
+  /* pillars */
+  .pillars-tbl { width:100%; border-collapse:collapse; }
+  .pillars-tbl td { width:25%; text-align:center; padding:0 6px; vertical-align:top; }
+  .pillar-name-txt { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:#D1B89A; margin-top:16px; display:block; }
+  .pillar-sub-txt  { font-family:'DM Sans',sans-serif; font-size:10px; color:rgba(243,237,228,.45); letter-spacing:.1em; margin-top:4px; display:block; }
+
+  /* offering tags */
+  .tags-wrap { margin-top:36px; padding:0 6px; line-height:2.4; text-align:center; max-width:100%; overflow-wrap:break-word; word-break:break-word; }
+  .tag-item { font-family:'DM Sans',sans-serif; font-size:19px; font-weight:300; letter-spacing:0; text-transform:none; color:#F3EDE4; white-space:nowrap; }
+  .tag-dot  { color:rgba(209,184,154,.8); margin:0 8px; font-size:6px; vertical-align:middle; display:inline-block; }
+
+  /* experience cards */
+  .exp-tbl { width:100%; border-collapse:collapse; }
+  .exp-tbl td { width:50%; padding:3px; vertical-align:top; }
+  .exp-tbl td:first-child { padding-left:0; }
+  .exp-tbl td:last-child  { padding-right:0; }
+  .exp-card { position:relative; overflow:hidden; }
+  .exp-card img { width:100%; height:160px; object-fit:cover; display:block; }
+  .exp-label-over { position:absolute; bottom:0; left:0; right:0; padding:10px 12px; background:linear-gradient(transparent,rgba(6,5,2,.72)); font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#F3EDE4; font-weight:400; }
+
+  /* practical details */
+  .p-tbl { width:100%; border-collapse:collapse; margin-bottom:40px; }
+  .p-tbl td { width:33.33%; padding:20px 16px 20px 0; vertical-align:top; border-bottom:1px solid rgba(243,237,228,.1); }
+  .p-tbl tr:last-child td { border-bottom:none; }
+  .p-label { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:rgba(243,237,228,.38); margin-bottom:6px; }
+  .p-value { font-family:'Cormorant Garamond',Georgia,serif; font-size:20px; font-weight:300; color:#F3EDE4; line-height:1.2; margin-bottom:3px; }
+  .p-sub   { font-size:12px; color:rgba(243,237,228,.45); }
+
+  /* facilitators */
+  .fac-tbl { width:100%; border-collapse:collapse; }
+  .fac-tbl td { width:25%; text-align:center; padding:0 8px; vertical-align:top; }
+  .fac-tbl td:first-child { padding-left:0; }
+  .fac-tbl td:last-child  { padding-right:0; }
+  .fac-img-wrap { width:100%; overflow:hidden; margin-bottom:12px; }
+  .fac-img-wrap img { width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center 65%; display:block; }
+  .fac-role-txt { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:rgba(74,43,8,.5); margin-bottom:3px; font-weight:700; display:block; }
+  .fac-name-txt { font-family:'Cormorant Garamond',Georgia,serif; font-size:20px; color:#5F6138; font-weight:700; display:block; margin-bottom:8px; }
+  .fac-bio { font-size:12px; line-height:1.7; color:rgba(74,43,8,.75); text-align:left; }
+  .fac-photo { width:160px; height:160px; overflow:hidden; display:block; }
+
+  /* get in touch */
+  .sec-contact { padding:52px 48px; }
+
+  /* CTA */
+  .cta-wrap { text-align:center; padding:12px 0; }
+  .cta-wrap img { display:inline-block; max-width:92%; height:auto; }
+
+  /* footer */
+  .footer-outer { background:#3A3D22; padding:40px 48px 28px; }
+  .footer-logo  { display:block; width:110px; height:auto; margin:0 auto 32px; }
+  .footer-logo-img { width:79px; height:auto; }
+  .footer-inner { width:70%; margin:0 auto; }
+  .footer-logo-cell { width:25%; }
+  .footer-icon-cell { width:25%; }
+  .ig-uxu { margin-left:20px; }
+  .ig-awakening { margin-left:10px; }
+  .insta-tbl { width:100%; border-collapse:collapse; margin-bottom:28px; }
+  .insta-tbl td { width:33.33%; text-align:center; padding:0 8px; }
+  .insta-icon svg { width:40px; height:40px; display:block; margin:0 auto 5px; color:#C0A987; }
+  .insta-name { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:#C0A987; line-height:1.4; }
+  .footer-copy { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:rgba(243,237,228,.28); text-align:center; line-height:2; }
+  .footer-copy a { color:rgba(243,237,228,.38); text-decoration:none; border-bottom:0.5px solid rgba(243,237,228,.2); }
+  .footer-unsub { font-family:'DM Sans',sans-serif; font-size:6px; letter-spacing:.12em; text-transform:uppercase; color:rgba(243,237,228,.28); text-align:center; margin-top:12px; line-height:2; }
+  .footer-unsub a { color:rgba(243,237,228,.38); text-decoration:underline; }
+
+  @media only screen and (max-width:560px) {
+    .sec-linen,.sec-dark,.sec-olive,.sec-ocean,.sec-sand { padding:40px 24px; }
+    .footer-outer { padding:36px 24px 24px; }
+    .statement { font-size:36px; }
+    .h2-linen,.h2-earth { font-size:30px; }
+    .hero { height:420px; }
+    .exp-tbl td { display:block; width:100%; padding:3px 0; }
+    .exp-card img { height:270px; }
+    .fac-photo { height:194px; }
+    .sec-contact { padding:52px 34px; }
+    .footer-inner { width:94%; }
+    .footer-logo-cell { width:38%; }
+    .footer-icon-cell { width:20.67%; }
+    .ig-uxu { margin-left:0; }
+    .ig-awakening { margin-left:0; }
+    .footer-logo-img { height:60px; width:auto; }
+    .pillars-tbl td { padding:0 3px; }
+    .p-tbl td { display:block; width:100%; padding:14px 0; }
+    .fac-tbl td { display:block; width:80%; margin:0 auto 24px; padding:0; }
+    .insta-tbl td { padding:0 4px; }
+    .insta-icon svg { width:28px; height:28px; }
+    .hero-logo { width:160px; }
+    .hero-top { padding-top:82px; }
+    .tags-wrap { padding:0; line-height:2.6; }
+    .tag-item { font-size:16px; }
+    .tag-dot { margin:0 5px; }
+  }
+</style>
+</head>
+<body>
+<div class="outer">
+
+
+<!-- ━━━━━━━━ HERO ━━━━━━━━ -->
+<div class="hero">
+  <img class="hero-bg" src="https://the-living-altar.vercel.app/images/Hero2.jpg" alt="Casa Prema, Monte dos Maldonados">
+  <div class="hero-ov"></div>
+  <div class="hero-top">
+    <img class="hero-logo" src="https://the-living-altar.vercel.app/images/logo_hero.png" alt="Living Altar — Sound · Ritual · Journey">
+    <p class="hero-eye">Portugal &nbsp;·&nbsp; August 13–17, 2026</p>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ PERSONAL INVITATION — linen ━━━━━━━━ -->
+<div class="sec-linen">
+  <span class="lbl lbl-stone" style="font-size:36px;font-weight:700;letter-spacing:.08em;color:#4A2B08;line-height:1.1;text-transform:none;display:block;margin-bottom:4px;">A Personal Invitation</span>
+  <div class="divider"></div>
+
+  <p class="copy copy-earth" style="margin-bottom:18px;">Dear friend,</p>
+
+  <p class="copy copy-earth" style="margin-bottom:18px;">We thought of you.</p>
+
+  <p class="copy copy-earth" style="margin-bottom:18px;">
+    Whether we've met through uXu Tribe, Casa Luna or Awakening Prema, we wanted you to be among the first to receive this invitation.
+  </p>
+
+  <p class="copy copy-earth" style="margin-bottom:18px;">
+    This August, we are gathering in the heart of Portugal's countryside for five days of live music, ceremony, movement, nature, and meaningful connection. A place to slow down, reconnect, and simply be.
+  </p>
+
+  <p class="copy copy-earth" style="margin-bottom:36px;">
+    If something in you feels drawn to this, we'd love to welcome you.
+  </p>
+
+  <div class="cta-wrap">
+    <a href="https://the-living-altar.vercel.app"><img src="https://the-living-altar.vercel.app/images/email/btn_discover_retreat.png" alt="Discover the Retreat" style="display:block;margin:0 auto;border:0;"></a>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ THE RETREAT — dark ━━━━━━━━ -->
+<div class="sec-dark">
+  <span class="lbl lbl-linen">The Retreat</span>
+  <div class="divider"></div>
+
+  <!-- 3-image gallery -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:32px;">
+    <tr>
+      <td style="width:33.3%;padding-right:4px;">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/images/9.jpg" alt="Casa Prema" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+      <td style="width:33.3%;padding:0 2px;">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Experiences/walks.png" alt="Nature Walk" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;">
+        </div>
+      </td>
+      <td style="width:33.3%;padding-left:4px;">
+        <div style="height:200px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/images/5.jpg" alt="Casa Prema" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="h2 h2-linen" style="margin-bottom:32px;">An Immersive Journey Through<br><em>Sound, Ceremony &amp; Nature</em></h2>
+
+  <p class="copy copy-stone" style="margin-bottom:18px;">
+    Living Altar is a five-day immersion that weaves together ancient practices, music, movement, and ceremony to create the conditions for meaningful transformation. Designed to help you slow down, listen deeply, and reconnect with the wisdom of your own heart.
+  </p>
+
+  <p class="copy copy-stone" style="margin-bottom:0;">
+    At the heart of the retreat is a dedicated evening of deep inner exploration, gathered around a ceremonial altar: a space for prayer, music, contemplation, and remembrance, followed by a full day of integration, rest, and embodied reflection.
+  </p>
+</div>
+
+
+<!-- ━━━━━━━━ IMAGE BREAK ━━━━━━━━ -->
+<div style="height:340px;overflow:hidden;">
+  <img src="https://the-living-altar.vercel.app/images/2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
+</div>
+
+
+<!-- ━━━━━━━━ PILLARS — ocean ━━━━━━━━ -->
+<div class="sec-ocean">
+  <span class="lbl lbl-ocean">The Offering</span>
+  <div class="divider"></div>
+  <h2 class="h2 h2-linen" style="margin-bottom:48px;">Four Pillars<br>One Journey</h2>
+
+  <table class="pillars-tbl">
+    <tr>
+      <td>
+        <img src="https://the-living-altar.vercel.app/images/email/icon_sound.png" width="56" height="56" style="display:block;margin:0 auto;" alt="Sound">
+        <span class="pillar-name-txt">Sound</span>
+      </td>
+      <td>
+        <img src="https://the-living-altar.vercel.app/images/email/icon_ritual.png" width="56" height="56" style="display:block;margin:0 auto;" alt="Ritual">
+        <span class="pillar-name-txt">Ritual</span>
+
+      </td>
+      <td>
+        <img src="https://the-living-altar.vercel.app/images/email/icon_journey.png" width="56" height="56" style="display:block;margin:0 auto;" alt="Journey">
+        <span class="pillar-name-txt">Journey</span>
+
+      </td>
+      <td>
+        <img src="https://the-living-altar.vercel.app/images/email/icon_integration.png" width="56" height="56" style="display:block;margin:0 auto;" alt="Integration">
+        <span class="pillar-name-txt">Integration</span>
+
+      </td>
+    </tr>
+  </table>
+
+  <!-- experience tags -->
+  <div class="tags-wrap">
+    <span class="tag-item">Cacao Ceremony</span><span class="tag-dot">●</span><span class="tag-item">Ecstatic Dance</span><span class="tag-dot">●</span><span class="tag-item">Medicine Ceremony</span><span class="tag-dot">●</span><span class="tag-item">Sound Healing</span><span class="tag-dot">●</span><span class="tag-item">Hapé Ceremony</span><span class="tag-dot">●</span><span class="tag-item">Breathwork Journey</span><span class="tag-dot">●</span><span class="tag-item">Voice Activation &amp; Mantra Singing</span><span class="tag-dot">●</span><span class="tag-item">Water Cleansing Ritual</span><span class="tag-dot">●</span><span class="tag-item">Sharing Circles</span><span class="tag-dot">●</span><span class="tag-item">Live Jams Around the Fire</span>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ PROGRAM — olive ━━━━━━━━ -->
+<div class="sec-olive">
+  <span class="lbl lbl-linen">The Program</span>
+  <div class="divider"></div>
+  <h2 class="h2 h2-linen" style="font-size:36px;margin-bottom:32px;">Five Days<br>One Unfolding</h2>
+
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <td style="vertical-align:top;padding-bottom:18px;border-bottom:1px solid rgba(244,239,230,.13);padding-right:16px;width:72px;">
+        <p style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B36D32;margin-bottom:2px;">Day 1</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.35);">13 Aug</p>
+      </td>
+      <td style="vertical-align:middle;padding-bottom:18px;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:#F3EDE4;">Welcome Dinner · Opening Circle</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:18px 16px 18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B36D32;margin-bottom:2px;">Day 2</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.35);">14 Aug</p>
+      </td>
+      <td style="vertical-align:middle;padding:18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:#F3EDE4;">Morning Practice · Water Ritual · Cacao&nbsp;Ceremony &amp; Ecstatic&nbsp;Dance</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:18px 16px 18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B36D32;margin-bottom:2px;">Day 3</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.35);">15 Aug</p>
+      </td>
+      <td style="vertical-align:middle;padding:18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:#F3EDE4;">Morning Practice · Nature Walk &amp; Altar Building · Medicine&nbsp;Ceremony</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:18px 16px 18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B36D32;margin-bottom:2px;">Day 4</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.35);">16 Aug</p>
+      </td>
+      <td style="vertical-align:middle;padding:18px 0;border-bottom:1px solid rgba(244,239,230,.13);">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:#F3EDE4;">Morning Practice · Breathwork &amp; Cold Plunge · Sound&nbsp;Healing · Hapé&nbsp;Ceremony</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:18px 16px 0 0;">
+        <p style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#B36D32;margin-bottom:2px;">Day 5</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.35);">17 Aug</p>
+      </td>
+      <td style="vertical-align:middle;padding:18px 0 0;">
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:#F3EDE4;">Morning Practice · Closing Circle · Integration</p>
+      </td>
+    </tr>
+  </table>
+
+  <div class="cta-wrap" style="margin-top:32px;">
+    <a href="https://the-living-altar.vercel.app/#journey"><img src="https://the-living-altar.vercel.app/images/email/btn_discover_program.png" alt="Discover the Full Program" style="display:block;margin:0 auto;border:0;"></a>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ EXPERIENCES — linen ━━━━━━━━ -->
+<div class="sec-linen">
+  <span class="lbl lbl-clay">The Experience</span>
+  <div class="divider"></div>
+  <h2 class="h2 h2-earth" style="font-size:36px;margin-bottom:32px;">Ancient Practices<br>for Modern Lives</h2>
+
+  <table class="exp-tbl" style="margin-bottom:6px;">
+    <tr>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/cacao11.jpg" alt="Cacao&nbsp;Ceremony">
+          <div class="exp-label-over">Cacao&nbsp;Ceremony</div>
+        </div>
+      </td>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/dance1.jpg" alt="Ecstatic&nbsp;Dance">
+          <div class="exp-label-over">Ecstatic&nbsp;Dance</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <table class="exp-tbl" style="margin-bottom:6px;">
+    <tr>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/ceremony1.jpg" alt="Medicine&nbsp;Ceremony">
+          <div class="exp-label-over">Medicine&nbsp;Ceremony</div>
+        </div>
+      </td>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/sound2.jpg" alt="Sound&nbsp;Healing">
+          <div class="exp-label-over">Sound&nbsp;Healing</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <table class="exp-tbl" style="margin-bottom:6px;">
+    <tr>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/hap%C3%A94.png" alt="Hapé&nbsp;Ceremony">
+          <div class="exp-label-over">Hapé&nbsp;Ceremony</div>
+        </div>
+      </td>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/water1.jpg" alt="Water&nbsp;Cleansing&nbsp;Ritual" style="object-position:center bottom;">
+          <div class="exp-label-over">Water&nbsp;Cleansing&nbsp;Ritual</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <table class="exp-tbl" style="margin-bottom:6px;">
+    <tr>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/singing2.jpg" alt="Voice Activation & Mantra Singing">
+          <div class="exp-label-over">Voice&nbsp;Activation &amp; Mantra&nbsp;Singing</div>
+        </div>
+      </td>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/breath1.png" alt="Breathwork&nbsp;Journey" style="object-position:70% bottom;">
+          <div class="exp-label-over">Breathwork&nbsp;Journey</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <table class="exp-tbl">
+    <tr>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/pool2.png" alt="Natural Pool Cold Plunge">
+          <div class="exp-label-over">Natural Pool Cold Plunge</div>
+        </div>
+      </td>
+      <td>
+        <div class="exp-card">
+          <img src="https://the-living-altar.vercel.app/Experiences/fire1.jpg" alt="Live&nbsp;Jams&nbsp;Around&nbsp;the&nbsp;Fire" style="object-position:center bottom;">
+          <div class="exp-label-over">Live&nbsp;Jams&nbsp;Around&nbsp;the&nbsp;Fire</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- More experiences -->
+  <div style="margin-top:24px;text-align:center;">
+    <h2 class="h2 h2-earth" style="font-size:36px;margin-bottom:12px;">And So Much More</h2>
+    <p class="copy copy-earth" style="margin-bottom:28px;">Altar building sessions, animal flow and yoga, somatic movement practice, sunrise gazing and meditation, nature meditations, barefoot walks, sharing circles, shared sacred organic meals, free time to rest and moments you simply cannot plan for.</p>
+    <div class="cta-wrap">
+      <a href="https://the-living-altar.vercel.app"><img src="https://the-living-altar.vercel.app/images/email/btn_discover_retreat.png" alt="Discover the Retreat" style="display:block;margin:0 auto;border:0;"></a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ FACILITATORS — sand ━━━━━━━━ -->
+<div class="sec-sand">
+  <span class="lbl lbl-earth">The Facilitators</span>
+  <div class="divider" style="background:rgba(74,43,8,.3);"></div>
+  <h2 class="h2" style="font-size:36px;color:#4A2B08;margin-bottom:36px;">Guided by Experience<br><em>Held with Heart</em></h2>
+
+  <!-- Zei -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:0;">
+    <tr>
+      <td style="width:160px;vertical-align:top;padding-right:24px;padding-bottom:28px;">
+        <div class="fac-photo"><img src="https://the-living-altar.vercel.app/images/Zei.jpg" alt="Zei" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block;"></div>
+      </td>
+      <td style="vertical-align:top;padding-bottom:28px;">
+        <span class="fac-role-txt" style="display:block;margin-bottom:4px;">Ceremonialist · Voice Artist</span>
+        <span class="fac-name-txt" style="display:block;margin-bottom:10px;">Zei</span>
+        <p class="fac-bio">A musician, ceremonial space holder and student of indigenous wisdom. Rooted in North African tradition and Sufi practice, Zei has sat with wisdom keepers across the Amazon, South America and the East. With her voice, she carries that blended wisdom into sound and sacred ceremonial space.</p>
+      </td>
+    </tr>
+  </table>
+  <div style="border-top:1px solid rgba(74,43,8,.15);margin-bottom:28px;"></div>
+
+  <!-- Nael -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:0;">
+    <tr>
+      <td style="width:160px;vertical-align:top;padding-right:24px;padding-bottom:28px;">
+        <div class="fac-photo"><img src="https://the-living-altar.vercel.app/images/Nael.jpg" alt="Nael" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block;"></div>
+      </td>
+      <td style="vertical-align:top;padding-bottom:28px;">
+        <span class="fac-role-txt" style="display:block;margin-bottom:4px;">Ceremonialist · Musician</span>
+        <span class="fac-name-txt" style="display:block;margin-bottom:10px;">Nael</span>
+        <p class="fac-bio">A multi-instrumental musician and ceremonial space holder, shaped by deep immersion in indigenous Amazonian ceremony, Eastern music and Sufi tradition. His technical mastery of sound is matched only by the heart behind it — he holds space the way he plays: with precision and warmth.</p>
+      </td>
+    </tr>
+  </table>
+  <div style="border-top:1px solid rgba(74,43,8,.15);margin-bottom:28px;"></div>
+
+  <!-- Renato -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:0;">
+    <tr>
+      <td style="width:160px;vertical-align:top;padding-right:24px;padding-bottom:28px;">
+        <div class="fac-photo">
+          <img src="https://the-living-altar.vercel.app/images/Renato.jpg" alt="Renato" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block;transform:scale(1.43);transform-origin:center center;">
+        </div>
+      </td>
+      <td style="vertical-align:top;padding-bottom:28px;">
+        <span class="fac-role-txt" style="display:block;margin-bottom:4px;">Sound Healer · Space Host</span>
+        <span class="fac-name-txt" style="display:block;margin-bottom:10px;">Renato</span>
+        <p class="fac-bio">A healer, sound practitioner and keeper of the land. Renato has walked the path of inner awakening for over 25 years, through meditation, energy healing, yoga and sacred philosophy. He founded Casa Prema and built a sanctuary from the ground up, to offer others what he found for himself.</p>
+      </td>
+    </tr>
+  </table>
+  <div style="border-top:1px solid rgba(74,43,8,.15);margin-bottom:28px;"></div>
+
+  <!-- Art -->
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <td style="width:160px;vertical-align:top;padding-right:24px;">
+        <div class="fac-photo"><img src="https://the-living-altar.vercel.app/images/Art.jpg" alt="Art" style="width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block;"></div>
+      </td>
+      <td style="vertical-align:top;">
+        <span class="fac-role-txt" style="display:block;margin-bottom:4px;">Musician · Sound Alchemist</span>
+        <span class="fac-name-txt" style="display:block;margin-bottom:10px;">Art</span>
+        <p class="fac-bio">An artist in the truest sense — always moving, always seeking. He has spent years chasing the world's most rare and exotic instruments, sitting with Eastern masters, and weaving their secrets into sound entirely his own. His practice spans handpan, movement, breathwork and embodiment.</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<!-- ━━━━━━━━ ACCOMMODATION — dark ━━━━━━━━ -->
+<div style="background:#251D10;padding:52px 40px 44px;">
+  <span class="lbl" style="color:rgba(244,239,230,.4);display:block;margin-bottom:12px;">Accommodation &amp; Investment</span>
+  <div class="divider" style="background:#B36D32;margin-bottom:20px;"></div>
+  <h2 class="h2" style="font-size:36px;color:#F3EDE4;margin-bottom:16px;">Choose the Space<br>That Feels Right</h2>
+  <p class="copy" style="color:#B4A28F;margin-bottom:32px;">All options include ceremonies, activities, meals and accommodation. Early bird pricing available until 5 July 2026.</p>
+
+  <!-- image grid -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:32px;">
+    <tr>
+      <td style="width:50%;padding-right:2px;padding-bottom:4px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Common%20areas/living1.png" alt="Common Space" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
+        </div>
+      </td>
+      <td style="width:50%;padding-left:2px;padding-bottom:4px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Common%20areas/dining1.png" alt="Dining Area" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-right:2px;padding-bottom:4px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Common%20areas/library.png" alt="Library" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+      <td style="padding-left:2px;padding-bottom:4px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Common%20areas/living2.png" alt="Living Space" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-right:2px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Rooms/room1.1.png" alt="Room" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+      <td style="padding-left:2px;">
+        <div style="height:180px;overflow:hidden;">
+          <img src="https://the-living-altar.vercel.app/Accomodation/Rooms/room5.3.jpg" alt="Private Balcony" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="cta-wrap">
+    <a href="https://the-living-altar.vercel.app/#accommodation"><img src="https://the-living-altar.vercel.app/images/email/btn_explore_accommodations.png" alt="Explore Accommodations" style="display:block;margin:0 auto;border:0;"></a>
+  </div>
+</div>
+
+
+<!-- ━━━━━━━━ GET IN TOUCH — linen ━━━━━━━━ -->
+<div class="sec-linen sec-contact" style="text-align:center;">
+  <h2 class="h2 h2-earth" style="font-size:36px;margin-bottom:16px;">Get in Touch</h2>
+  <div class="divider" style="margin:0 auto 24px;"></div>
+  <p class="copy copy-earth" style="margin:0 0 8px;">Have questions about the retreat, the space, or what to expect?</p>
+  <p class="copy copy-earth" style="margin:0 0 32px;">Simply reply to this email, we would love to hear from you.</p>
+  <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-style:italic;color:#4A2B08;line-height:1.8;margin-bottom:6px;">With love</p>
+  <p style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#4A2B08;">Zei, Nael &amp; Renato</p>
+</div>
+
+
+<!-- ━━━━━━━━ FOOTER — dark ━━━━━━━━ -->
+<div class="footer-outer" style="padding:16px 40px 14px;text-align:center;">
+  <div class="footer-inner">
+
+  <table class="footer-tbl" style="width:100%;border-collapse:collapse;margin-bottom:20px;margin-top:20px;">
+    <tr>
+      <td class="footer-logo-cell" style="text-align:center;vertical-align:middle;padding:0 8px;">
+        <img class="footer-logo-img" src="https://the-living-altar.vercel.app/images/logo_white.png" alt="Living Altar" style="display:inline-block;">
+      </td>
+      <td class="footer-icon-cell" style="text-align:center;vertical-align:top;padding:5px 8px 0;">
+        <a class="ig-uxu" href="https://www.instagram.com/uxumusica" target="_blank" style="display:inline-block;text-decoration:none;">
+          <img src="https://the-living-altar.vercel.app/images/email/icon_instagram.png" width="29" height="29" style="display:block;margin:0 auto 3px;" alt="">
+          <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#C0A987;text-align:center;line-height:1.3;">uXu Musica</p>
+        </a>
+      </td>
+      <td class="footer-icon-cell" style="text-align:center;vertical-align:top;padding:5px 8px 0;">
+        <a class="ig-awakening" href="https://www.instagram.com/awakeningprema" target="_blank" style="display:inline-block;text-decoration:none;">
+          <img src="https://the-living-altar.vercel.app/images/email/icon_instagram.png" width="29" height="29" style="display:block;margin:0 auto 3px;" alt="">
+          <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#C0A987;text-align:center;line-height:1.3;">Awakening Prema</p>
+        </a>
+      </td>
+      <td class="footer-icon-cell" style="text-align:center;vertical-align:top;padding:5px 8px 0;">
+        <a href="https://www.instagram.com/casapremaretreat" target="_blank" style="display:inline-block;text-decoration:none;">
+          <img src="https://the-living-altar.vercel.app/images/email/icon_instagram.png" width="29" height="29" style="display:block;margin:0 auto 3px;" alt="">
+          <p style="font-family:'DM Sans',sans-serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#C0A987;text-align:center;line-height:1.3;">Casa Prema</p>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  </div>
+
+  <p class="footer-unsub" style="width:91%;margin:8px auto 0;">
+    You are receiving this because you are part of our community. &nbsp;<a href="{$unsubscribe}">Unsubscribe</a>
+  </p>
+
+</div>
+
+
+</div><!-- /outer -->
+</body>
+</html>
