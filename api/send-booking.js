@@ -68,14 +68,14 @@ module.exports = async function handler(req, res) {
         ${row('OCCUPANCY',         occupancy || '—')}
         ${bedConfig ? row('BED CONFIGURATION', bedConfig) : ''}
         ${row('INVESTMENT',        price || '—')}
-        ${row('DATES',             'August 13–17, 2026')}
+        ${row('DATES',             'October 8–12, 2026')}
         ${row('LOCATION',          'Casa Prema, Portugal')}
         ${row('REQUEST SUBMITTED', signedDate || '—')}
       </table>
     </div>
 
     <p style="margin:0 0 20px;font-size:15px;color:#8a7060;line-height:1.9;">
-      We will be in touch within 48 hours to confirm your place and share the payment link.
+      We will be in touch within 48 hours to confirm your place and share the bank transfer details.
     </p>
 
     <p style="margin:0 0 40px;font-size:15px;color:#8a7060;line-height:1.9;">
@@ -86,7 +86,7 @@ module.exports = async function handler(req, res) {
     <p style="margin:0 0 40px;font-size:15px;color:#4A2B08;font-style:italic;">The Living Altar Family 🌿</p>
 
     <p style="margin:0;font-size:11px;color:#B4A28F;line-height:2;font-family:Helvetica,Arial,sans-serif;border-top:1px solid #E7DDD0;padding-top:24px;">
-      August 13–17, 2026 &nbsp;·&nbsp; Casa Prema, Sintra, Portugal
+      October 8–12, 2026 &nbsp;·&nbsp; Casa Prema, Alentejo, Portugal
     </p>
 
     </div>
