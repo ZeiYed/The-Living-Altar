@@ -995,7 +995,7 @@
 <!-- ROOM PICKER (shown when arriving with no room param) -->
 <section id="room-picker">
     <div class="rp-header">
-        <span class="label" style="color:var(--clay);">Living Altar · August 13–17, 2026</span>
+        <span class="label" style="color:var(--clay);">Living Altar · October 8–12, 2026</span>
         <h1 class="rp-title">Choose Your Room</h1>
         <p class="rp-sub">Select your accommodation below to continue.</p>
         <p class="rp-sub" style="margin-top:6px;">Prices are per person. Need the room to yourself? Reserve both beds at a 10% discount.</p>
@@ -1030,7 +1030,7 @@
                 </div>
                 <div class="price-row">
                     <span class="price-num-reg" id="sel-reg">—</span>
-                    <span class="price-tag-reg">Regular price | July 6</span>
+                    <span class="price-tag-reg">Regular price | Sept 16</span>
                 </div>
                 <div id="sel-occupancy-group" style="display:none; margin-top:28px;">
                     <p class="bed-pref-label">Booking for</p>
@@ -1126,14 +1126,14 @@
 
         <div class="agreement-scroll-box" id="agreement-box">
             <h3>Living Altar Retreat — Booking Agreement</h3>
-            <p>August 13–17, 2026 · Casa Prema, Portugal</p>
+            <p>October 8–12, 2026 · Casa Prema, Portugal</p>
             <p>This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.</p>
 
             <h3>1. Booking Confirmation</h3>
             <p>This booking is provisional until full payment has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of full payment. Payment details will be communicated by email within 48 hours of receiving this form.</p>
 
             <h3>2. Pricing &amp; Payment</h3>
-            <p>Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.</p>
+            <p>Early bird pricing is available until September 15, 2026. Regular pricing applies from September 16, 2026.</p>
             <ul>
                 <li>Full payment is required to confirm your place.</li>
                 <li>Payment is made via payment link. Payment details will be provided by email within 48 hours of submission.</li>
@@ -1142,9 +1142,9 @@
 
             <h3>3. Cancellation Policy</h3>
             <ul>
-                <li><strong>Until July 5, 2026:</strong> Full refund.</li>
-                <li><strong>July 6 – July 12, 2026:</strong> 50% refund.</li>
-                <li><strong>July 13, 2026 and beyond:</strong> No refund is available.</li>
+                <li><strong>Until September 15, 2026:</strong> Full refund.</li>
+                <li><strong>September 16 – September 22, 2026:</strong> 50% refund.</li>
+                <li><strong>September 23, 2026 and beyond:</strong> No refund is available.</li>
                 <li><strong>Force majeure:</strong> If the Participant is unable to attend due to circumstances beyond their reasonable control, they may submit a written request with supporting documentation. If approved by the Organiser, the amount paid may be held as credit toward a future retreat.</li>
             </ul>
             <p>The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 60 days.</p>
@@ -1167,7 +1167,7 @@
             <p>All personal information shared as part of this booking — and all experiences shared within the retreat space — is held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.</p>
 
             <h3>9. Governing Agreement</h3>
-            <p>By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.</p>
+            <p>By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to payment confirmation by the Organiser.</p>
         </div>
         <p class="scroll-hint" id="scroll-hint">Scroll to read the full agreement</p>
         <div class="agreement-actions">
@@ -1185,7 +1185,7 @@
         </div>
         <div class="ag-overlay-body" id="ag-overlay-body"></div>
         <div class="ag-overlay-footer">
-            <span class="ag-footer-note">Living Altar · August 13–17, 2026 · Casa Prema, Portugal</span>
+            <span class="ag-footer-note">Living Altar · October 8–12, 2026 · Casa Prema, Portugal</span>
             <button class="btn-ag-download" id="ag-download-btn">Download PDF</button>
         </div>
     </div>
@@ -1329,19 +1329,19 @@
             const tagReg = document.querySelector('.price-tag-reg');
             if (multiplier === 1.8) {
                 tag.textContent    = 'Early bird · Private room (10% off)';
-                tagReg.textContent = 'Regular · Private room (10% off) | July 6';
+                tagReg.textContent = 'Regular · Private room (10% off) | Sept 16';
             } else if (multiplier === 2) {
                 tag.textContent    = 'Early bird · 2 people';
-                tagReg.textContent = 'Regular price · 2 people | July 6';
+                tagReg.textContent = 'Regular price · 2 people | Sept 16';
             } else if (multiplier === 3) {
                 tag.textContent    = 'Early bird · 3 people';
-                tagReg.textContent = 'Regular price · 3 people | July 6';
+                tagReg.textContent = 'Regular price · 3 people | Sept 16';
             } else if (multiplier === 4) {
                 tag.textContent    = 'Early bird · 4 people';
-                tagReg.textContent = 'Regular price · 4 people | July 6';
+                tagReg.textContent = 'Regular price · 4 people | Sept 16';
             } else {
                 tag.textContent    = 'Early bird · Per person';
-                tagReg.textContent = 'Regular price · Per person | July 6';
+                tagReg.textContent = 'Regular price · Per person | Sept 16';
             }
             // Keep eb / regular in sync so form & PDF use the right figure
             eb      = String(val);
@@ -1456,7 +1456,7 @@
                 </div>
                 <div class="rp-price">
                     <div class="rp-eb-price">${fmtPrice(String(r.eb))}<span class="rp-price-tag"> Early bird</span></div>
-                    <div class="rp-reg-price">${fmtPrice(String(r.regular))}<span class="rp-price-tag"> from July 6</span></div>
+                    <div class="rp-reg-price">${fmtPrice(String(r.regular))}<span class="rp-price-tag"> from Sept 16</span></div>
                 </div>
                 <div class="rp-selector"></div>
             `;
@@ -1562,24 +1562,24 @@
 
         add('LIVING ALTAR', 20, 'bold', [74, 43, 8], 4);
         add('Booking Agreement', 12, 'normal', [150, 120, 90], 3);
-        add('August 13–17, 2026 · Casa Prema, Portugal', 10, 'normal', [150, 120, 90], 3);
+        add('October 8–12, 2026 · Casa Prema, Portugal', 10, 'normal', [150, 120, 90], 3);
         rule([179, 109, 50]);
 
         const sections = [
             ['Living Altar Retreat — Booking Agreement', null],
-            ['August 13–17, 2026 · Casa Prema, Portugal', null],
+            ['October 8–12, 2026 · Casa Prema, Portugal', null],
             ['This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing below, the Participant confirms they have read, understood, and agreed to all terms set out in this document.', null],
             ['1. Booking Confirmation', 'heading'],
             ['This booking is provisional until full payment has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of full payment. Payment details will be communicated by email within 48 hours of receiving this form.', null],
             ['2. Pricing & Payment', 'heading'],
-            ['Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026.', null],
+            ['Early bird pricing is available until September 15, 2026. Regular pricing applies from September 16, 2026.', null],
             ['- Full payment is required to confirm your place.', null],
             ['- Payment is made via payment link. Payment details will be provided by email within 48 hours of submission.', null],
             ['- The Organiser reserves the right to release unconfirmed places after 72 hours if no payment is received.', null],
             ['3. Cancellation Policy', 'heading'],
-            ['- Until July 5, 2026: Full refund.', null],
-            ['- July 6 – July 12, 2026: 50% refund.', null],
-            ['- July 13, 2026 and beyond: No refund is available.', null],
+            ['- Until September 15, 2026: Full refund.', null],
+            ['- September 16 – September 22, 2026: 50% refund.', null],
+            ['- September 23, 2026 and beyond: No refund is available.', null],
             ['- Force majeure: If the Participant is unable to attend due to circumstances beyond their reasonable control, they may submit a written request with supporting documentation. If approved by the Organiser, the amount paid may be held as credit toward a future retreat.', null],
             ['The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 60 days.', null],
             ['4. Health & Wellbeing', 'heading'],
@@ -1595,7 +1595,7 @@
             ['8. Confidentiality', 'heading'],
             ['All personal information shared as part of this booking — and all experiences shared within the retreat space — is held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.', null],
             ['9. Governing Agreement', 'heading'],
-            ['By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.', null],
+            ['By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to payment confirmation by the Organiser.', null],
         ];
 
         sections.forEach(([text, type]) => {
@@ -1868,14 +1868,14 @@
         // Bottom-align: subtitle baseline sits at logo bottom
         y = headerStartY + logoH - (15 * 0.36 + 3);
         add('BOOKING REQUEST', 15, 'bold', [74, 43, 8], 3);
-        add('the Living Altar  ·  August 13–17, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
+        add('the Living Altar  ·  October 8–12, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
         y = headerStartY + logoH + 4;
         rule([179, 109, 50], 5);
 
         // Participant details
         add('PARTICIPANT DETAILS', 8, 'bold', [150, 120, 90], 4);
 
-        const priceDeadline = new Date('2026-07-06');
+        const priceDeadline = new Date('2026-09-16');
         const currentPrice  = new Date() < priceDeadline ? eb : regular;
         const priceTag      = new Date() < priceDeadline ? 'Price (early bird)' : 'Price';
         const occupancy     = document.getElementById('f-occupancy').value || '—';
@@ -1905,7 +1905,7 @@
 
         // Agreement summary
         add('BOOKING AGREEMENT', 8, 'bold', [150, 120, 90], 3);
-        add('By signing below, the Participant confirms they have read and agreed to the Living Altar Booking Agreement in full, including the 30% non-refundable deposit, balance due by July 20 2026, cancellation terms, and all conduct and participation conditions for the retreat held August 13–17, 2026 at Casa Prema, Portugal.', 9.5, 'normal', [90, 70, 50], 3);
+        add('By signing below, the Participant confirms they have read and agreed to the Living Altar Booking Agreement in full, including full payment to confirm, cancellation terms, and all conduct and participation conditions for the retreat held October 8–12, 2026 at Casa Prema, Portugal.', 9.5, 'normal', [90, 70, 50], 3);
 
         rule([210, 190, 165], 4);
 
@@ -1928,22 +1928,22 @@
         }
         y = header2StartY + logoH - (15 * 0.36 + 3);
         add('BOOKING AGREEMENT', 15, 'bold', [74, 43, 8], 3);
-        add('the Living Altar  ·  August 13–17, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
+        add('the Living Altar  ·  October 8–12, 2026  ·  Casa Prema, Portugal', 9, 'normal', [150, 120, 90], 2);
         y = header2StartY + logoH + 4;
         rule([179, 109, 50], 5);
 
         add('This agreement is between Living Altar (the "Organiser") and the participant named in this booking form (the "Participant"). By signing, the Participant confirms they have read, understood, and agreed to all terms set out in this document.', 10, 'normal', [74, 43, 8], 5);
 
         const agSections = [
-            ['1. Booking Confirmation', 'This booking is provisional until a deposit has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of the deposit. Full payment details will be communicated by email within 48 hours of receiving this form.'],
-            ['2. Pricing & Payment', 'Early bird pricing is available until July 5, 2026. Regular pricing applies from July 6, 2026. A non-refundable deposit of 30% of the total booking fee is required to confirm your place. The remaining balance is due no later than July 20, 2026. All payments are made in EUR via bank transfer. The Organiser reserves the right to release unconfirmed places after 7 days if no deposit is received.'],
-            ['3. Cancellation Policy', 'Before July 1, 2026: Deposit forfeited; any remaining balance paid is refunded in full. July 1–July 31, 2026: 50% of the total booking fee is forfeited. August 1, 2026 and beyond: No refund is available. The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including force majeure or insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 14 working days.'],
+            ['1. Booking Confirmation', 'This booking is provisional until full payment has been received and confirmed in writing by the Organiser. A place is only considered confirmed upon receipt of full payment. Payment details will be communicated by email within 48 hours of receiving this form.'],
+            ['2. Pricing & Payment', 'Early bird pricing is available until September 15, 2026. Regular pricing applies from September 16, 2026. Full payment is required to confirm your place. Payment is made via payment link, with details provided by email within 48 hours of submission. The Organiser reserves the right to release unconfirmed places after 72 hours if no payment is received.'],
+            ['3. Cancellation Policy', 'Until September 15, 2026: Full refund. September 16 - September 22, 2026: 50% refund. September 23, 2026 and beyond: No refund is available. Force majeure: if the Participant is unable to attend due to circumstances beyond their reasonable control, they may submit a written request with supporting documentation; if approved by the Organiser, the amount paid may be held as credit toward a future retreat. The Organiser reserves the right to cancel or reschedule the retreat due to circumstances beyond its reasonable control, including but not limited to force majeure, natural disaster, or critically insufficient participant numbers. In such cases, a full refund of all payments received will be issued within 60 days.'],
             ['4. Health & Wellbeing', 'The Participant confirms they are in good mental and physical health and capable of participating fully in the retreat programme. The Participant agrees to disclose any relevant medical conditions, medications, or allergies in this form. Some experiences may be emotionally or physically intensive. Participation in any individual activity is always voluntary. The Participant is responsible for consulting their own healthcare professional prior to attending.'],
             ['5. Conduct & Community', 'The Participant agrees to engage with the retreat and the broader community with respect, openness, and care for others. The Organiser reserves the right to ask any participant to leave the retreat if their conduct is deemed harmful, disruptive, or contrary to the spirit and intention of the space — without refund.'],
             ['6. Liability', 'The Organiser accepts no liability for loss, theft, or damage to personal belongings during the retreat. The Participant is responsible for arranging adequate travel and health insurance, including trip cancellation coverage. Participation in all activities is undertaken at the Participant\'s own risk.'],
             ['7. Photography & Media', 'The Organiser may photograph or film aspects of the retreat for documentary or promotional purposes. The Participant may opt out of appearing in any media at any time by informing the Organiser or facilitators directly. Media featuring participants who have opted out will not be published or distributed.'],
             ['8. Confidentiality', 'All personal information shared as part of this booking, and all experiences shared within the retreat space, are held in the strictest confidence. Participants are kindly asked to extend the same respect to their fellow participants. What is shared in the circle, stays in the circle.'],
-            ['9. Governing Agreement', 'By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to deposit confirmation by the Organiser.'],
+            ['9. Governing Agreement', 'By signing this form, the Participant confirms they have read and fully understood all of the above, and agree to these terms in their entirety. This signed document constitutes a binding booking request subject to payment confirmation by the Organiser.'],
         ];
         agSections.forEach(([heading, text]) => {
             add(heading, 10, 'bold', [74, 43, 8], 2);
@@ -1976,7 +1976,7 @@
         });
 
         // POST to Vercel API route
-        const emailPrice = new Date() < new Date('2026-07-06') ? fmtPrice(eb) : fmtPrice(regular);
+        const emailPrice = new Date() < new Date('2026-09-16') ? fmtPrice(eb) : fmtPrice(regular);
         const bedCfgVal  = document.getElementById('f-bed-pref').value;
 
         let submitted = false;
